@@ -1,0 +1,11 @@
+theme = "ayu_evolve"
+
+[editor]
+line-number = "relative"
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false

@@ -1,0 +1,44 @@
+alt + F1
+    brightnessctl s 5%-
+
+alt + F2
+    brightnessctl s +5%
+
+ctrl + F1
+    redshift -PO 3500
+
+ctrl + F2
+    redshift -x
+
+F5
+    mpc prev
+
+F6
+    mpc toggle
+
+F7
+    mpc next
+
+super + Escape
+    systemctl suspend
+
+XF86AudioRaiseVolume
+    ~/scripts/vol_up
+
+XF86AudioLowerVolume
+    ~/scripts/vol_down
+
+XF86AudioMute
+    ~/scripts/mute
+
+XF86MonBrightnessDown
+    brightnessctl s 5%-
+
+XF86MonBrightnessUp
+    brightnessctl s +5%
+
+ctrl + XF86MonBrightnessDown
+    redshift -PO 3500
+
+ctrl + XF86MonBrightnessUp
+    redshift -x
