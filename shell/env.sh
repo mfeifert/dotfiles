@@ -1,3 +1,5 @@
+# System-specific configuration
+
 case $(uname -s) in
     "Darwin")
         alias ls='ls -Ah --color=always'
