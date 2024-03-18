@@ -1,11 +1,8 @@
 case $(uname -s) in
     "Darwin")
-        export EDITOR=hx
         alias ls='ls -Ah --color=always'
         ;;
-    "Linux" | "Arch Linux")
-        export EDITOR=helix
-        alias hx='helix'
+    "Linux")
         alias ls='ls -Ah --color=auto --group-directories-first'
         alias ip='ip -c'
         ;;
@@ -16,6 +13,7 @@ esac
 
 # Environment variables
 
+export EDITOR=hx
 export PATH=$HOME/scripts:$PATH
 export DOTFILES=$HOME/dotfiles
 export DOCS=$HOME/docs
