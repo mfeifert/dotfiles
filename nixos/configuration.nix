@@ -137,14 +137,15 @@
     ];
   };
 
-  programs.git = {
-    enable = true;
-    userName = "Matthew Feifert";
-    userEmail = "55014056+mfeifert@users.noreply.github.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-    };
-  };
+#  These git settings only work in Home Manager
+#  programs.git = {
+#    enable = true;
+#    userName = "Matthew Feifert";
+#    userEmail = "55014056+mfeifert@users.noreply.github.com";
+#    extraConfig = {
+#      init.defaultBranch = "main";
+#    };
+#  };
 
   programs.wireshark.enable = true;
 
