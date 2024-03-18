@@ -48,7 +48,7 @@
   (setq-default display-line-numbers-width 4) ; To prevent distracting auto-resizing in long org files
 
   ;; Auto-close brackets and quotes
-  (electric-pair-mode)
+  (electric-pair-mode 1)
 
   ;; Minibuffer history
   (savehist-mode 1)
