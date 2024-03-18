@@ -310,29 +310,6 @@
 
                                 ("d" "Datetree item" plain
                                  (file+datetree "datetree.org") "%?")
-
-                                ("l" "Lindsey's house")
-
-                                ("lt" "TODO item" entry
-                                 (file+headline "tasks.org" "Tasks for Lindsey's house")
-                                 ,(concat "* TODO %^{Title}\n"
-                                          ":PROPERTIES:\n"
-                                          ":CAPTURED: %U\n"
-                                          ":END:\n\n"))
-
-                                ("lf" "Feed dog" entry
-                                 (file+olp "tasks.org" "Tasks for Lindsey's house" "Dog")
-                                 ,(concat "* TODO Feed dog\n"
-                                          ":PROPERTIES:\n"
-                                          ":CAPTURED: %U\n"
-                                          ":END:\n\n"))
-
-                                ("lw" "Walk dog" entry
-                                 (file+olp "tasks.org" "Tasks for Lindsey's house" "Dog")
-                                 ,(concat "* TODO Walk dog\n"
-                                          ":PROPERTIES:\n"
-                                          ":CAPTURED: %U\n"
-                                          ":END:\n\n"))
                                 ))
 #+end_src
 
