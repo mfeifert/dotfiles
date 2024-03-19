@@ -18,7 +18,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
   
-  networking.hostName = "nuc";
+  # Add hostname to local configuration file
+  #networking.hostName = "hostname";
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
