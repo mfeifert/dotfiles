@@ -238,6 +238,12 @@
   (setq org-agenda-clockreport-parameter-plist
         '(:link t :maxlevel 2 :fileskip0 t))
 
+  (setq org-agenda-prefix-format
+        '((agenda . " %i %-12:c%-12t")
+          (todo . " %i %-12:c")
+          (tags . " %i %-12:c")
+          (search . " %i %-12:c")))
+
   (setq org-structure-template-alist
         '(("s" . "src")
           ("e" . "src emacs-lisp")
