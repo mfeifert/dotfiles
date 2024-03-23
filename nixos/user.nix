@@ -40,6 +40,8 @@
       neofetch
       eza
       nerdfonts
+      gnome.gnome-tweaks
+      gnome.gnome-boxes
     ];
   };
 

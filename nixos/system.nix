@@ -61,8 +61,6 @@
     git
     python3
     wl-clipboard
-    gnome.gnome-tweaks
-    gnome.gnome-boxes
   ];
 
   virtualisation.libvirtd.enable = true;
