@@ -8,8 +8,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  users.users.maf.packages.pkgs =
-    [
+  users.users.maf.packages = with pkgs; [
     gnome.gnome-tweaks
     gnome.gnome-boxes
     ];
