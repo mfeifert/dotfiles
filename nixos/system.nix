@@ -65,6 +65,9 @@
 
   virtualisation.libvirtd.enable = true;
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   ## Networking
 
   # Enable networking
