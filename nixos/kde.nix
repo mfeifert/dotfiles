@@ -9,6 +9,7 @@
   services.desktopManager.plasma6.enable = true;
 
   users.users.maf.packages = with pkgs; [
+    gnome.gnome-calendar
     ];
 
 }
