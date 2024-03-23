@@ -3,14 +3,9 @@
 {
   imports =
     [
+    #./gnome.nix
+    ./kde.nix
     ];
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
   users.users.maf = {
     isNormalUser = true;
@@ -40,8 +35,6 @@
       neofetch
       eza
       nerdfonts
-      gnome.gnome-tweaks
-      gnome.gnome-boxes
     ];
   };
 
