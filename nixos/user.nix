@@ -35,6 +35,7 @@
       neofetch
       eza
       nerdfonts
+      dict
     ];
   };
 
