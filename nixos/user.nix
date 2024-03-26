@@ -3,8 +3,8 @@
 {
   imports =
     [
-    #./gnome.nix
-    ./kde.nix
+    ./gnome.nix
+    #./kde.nix
     ];
 
   users.users.maf = {
