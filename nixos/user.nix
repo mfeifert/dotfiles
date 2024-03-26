@@ -36,6 +36,7 @@
       eza
       nerdfonts
       dict
+      thunderbird
     ];
   };
 
