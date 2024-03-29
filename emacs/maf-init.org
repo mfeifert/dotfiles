@@ -155,7 +155,7 @@
   (keymap-global-set "C-c a" 'org-agenda)
 
   ;; Shortcuts to workspace layouts
-  (keymap-global-set "<f5>" 'maf-agenda)
+  (keymap-global-set "<f5>" 'maf-task-list-and-agenda)
   (keymap-global-set "C-<f5>" 'maf-calendar)
   (keymap-global-set "<f6>" 'maf-journal)
   (keymap-global-set "C-<f6>" 'maf-elfeed)
@@ -387,7 +387,6 @@
 * Functions
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Set to <f5>
   (defun maf-agenda ()
     "Open agenda and tasks file. "
     (interactive)
@@ -396,6 +395,21 @@
     (display-line-numbers-mode -1)
     (org-agenda-list)
     (balance-windows))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  ;; Set to <f5>
+  (defun maf-task-list-and-agenda ()
+    "Open agenda and tasks file. "
+    (interactive)
+    (delete-other-windows)
+    (find-file "~/docs/org/tasks.org")
+    (display-line-numbers-mode -1)
+    (find-file "~/docs/org/task-list.org")
+    (display-line-numbers-mode -1)
+    (org-agenda-list)
+    (balance-windows)
+    (other-window 1))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
