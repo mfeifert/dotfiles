@@ -1,11 +1,12 @@
 ########
 # bash #
 ########
-
+#
 # simple bash prompt for Fedora
-BLUE="\e[1;34m"
+BLUE="\e[1;34m" # bold blue
+BOLD="\e[1;37m" # bold white
 RC="\e[0m" # reset color
-PS1="${BLUE}[${RC}\u@\h \W${BLUE}]${RC}\\$ "
+PS1="${BLUE}[${BOLD}\u@\h \W${BLUE}]${RC}\\$ "
 
 # simple bash prompt for Arch
 BLUE="\e[1;38;2;51;170;221m"
