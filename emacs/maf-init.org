@@ -61,12 +61,10 @@
     "Enables modes used for normal text editing."
     (interactive)
     (display-line-numbers-mode 1)
-    (visual-line-mode 1)
-    (evil-local-mode 1))
+    (visual-line-mode 1))
 
   (add-hook 'prog-mode-hook #'maf-text-editing-mode)
   (add-hook 'text-mode-hook #'maf-text-editing-mode)
-  (add-hook 'diary-mode-hook #'evil-local-mode)
 #+end_src
 
 * Mode line
@@ -148,10 +146,6 @@
 * Key bindings
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (add-hook 'org-mode-hook (lambda ()
-                             (keymap-local-unset "M-h")
-                             (keymap-local-unset "M-t")))
-
   (keymap-global-set "C-c a" 'org-agenda)
 
   ;; Shortcuts to workspace layouts
@@ -164,14 +158,6 @@
   (keymap-global-set "<f9>" 'maf-ledger)
   (keymap-global-set "<f12>" 'maf-scratch)
   (keymap-global-set "C-<f12>" 'maf-init)
-
-  ;; Easy tab and window controls
-  (keymap-global-set "M-k" 'evil-window-next)
-  (keymap-global-set "M-j" 'evil-window-prev)
-  (keymap-global-set "M-l" 'tab-next)
-  (keymap-global-set "M-h" 'tab-previous)
-  (keymap-global-set "M-t" 'tab-new)
-  (keymap-global-set "M-w" 'tab-close)
 #+end_src
 
 * Keymaps
@@ -179,7 +165,6 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (defvar-keymap maf-spc-spc-map
     :doc "Second layer keymap."
-    "x" 'execute-extended-command
     "b" 'buffer-menu)
 
   (defvar-keymap maf-spc-map
@@ -206,11 +191,37 @@
     (setq evil-want-C-i-jump nil) ; make TAB work for org-cycle
     (setq evil-want-C-u-scroll t)
     :config
+    ;; Unset key commands in org-mode for easy tab controls
+    (add-hook 'org-mode-hook (lambda ()
+                               (keymap-local-unset "M-h") ; org-mark-element
+                               (keymap-local-unset "M-t") ; downcase-word
+                               ))
+
     (evil-define-key '(normal motion visual) 'global
       (kbd "RET") nil ; unset RET to use with org-return-follows-link
       (kbd "SPC") maf-spc-map
       (kbd "j") (kbd "g j")
-      (kbd "k") (kbd "g k")))
+      (kbd "k") (kbd "g k")
+      (kbd "M-k") 'evil-window-next
+      (kbd "M-j") 'evil-window-prev
+      (kbd "M-l") 'tab-next
+      (kbd "M-h") 'tab-previous
+      (kbd "M-t") 'tab-new
+      (kbd "M-w") 'tab-close)
+
+    (evil-set-initial-state 'ledger-report-mode 'emacs)
+    (evil-set-initial-state 'elfeed-search-mode 'motion)
+    (evil-set-initial-state 'elfeed-show-mode 'motion)
+    (evil-set-initial-state 'Buffer-menu-mode 'emacs)
+    (evil-set-initial-state 'calculator-mode 'emacs)
+    (evil-set-initial-state 'calc-trail-mode 'emacs)
+    (evil-set-initial-state 'calendar-mode 'emacs)
+    (evil-set-initial-state 'dired-mode 'emacs)
+    (evil-set-initial-state 'diff-mode 'motion)
+    (evil-set-initial-state 'help-mode 'emacs)
+    (evil-set-initial-state 'Info-mode 'emacs)
+
+    (evil-mode 1))
 #+end_src
 
 * Calendar & Diary
