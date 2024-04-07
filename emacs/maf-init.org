@@ -193,8 +193,8 @@
     :config
     ;; Unset key commands in org-mode for easy tab controls
     (add-hook 'org-mode-hook (lambda ()
-                               (keymap-local-unset "M-h") ; org-mark-element
-                               (keymap-local-unset "M-t") ; downcase-word
+                               (keymap-local-unset "M-h") ; mark-paragraph
+                               (keymap-local-unset "M-t") ; org-transpose-words
                                ))
 
     (evil-define-key '(normal motion visual) 'global
