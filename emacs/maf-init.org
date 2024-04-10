@@ -54,6 +54,12 @@
   (savehist-mode 1)
 #+end_src
 
+* LSP
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package lsp-mode)
+#+end_src
+
 * Text editing mode
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
@@ -139,8 +145,31 @@
   (use-package corfu
     :init
     (setq corfu-auto t)
+    ;; :hook
+    ;; (prog-mode ledger-mode)
+    )
+#+end_src
+
+** Company
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package company
+    :init
+    (setq company-minimum-prefix-length 1)
+    (setq company-tooltip-limit 20)
+    (setq company-tooltip-flip-when-above t)
+    :config
     :hook
     (prog-mode ledger-mode))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package company-quickhelp
+    :init
+    (setq company-quickhelp-delay 0)
+    (setq company-tooltip-align-annotations t)
+    :hook
+    (company-mode))
 #+end_src
 
 * Key bindings
@@ -173,6 +202,7 @@
     "x" ctl-x-map
     "h" help-map
     "s" 'save-buffer
+    "r" 'recompile
     "f" 'find-file
     "u" 'universal-argument ; C-u set to evil-scroll-up
     "w" 'visual-line-mode
