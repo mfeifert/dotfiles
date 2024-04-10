@@ -181,7 +181,7 @@
     "d" 'dired-jump
     "m" 'bookmark-jump
     "t" 'modus-themes-toggle)
-    #+end_src
+#+end_src
 
 * Evil
 
@@ -218,6 +218,8 @@
     (evil-set-initial-state 'calculator-mode 'emacs)
     (evil-set-initial-state 'calc-trail-mode 'emacs)
     (evil-set-initial-state 'calendar-mode 'emacs)
+    (evil-set-initial-state 'special-mode 'emacs)
+    (evil-set-initial-state 'eshell-mode 'emacs)
     (evil-set-initial-state 'dired-mode 'emacs)
     (evil-set-initial-state 'diff-mode 'emacs)
     (evil-set-initial-state 'help-mode 'emacs)
@@ -337,7 +339,7 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (use-package denote
     :init
-    (setq denote-directory (expand-file-name "~/docs/notes/denote/"))
+    (setq denote-directory (expand-file-name "~/docs/notes/"))
     :config
     (denote-rename-buffer-mode 1))
 #+end_src
@@ -464,7 +466,7 @@
     "Open denote directory dired buffer in a single window."
     (interactive)
     (delete-other-windows)
-    (dired "~/docs/notes/denote/"))
+    (dired "~/docs/notes/"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
@@ -474,7 +476,7 @@
      in two windows side-by-side."
     (interactive)
     (delete-other-windows)
-    (dired "~/docs/notes/denote/")
+    (dired "~/docs/notes/")
     (split-window-right)
     (find-file "~/docs/notes/ccna.org")
     (other-window 1))
