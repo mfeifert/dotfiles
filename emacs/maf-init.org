@@ -182,8 +182,8 @@
   (keymap-global-set "C-<f5>" 'maf-calendar)
   (keymap-global-set "<f6>" 'maf-journal)
   (keymap-global-set "C-<f6>" 'maf-elfeed)
-  (keymap-global-set "<f7>" 'maf-denote)
-  (keymap-global-set "<f8>" 'maf-cisco)
+  (keymap-global-set "<f7>" 'maf-project)
+  (keymap-global-set "<f8>" 'maf-notes)
   (keymap-global-set "<f9>" 'maf-ledger)
   (keymap-global-set "<f12>" 'maf-scratch)
   (keymap-global-set "C-<f12>" 'maf-init)
@@ -492,23 +492,23 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   ;; Set to <f7>
-  (defun maf-denote ()
-    "Open denote directory dired buffer in a single window."
+  (defun maf-project ()
+    "Open windows for current project."
     (interactive)
     (delete-other-windows)
-    (dired "~/docs/notes/"))
+    (dired "~/docs/projects/db_menu/")
+    (split-window-right)
+    (other-window 1))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   ;; Set to <f8>
-  (defun maf-cisco ()
-    "Open buffers associated with Cisco CCNA study
-     in two windows side-by-side."
+  (defun maf-notes ()
+    "Open two dired denote-directory buffers side-by-side."
     (interactive)
     (delete-other-windows)
     (dired "~/docs/notes/")
     (split-window-right)
-    (find-file "~/docs/notes/ccna.org")
     (other-window 1))
 #+end_src
 
