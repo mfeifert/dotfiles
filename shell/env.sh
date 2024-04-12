@@ -16,9 +16,10 @@ esac
 # Environment variables
 
 export EDITOR=hx
-export PATH=$HOME/scripts:$PATH
 export DOTFILES=$HOME/dotfiles
 export DOCS=$HOME/docs
+export PATH=$HOME/scripts:$PATH
+export PATH=$DOCS/projects/db_scripts:$PATH
 export DB=$DOCS/db
 export LEDGER_FILE=$DOCS/finance/2024.ledger
 export LESSHISTFILE=-
@@ -37,8 +38,12 @@ alias www='cd $DOCS/www && hx'
 
 ## Database scripts
 
-alias m='py $DOCS/projects/db_menu/menu.py'
-alias s='py $DOCS/projects/db_menu/shows.py'
+alias s='shows $DB/media.db'
+alias y='yoga $DB/health.db'
+alias we='water $DB/health.db entry'
+alias wr='water $DB/health.db report'
+alias f='fuel $DB/auto.db'
+alias n='nutrition $DB/health.db'
 
 ## ledger & hledger
 
