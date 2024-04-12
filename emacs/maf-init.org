@@ -497,7 +497,7 @@
     "Open windows for current project."
     (interactive)
     (delete-other-windows)
-    (dired "~/docs/projects/db_menu/")
+    (dired "~/docs/projects/db_scripts/")
     (split-window-right)
     (other-window 1))
 #+end_src
