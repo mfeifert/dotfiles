@@ -555,8 +555,8 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (defun maf-init-mac ()
     "Customization options which should be set on mac systems only."
-    (setq default-frame-alist '((height . 82) (width . 220)))
-    (set-frame-font "Hack Nerd Font 14" nil t)
+    (setq default-frame-alist '((height . 75) (width . 220)))
+    (set-frame-font "Hack Nerd Font 15" nil t)
     (setq dired-listing-switches "-AGFhlv")
     (desktop-save-mode 1)
     (menu-bar-mode 1))
