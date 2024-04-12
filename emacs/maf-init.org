@@ -200,6 +200,7 @@
     :doc "First layer keymap."
     "SPC" maf-spc-spc-map
     "x" ctl-x-map
+    "c" 'org-ctrl-c-ctrl-c
     "h" help-map
     "s" 'save-buffer
     "r" 'recompile
