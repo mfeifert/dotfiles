@@ -41,11 +41,11 @@ alias ipq='$DOCS/projects/ip_quiz/ip_quiz.py'
 
 ## Database scripts
 
-alias s='shows $DB/media.db'
-alias y='yoga $DB/health.db'
-alias we='water $DB/health.db entry'
-alias wr='water $DB/health.db report'
-alias n='nutrition $DB/test.db'
+alias s='shows.py $DB/media.db'
+alias y='yoga.py $DB/health.db'
+alias we='water.py $DB/health.db entry'
+alias wr='water.py $DB/health.db report'
+alias n='nutrition.py $DB/test.db'
 
 ## ledger & hledger
 
