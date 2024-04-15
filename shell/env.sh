@@ -23,6 +23,8 @@ export PATH=$DOCS/projects/db_scripts:$PATH
 export DB=$DOCS/db
 export LEDGER_FILE=$DOCS/finance/2024.ledger
 export LESSHISTFILE=-
+export FZF_DEFAULT_COMMAND="rg --files --hidden"
+export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}' --border=rounded --layout=reverse"
 
 # Aliases
 
@@ -33,8 +35,9 @@ alias watch='watch --color'
 alias p1='ping 1.1.1.1'
 alias d='clear && cd $DOCS'
 alias db='cd $DB'
-alias dot='cd $DOTFILES && hx'
-alias www='cd $DOCS/www && hx'
+alias dot='cd $DOTFILES && $EDITOR'
+alias www='cd $DOCS/www && $EDITOR'
+alias ipq='$DOCS/projects/ip_quiz/ip_quiz.py'
 
 ## Database scripts
 
@@ -42,8 +45,7 @@ alias s='shows $DB/media.db'
 alias y='yoga $DB/health.db'
 alias we='water $DB/health.db entry'
 alias wr='water $DB/health.db report'
-alias f='fuel $DB/auto.db'
-alias n='nutrition $DB/health.db'
+alias n='nutrition $DB/test.db'
 
 ## ledger & hledger
 
