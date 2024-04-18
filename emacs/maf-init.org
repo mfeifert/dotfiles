@@ -262,11 +262,11 @@
 * Calendar & Diary
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (load "~/docs/org/location.el")
+  (load "~/Sync/org/location.el")
   (setq calendar-time-zone -480)
   (setq calendar-standard-time-zone-name "PST")
   (setq calendar-daylight-time-zone-name "PDT")
-  (setq diary-file "~/docs/org/diary")
+  (setq diary-file "~/Sync/org/diary")
   (setq calendar-date-style 'iso)
 #+end_src
 
@@ -278,7 +278,7 @@
   (setq org-hide-emphasis-markers t)
   (setq org-return-follows-link t)
 
-  (setq org-directory "~/docs/org/")
+  (setq org-directory "~/Sync/org/")
   (setq org-agenda-files (list org-directory))
   (setq org-agenda-use-time-grid nil)
   (setq org-agenda-clockreport-parameter-plist
@@ -370,7 +370,7 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (use-package denote
     :init
-    (setq denote-directory (expand-file-name "~/docs/notes/"))
+    (setq denote-directory (expand-file-name "~/Sync/notes/"))
     :config
     (denote-rename-buffer-mode 1))
 #+end_src
@@ -437,7 +437,7 @@
     "Open agenda and tasks file. "
     (interactive)
     (delete-other-windows)
-    (find-file "~/docs/org/tasks.org")
+    (find-file "~/Sync/org/tasks.org")
     (display-line-numbers-mode -1)
     (org-agenda-list)
     (balance-windows))
@@ -449,9 +449,9 @@
     "Open agenda and tasks file. "
     (interactive)
     (delete-other-windows)
-    (find-file "~/docs/org/tasks.org")
+    (find-file "~/Sync/org/tasks.org")
     (display-line-numbers-mode -1)
-    (find-file "~/docs/org/task-list.org")
+    (find-file "~/Sync/org/task-list.org")
     (display-line-numbers-mode -1)
     (org-agenda-list)
     (balance-windows)
@@ -477,7 +477,7 @@
     "Open journal file with settings appropriate for writing."
     (interactive)
     (delete-other-windows)
-    (find-file "~/docs/journal/2024.txt")
+    (find-file "~/Sync/journal/2024.txt")
     (display-line-numbers-mode -1)
     (logos-focus-mode 1))
 #+end_src
@@ -497,7 +497,7 @@
     "Open windows for current project."
     (interactive)
     (delete-other-windows)
-    (dired "~/docs/projects/db_scripts/")
+    (dired "~/Sync/projects/db_scripts/")
     (split-window-right)
     (other-window 1))
 #+end_src
@@ -508,7 +508,7 @@
     "Open two dired denote-directory buffers side-by-side."
     (interactive)
     (delete-other-windows)
-    (dired "~/docs/notes/")
+    (dired "~/Sync/notes/")
     (split-window-right)
     (other-window 1))
 #+end_src
@@ -522,7 +522,7 @@
     "Open ledger file and ledger-report windows."
     (interactive)
     (delete-other-windows)
-    (find-file "~/docs/finance/2024.ledger"))
+    (find-file "~/Sync/finance/2024.ledger"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
