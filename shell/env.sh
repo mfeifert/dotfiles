@@ -16,7 +16,7 @@ esac
 # Environment variables
 
 export EDITOR=hx
-export PATH=$HOME/scripts:$HOME/Sync/projects/db_scripts:$PATH
+export PATH=$HOME/scripts:$HOME/projects/db_scripts:$PATH
 export DB=~/Sync/db
 export LEDGER_FILE=~/Sync/finance/2024.ledger
 export LESSHISTFILE=-
@@ -32,8 +32,8 @@ alias watch='watch --color'
 alias p1='ping 1.1.1.1'
 alias db='cd $DB'
 alias dot='cd ~/dotfiles && $EDITOR'
-alias www='cd ~/Sync/www && $EDITOR'
-alias ipq='~/Sync/projects/ip_quiz/ip_quiz.py'
+alias www='cd ~/www && $EDITOR'
+alias ipq='~/projects/ip_quiz/ip_quiz.py'
 
 ## Database scripts
 
