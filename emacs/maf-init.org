@@ -211,7 +211,8 @@
     "b" 'switch-to-buffer
     "d" 'dired-jump
     "m" 'bookmark-jump
-    "t" 'modus-themes-toggle)
+    "t" 'modus-themes-toggle
+    "o" 'olivetti-mode)
 #+end_src
 
 * Evil
