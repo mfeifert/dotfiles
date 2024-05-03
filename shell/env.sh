@@ -20,7 +20,7 @@ export PATH=$HOME/scripts:$HOME/projects/db_scripts:$PATH
 export DB=~/Sync/db
 export LEDGER_FILE=~/Sync/finance/2024.ledger
 export LESSHISTFILE=-
-export FZF_DEFAULT_COMMAND="rg --hidden"
+export FZF_DEFAULT_COMMAND='rg --hidden --files'
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}' --border=rounded --layout=reverse"
 
 # Aliases
