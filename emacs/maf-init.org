@@ -419,16 +419,16 @@
 * Elfeed
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-    (use-package elfeed
-      :init
-      (setq elfeed-db-directory "~/.config/emacs/elfeed")
-      (setq elfeed-feeds '("https://davissystem.net/feed/"
-                           "https://archlinux.org/feeds/news/"
-                           "https://protesilaos.com/master.xml"
-                           "https://www.schneier.com/feed/atom"
-                           "https://krebsonsecurity.com/feed/"
-                           "https://xkcd.com/atom.xml"
-                           "https://www.nushell.sh/atom.xml")))
+  (use-package elfeed
+    :init
+    (setq elfeed-db-directory "~/.config/emacs/elfeed")
+    (setq elfeed-feeds '(
+                         "https://davissystem.net/index.xml"
+                         "https://archlinux.org/feeds/news/"
+                         "https://protesilaos.com/master.xml"
+                         "https://www.schneier.com/feed/atom"
+                         "https://xkcd.com/atom.xml"
+                         )))
 #+end_src
 
 * Functions
