@@ -1,0 +1,11 @@
+* dotfiles
+
+*WARNING* These dotfiles are *NOT*:
+
+- intended for public consumption
+- intended for purposes of enrichment or enjoyment
+- appropriate for persons aged 18 or under
+- appropriate for persons aged 13 or over
+- appropriate for civilized company
+- conducive to any level of self respect
+- to be understood as an example of even the most basic level of moral or civic responsibility
