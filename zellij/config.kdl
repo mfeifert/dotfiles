@@ -1,0 +1,38 @@
+ui {
+  pane_frames {
+    hide_session_name false
+  }
+}
+
+keybinds {
+  shared_except "locked" {
+    unbind "Ctrl g"
+    unbind "Ctrl p"
+    unbind "Ctrl t"
+    unbind "Ctrl n"
+    unbind "Ctrl h"
+    unbind "Ctrl s"
+    unbind "Ctrl o"
+    unbind "Ctrl q"
+
+    bind "Alt g" { SwitchToMode "locked"; }
+    bind "Alt p" { SwitchToMode "pane"; }
+    bind "Alt t" { SwitchToMode "tab"; }
+    bind "Alt r" { SwitchToMode "resize"; }
+    bind "Alt m" { SwitchToMode "move"; }
+    bind "Alt s" { SwitchToMode "search"; }
+    bind "Alt o" { SwitchToMode "session"; }
+    bind "Alt w" { CloseFocus; }
+    bind "Alt q" { Quit; }
+
+    //bind "Alt t" { NewTab; }
+    //bind "Alt d" { NewPane "down";}
+    //bind "Alt r" { NewPane "right"; }
+    bind "Alt f" { ToggleFloatingPanes; }
+  }
+
+  locked {
+    unbind "Ctrl g"
+    bind "Alt g" { SwitchToMode "normal"; }
+  }
+}
