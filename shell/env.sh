@@ -60,6 +60,6 @@ alias hla='hledger -f ~/Sync/finance/2020.ledger -f ~/Sync/finance/2021.ledger -
 alias isa='hla is --drop 1'
 alias issa='isa -2'
 
-export AUTOSQL='select "    ", Miles, "       Miles" from fuel order by Date desc limit 1;'
+export AUTOSQL="select '    ', Miles, '  Miles' from fuel order by Date desc limit 1;"
 alias auto='hla bal auto -f ~/Sync/finance/auto.ledger auto --drop 2
-	          sqlite3 -column ~/Sync/db/auto.db $AUTOSQL'
+            sqlite3 -column ~/Sync/db/auto.db "$AUTOSQL"'
