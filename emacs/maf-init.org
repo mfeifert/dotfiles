@@ -194,7 +194,8 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (defvar-keymap maf-spc-spc-map
     :doc "Second layer keymap."
-    "b" 'buffer-menu)
+    "b" 'buffer-menu
+    "d" 'maf-insert-datetree-heading)
 
   (defvar-keymap maf-spc-map
     :doc "First layer keymap."
@@ -555,6 +556,18 @@
     (interactive)
     (find-file "~/dotfiles/emacs/maf-init.org")
     (delete-other-windows))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (defun maf-insert-datetree-heading ()
+    "Insert org heading with tomorrow's date without brackets."
+    (interactive)
+    (org-insert-heading-respect-content)
+    (let* ((now (current-time))
+           (tomorrow (time-add now (seconds-to-time 86400)))
+           (timestamp (format-time-string "%F %a [/]" tomorrow)))
+      (insert timestamp))
+    (org-ctrl-c-ctrl-c))
 #+end_src
 
 * System type specifics
