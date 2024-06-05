@@ -15,7 +15,7 @@ esac
 
 # Environment variables
 
-export EDITOR=hx
+export EDITOR=nvim
 export PATH=$HOME/scripts:$HOME/projects/db_scripts:$PATH
 export DB=~/Sync/db
 export LEDGER_FILE=~/Sync/finance/2024.ledger
