@@ -57,7 +57,13 @@
 * LSP
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package lsp-mode)
+  (use-package lsp-mode
+    :hook
+    ((c-mode . lsp)
+     (python-mode . lsp)
+     (lsp-mode . lsp-enable-which-key-integration))
+    :init
+    (setq lsp-enable-snippet nil))
 #+end_src
 
 * Text editing mode
