@@ -182,7 +182,7 @@
   (keymap-global-set "C-<f5>" 'maf-calendar)
   (keymap-global-set "<f6>" 'maf-journal)
   (keymap-global-set "C-<f6>" 'maf-elfeed)
-  (keymap-global-set "<f7>" 'maf-project)
+  (keymap-global-set "<f7>" 'maf-ide)
   (keymap-global-set "<f8>" 'maf-notes)
   (keymap-global-set "<f9>" 'maf-ledger)
   (keymap-global-set "<f12>" 'maf-scratch)
@@ -508,6 +508,21 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   ;; Set to <f7>
+  (defun maf-ide ()
+    "Open windows for programming environment.
+     Requires evil-mode."
+    (interactive)
+    (list-flycheck-errors)
+    (evil-window-right 1)
+    (evil-window-move-very-bottom)
+    (shrink-window 18)
+    (evil-window-top-left)
+    (split-window-right)
+    (evil-window-right 1)
+    (project-eshell))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (defun maf-project ()
     "Open windows for current project."
     (interactive)
