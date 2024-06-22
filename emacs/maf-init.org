@@ -54,16 +54,29 @@
   (savehist-mode 1)
 #+end_src
 
+* Tree-sitter
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (setq major-mode-remap-alist '((c-mode . c-ts-mode)
+                                 (python-mode . python-ts-mode)))
+#+end_src
+
 * LSP
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (use-package lsp-mode
     :hook
-    ((c-mode . lsp)
-     (python-mode . lsp)
+    ((c-ts-mode . lsp)
+     (python-ts-mode . lsp)
      (lsp-mode . lsp-enable-which-key-integration))
     :init
     (setq lsp-enable-snippet nil))
+#+end_src
+
+* Flycheck
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package flycheck)
 #+end_src
 
 * Text editing mode
@@ -521,7 +534,7 @@
     (list-flycheck-errors)
     (evil-window-right 1)
     (evil-window-move-very-bottom)
-    (shrink-window 18)
+    (shrink-window 20)
     (evil-window-top-left)
     (split-window-right)
     (evil-window-right 1)
