@@ -96,6 +96,7 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (setq modus-themes-mode-line '(borderless accented 3d))
+  (column-number-mode 1)
 #+end_src
 
 * Files
