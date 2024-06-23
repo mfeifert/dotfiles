@@ -539,7 +539,8 @@
     (evil-window-top-left)
     (split-window-right)
     (evil-window-right 1)
-    (project-eshell))
+    (project-eshell)
+    (evil-window-top-left))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
