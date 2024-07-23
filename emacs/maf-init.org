@@ -532,6 +532,7 @@
     "Open windows for programming environment.
      Requires evil-mode."
     (interactive)
+    (delete-other-windows)
     (list-flycheck-errors)
     (evil-window-right 1)
     (evil-window-move-very-bottom)
