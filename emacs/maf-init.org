@@ -446,9 +446,10 @@
     (setq elfeed-feeds '(
                          "https://davissystem.net/index.xml"
                          "https://archlinux.org/feeds/news/"
-                         "https://protesilaos.com/master.xml"
-                         "https://www.schneier.com/feed/atom"
+                         "https://protesilaos.com/codelog.xml"
                          "https://xkcd.com/atom.xml"
+                         ;"https://www.schneier.com/feed/atom"
+                         ;"https://protesilaos.com/master.xml"
                          )))
 #+end_src
 
