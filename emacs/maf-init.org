@@ -623,7 +623,11 @@
     (set-frame-font "Hack Nerd Font 15" nil t)
     (setq dired-listing-switches "-AGFhlv")
     (desktop-save-mode 1)
-    (menu-bar-mode 1))
+    (menu-bar-mode 1)
+    (keymap-global-set "<f13>" 'maf-ledger)
+    (keymap-global-set "<f14>" 'maf-notes)
+    (keymap-global-set "<f15>" 'maf-scratch)
+    (keymap-global-set "<f16>" 'maf-init))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
