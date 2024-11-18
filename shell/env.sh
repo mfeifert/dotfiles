@@ -60,7 +60,3 @@ alias iss='is -2'                                        # income statement shor
 alias issm='ism -2'                                      # income statement short monthly
 alias isa='hla is --drop 1'                              # income statement all
 alias issa='isa -2'                                      # income statement short all
-
-export AUTOSQL="select '    ', Miles, '  Miles' from fuel order by Date desc limit 1;"
-alias auto='hla bal auto -f ~/Sync/finance/auto.ledger auto --drop 2
-            sqlite3 -column ~/Sync/db/auto.db "$AUTOSQL"'
