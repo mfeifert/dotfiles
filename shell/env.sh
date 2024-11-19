@@ -38,11 +38,10 @@ alias ipq='~/projects/ip_quiz/ip_quiz.py'
 ## Database scripts
 
 alias s='shows.py $DB/media.db'
-alias y='yoga.py $DB/health.db'
+alias y='yoga'
 alias we='water.py $DB/health.db entry'
 alias wr='water.py $DB/health.db report'
 alias n='nutrition.py $DB/test.db'
-alias fuel='fuel.py $DB/auto.db'
 
 ## ledger & hledger
 
