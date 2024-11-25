@@ -28,6 +28,7 @@ export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}' --border=rounded --la
 alias c='clear'
 alias ll='eza -algh --icons=always --group-directories-first'
 alias p='python3 -q'
+alias lg='lazygit'
 alias watch='watch --color'
 alias po='ping 1.1.1.1'
 alias db='cd $DB'
