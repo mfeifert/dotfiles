@@ -29,19 +29,19 @@ alias c='clear'
 alias ll='eza -algh --icons=always --group-directories-first'
 alias p='python3 -q'
 alias watch='watch --color'
-alias p1='ping 1.1.1.1'
+alias po='ping 1.1.1.1'
 alias db='cd $DB'
-alias dot='cd ~/dotfiles && $EDITOR'
-alias www='cd ~/www && $EDITOR'
-alias ipq='~/projects/ip_quiz/ip_quiz.py'
+alias dot='cd ~/dotfiles && nvim -c "Telescope find_files"'
+alias www='cd ~/www && nvim -c "Telescope find_files"'
 
-## Database scripts
+## Scripts
 
 alias s='shows'
 alias y='yoga'
 alias we='water.py $DB/health.db entry'
 alias wr='water.py $DB/health.db report'
 alias n='nutrition.py $DB/test.db'
+alias ipq='~/projects/ip_quiz/ip_quiz.py'
 
 ## ledger & hledger
 
