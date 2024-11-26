@@ -52,6 +52,7 @@ alias hla='hledger -f ~/Sync/finance/2020.ledger -f ~/Sync/finance/2021.ledger \
                    -f ~/Sync/finance/2022.ledger -f ~/Sync/finance/2023.ledger \
                    -f ~/Sync/finance/2024.ledger'       # hledger all
 alias reg='hledger reg -p thismonth'                    # register
+alias hlp='hledger print -p thismonth'                  # print
 alias bs='clear && hledger bs --drop 1'                 # balance sheet
 alias bsm='bs -M'                                       # balance sheet monthly
 alias is='clear && hledger is --drop 1 -S -b thismonth' # income statement
