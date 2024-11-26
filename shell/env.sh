@@ -7,6 +7,7 @@ case $(uname -s) in
   "Linux")
     alias ls='ls -Ah --color=auto --group-directories-first'
     alias ip='ip -c'
+    alias ports='sudo ss -tulpnQH | sort -k 5'
     ;;
   *)
     echo "Unknown system type"
@@ -31,7 +32,6 @@ alias p='python3 -q'
 alias lg='lazygit'
 alias watch='watch --color'
 alias po='ping 1.1.1.1'
-alias ports='sudo ss -tulpnQH | sort -k 5'
 alias db='cd $DB'
 alias dot='cd ~/dotfiles && nvim -c "Telescope find_files"'
 alias www='cd ~/www && nvim -c "Telescope find_files"'
