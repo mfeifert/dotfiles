@@ -36,6 +36,9 @@ alias po='ping 1.1.1.1'
 alias db='cd $DB'
 alias dot='cd ~/dotfiles && nvim -c "Telescope find_files"'
 alias www='cd ~/www && nvim -c "Telescope find_files"'
+alias t='tmux attach'
+alias tk='tmux kill-session'
+alias tl='tmux ls'
 
 ## Scripts
 
