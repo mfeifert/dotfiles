@@ -47,7 +47,7 @@ alias y='yoga'
 alias we='water.py $DB/health.db entry'
 alias wr='water.py $DB/health.db report'
 alias n='nutrition.py $DB/test.db'
-alias ipq='~/projects/ip_quiz/ip_quiz.py'
+alias ipq='~/projects/ip-quiz/ip-quiz.py'
 
 ## ledger & hledger
 
