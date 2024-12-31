@@ -44,6 +44,7 @@ alias www='cd ~/www && nvl -c "FzfLua files"'
 alias t='tmux attach'
 alias tk='tmux kill-session'
 alias tl='tmux ls'
+alias ff='fastfetch'
 
 ## Scripts
 
