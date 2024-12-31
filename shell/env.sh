@@ -17,6 +17,7 @@ esac
 # Environment variables
 
 export PATH=$HOME/scripts:$PATH
+export PATH=$PATH:$HOME/go/bin
 export EDITOR=nvim
 export DB=~/Sync/db
 export LEDGER_FILE=~/Sync/finance/2024.ledger
