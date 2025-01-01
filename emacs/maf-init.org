@@ -513,7 +513,7 @@
     "Open journal file with settings appropriate for writing."
     (interactive)
     (delete-other-windows)
-    (find-file "~/Sync/journal/2024.txt")
+    (find-file "~/Sync/journal/current_year.txt")
     (display-line-numbers-mode -1)
     (logos-focus-mode 1))
 #+end_src
@@ -575,7 +575,7 @@
     "Open ledger file and ledger-report windows."
     (interactive)
     (delete-other-windows)
-    (find-file "~/Sync/finance/2024.ledger"))
+    (find-file "~/Sync/finance/current_year.ledger"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
