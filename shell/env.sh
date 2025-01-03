@@ -21,7 +21,6 @@ export PATH=$PATH:$HOME/go/bin
 export EDITOR=nvim
 export DB=~/Sync/db
 export LEDGER_FILE=~/Sync/finance/current_year.ledger
-export LESSHISTFILE=-
 export HISTSIZE=
 export FZF_DEFAULT_COMMAND='rg --hidden --files'
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}' --border=rounded --layout=reverse"
