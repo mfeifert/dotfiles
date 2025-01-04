@@ -1,0 +1,6 @@
+Run =org-babel-tangle= on this file once when setting up a new Emacs installation.
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/init.el"
+  (set-frame-font "Hack Nerd Font 13" nil t)
+  (load "~/.config/emacs/maf-init.el")
+#+end_src
