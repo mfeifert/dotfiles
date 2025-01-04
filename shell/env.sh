@@ -33,7 +33,7 @@ alias nvl='NVIM_APPNAME=nvim-lazyvim nvim'
 # Aliases
 
 alias c='clear'
-alias ll='eza -algh --icons=always --group-directories-first'
+alias ll='eza -Algh --icons=auto --group-directories-first --sort Name'
 alias p='python3 -q'
 alias lg='lazygit'
 alias watch='watch --color'
