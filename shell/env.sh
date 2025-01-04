@@ -5,7 +5,7 @@ case $(uname -s) in
     alias ls='ls -Ah --color=always'
     ;;
   "Linux")
-    alias ls='ls -Ah --color=auto --group-directories-first'
+    alias ls='ls -Ahv --color=auto --group-directories-first'
     alias ip='ip -c'
     alias ports='sudo ss -tulpnQH | sort -k 5'
     ;;
