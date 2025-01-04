@@ -19,8 +19,8 @@ esac
 export PATH=$HOME/scripts:$PATH
 export PATH=$PATH:$HOME/go/bin
 export EDITOR=nvim
-export DB=~/Sync/db
-export LEDGER_FILE=~/Sync/finance/current_year.ledger
+export DB=~/sync/db
+export LEDGER_FILE=~/sync/finance/current_year.ledger
 export HISTSIZE=
 export FZF_DEFAULT_COMMAND='rg --hidden --files'
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}' --border=rounded --layout=reverse"
@@ -59,9 +59,9 @@ alias ipq='~/projects/ip-quiz/ip-quiz.py'
 
 alias ledger='ledger -f $LEDGER_FILE'
 alias hledger='hledger --pretty --strict'
-alias hla='hledger -f ~/Sync/finance/2020.ledger -f ~/Sync/finance/2021.ledger \
-                   -f ~/Sync/finance/2022.ledger -f ~/Sync/finance/2023.ledger \
-                   -f ~/Sync/finance/2024.ledger -f $LEDGER_FILE' # hledger all
+alias hla='hledger -f ~/sync/finance/2020.ledger -f ~/sync/finance/2021.ledger \
+                   -f ~/sync/finance/2022.ledger -f ~/sync/finance/2023.ledger \
+                   -f ~/sync/finance/2024.ledger -f $LEDGER_FILE' # hledger all
 alias reg='hledger reg -p thismonth'                              # register
 alias hlp='hledger print -p thismonth'                            # print
 alias bs='clear && hledger bs --drop 1'                           # balance sheet
