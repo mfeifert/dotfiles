@@ -19,7 +19,7 @@ esac
 export PATH=$HOME/scripts:$PATH
 export PATH=$PATH:$HOME/go/bin
 export EDITOR=nvim
-export DB=~/sync/db
+export DB_DIR=~/sync/db
 export LEDGER_FILE=~/sync/finance/current_year.ledger
 export HISTSIZE=
 export FZF_DEFAULT_COMMAND='rg --hidden --files'
