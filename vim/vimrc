@@ -1,0 +1,2 @@
+set viminfofile=~/.local/state/vim/viminfo
+let g:netrw_home='~/.local/state/vim'
