@@ -253,8 +253,9 @@
     (evil-define-key '(normal motion visual) 'global
       (kbd "RET") nil ; unset RET to use with org-return-follows-link
       (kbd "SPC") maf-spc-map
-      (kbd "j") (kbd "g j")
-      (kbd "k") (kbd "g k"))
+      ;; (kbd "j") (kbd "g j")
+      ;; (kbd "k") (kbd "g k")
+      )
 
     (evil-define-key '(normal motion visual emacs) 'global
       (kbd "M-k") 'evil-window-next
