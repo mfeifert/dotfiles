@@ -509,7 +509,7 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   ;; Set to <f6>
   (defun maf-journal ()
-    "Open journal file with settings appropriate for writing."
+    "Open journal file with settings suitable for writing."
     (interactive)
     (delete-other-windows)
     (find-file "~/sync/journal/current_year.txt")
