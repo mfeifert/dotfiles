@@ -10,7 +10,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.cache
-export PATH=$HOME/.local/bin:$PATH
 
 mkdir -p $XDG_CONFIG_HOME/zsh
 mkdir -p $XDG_CONFIG_HOME/git
@@ -24,6 +23,9 @@ export SCREENRC=$XDG_CONFIG_HOME/screen/screenrc
 export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
 export SQLITE_HISTORY=$XDG_STATE_HOME/sqlite_history
 export DVDCSS_CACHE=$XDG_CACHE_HOME/dvdcss
+
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 
 case $(uname -s) in
   "Darwin")
@@ -41,4 +43,3 @@ esac
 
 # To be placed in .bashrc
 #export HISTFILE=$XDG_STATE_HOME/bash/history
-

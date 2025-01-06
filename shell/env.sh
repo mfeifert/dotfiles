@@ -17,11 +17,10 @@ esac
 # Environment variables
 
 export PATH=$HOME/scripts:$PATH
-export PATH=$PATH:$HOME/go/bin
+export HISTSIZE=
 export EDITOR=nvim
 export DB_DIR=~/sync/db
 export LEDGER_FILE=~/sync/finance/current_year.ledger
-export HISTSIZE=
 export FZF_DEFAULT_COMMAND='rg --hidden --files'
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}' --border=rounded --layout=reverse"
 
