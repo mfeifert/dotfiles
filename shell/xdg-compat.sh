@@ -43,3 +43,6 @@ esac
 
 # To be placed in .bashrc
 #export HISTFILE=$XDG_STATE_HOME/bash/history
+
+# To be placed in .bashrc if necessary
+#alias dict='dict -c $XDG_CONFIG_HOME/dict/dictrc'
