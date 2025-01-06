@@ -1,6 +1,28 @@
 Run =org-babel-tangle= on this file once when setting up a new Emacs installation.
 
-#+begin_src emacs-lisp :tangle "~/.config/emacs/init.el"
+* early-init.el
+
+Loading the modus-vivendi theme here prevents the flash
+of light that appears in a new frame.
+
+The parameters of the initial-frame-alist variable
+need to be configured on a per-system basis.  The values
+shown here work well for the GNOME desktop on a
+2560x1440 display.
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/early-init.el"
+  (load-theme 'modus-vivendi)
+
   (set-frame-font "Hack Nerd Font 13" nil t)
+
+  (setq initial-frame-alist '((height . 62)
+                              (width . 204)
+                              (left . 258)
+                              (top . 72)))
+#+end_src
+
+* init.el
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/init.el"
   (load "~/.config/emacs/maf-init.el")
 #+end_src
