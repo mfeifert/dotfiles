@@ -119,6 +119,12 @@
   (add-hook 'dired-mode-hook #'denote-dired-mode)
 #+end_src
 
+* Magit
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package magit)
+#+end_src
+
 * Appearance
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
@@ -226,6 +232,7 @@
     "s" 'save-buffer
     "r" 'recompile
     "f" 'find-file
+    "g" 'magit
     "u" 'universal-argument ; C-u set to evil-scroll-up
     "w" 'visual-line-mode
     "l" 'ledger-report
