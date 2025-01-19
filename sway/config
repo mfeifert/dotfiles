@@ -1,7 +1,7 @@
 # My Sway config
 #
 # Read `man 5 sway` for a complete reference.
-
+#
 # Example configuration file
 # /etc/sway/config
 
@@ -22,8 +22,10 @@ set $menu rofi -show run
 default_border pixel 3
 smart_borders on
 
-client.focused "#0f62fe" "#0f62fe" "#ffffff" "#0f62fe" 
-client.unfocused "#000000" "#000000" "#ffffff" "#000000" 
+#                       border    bg        text      indicator
+client.focused          "#0f62fe" "#0f62fe" "#ffffff" "#0f62fe"
+client.unfocused        "#000000" "#000000" "#ffffff" "#000000"
+client.focused_inactive "#000000" "#000000" "#ffffff" "#000000"
 
 ### Input configuration
 #
@@ -39,7 +41,6 @@ input "type:keyboard" {
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    #bindsym $mod+Shift+q kill
     bindsym $mod+q kill
 
     # Start your launcher
@@ -190,11 +191,17 @@ bindsym $mod+r mode "resize"
 	# Toggle light/dark modes
 	bindsym $mod+F1 exec darkman toggle
 	# Toggle wlsunset
-	bindsym $mod+F2 exec "~/scripts/wlsunset-toggle"
+	bindsym $mod+F2 exec ~/scripts/wlsunset-toggle
+	# mpd controls
+	bindsym $mod+F5 exec mpc prev
+	bindsym $mod+F6 exec mpc toggle
+	bindsym $mod+F7 exec mpc next
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar swaybar_command waybar
+bar {
+	swaybar_command waybar
+}
 
 include /etc/sway/config.d/*
