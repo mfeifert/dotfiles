@@ -1,0 +1,17 @@
+# Example configuration files
+# /usr/share/doc/ncmpcpp/config
+# /usr/share/doc/ncmpcpp/bindings
+#
+# mpd config
+# ~/.config/mpd/mpd.conf
+
+mpd_music_dir = /run/media/maf/Media/music
+lyrics_directory = /run/media/maf/Media/music/lyrics
+
+visualizer_data_source = /tmp/mpd.fifo
+visualizer_output_name = Visualizer feed
+visualizer_in_stereo = yes
+
+# There is an issue with the song title in the playlist being invisible
+# with some terminal themes.  Fix it by changing the color to red.
+song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[red]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
