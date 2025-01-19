@@ -1,0 +1,8 @@
+font-family = monospace
+font-size = 15
+bold-is-bright = true
+mouse-hide-while-typing = true
+window-height = 54
+window-width = 200
+window-decoration = false
+theme = dark:Business Machine Dark,light:Business Machine Light
