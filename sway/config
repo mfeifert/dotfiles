@@ -17,7 +17,7 @@ set $right l
 # Your preferred terminal emulator
 set $term ghostty
 # Your preferred application launcher
-set $menu rofi -show run
+set $menu fuzzel
 
 default_border pixel 3
 smart_borders on
