@@ -22,6 +22,13 @@ set $menu rofi -show run
 default_border pixel 3
 smart_borders on
 
+# Open Cisco Packet Tracer at useful size and position on a 2560x1440 display
+for_window [class="(?i)packettracer"] {
+    floating enable
+    resize set 1060 960
+	move position 1400 160
+}
+
 #                       border    bg        text      indicator
 client.focused          "#0f62fe" "#0f62fe" "#ffffff" "#0f62fe"
 client.unfocused        "#000000" "#000000" "#ffffff" "#000000"
