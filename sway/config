@@ -22,8 +22,9 @@ set $menu fuzzel
 default_border pixel 3
 smart_borders on
 
+for_window [app_id="Nautilus"] floating enable
 # Open Cisco Packet Tracer at useful size and position on a 2560x1440 display
-for_window [class="(?i)packettracer"] {
+for_window [class="packettracer"] {
     floating enable
     resize set 1060 960
 	move position 1400 160
