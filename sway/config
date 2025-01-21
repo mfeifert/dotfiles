@@ -25,10 +25,10 @@ smart_borders on
 for_window [app_id="Nautilus"] floating enable
 for_window [app_id="mpv"] floating enable
 # Open Cisco Packet Tracer at useful size and position on a 2560x1440 display
-for_window [class="packettracer"] {
+for_window [class="(?i)packettracer"] {
     floating enable
     resize set 1060 960
-	move position 1400 160
+    move position 1400 160
 }
 
 #                       border    bg        text      indicator
