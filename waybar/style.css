@@ -73,7 +73,7 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
   padding: 0 10px;
-  background-color: @ibm-gray-70;
+  background-color: @ibm-gray-80;
   box-shadow: inset 0 -3px @ibm-blue-60;
 }
 
