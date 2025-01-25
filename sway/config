@@ -206,6 +206,8 @@ bindsym $mod+r mode "resize"
 	bindsym $mod+F5 exec mpc prev
 	bindsym $mod+F6 exec mpc toggle
 	bindsym $mod+F7 exec mpc next
+	# Launch Zed
+	bindsym $mod+z exec zeditor
 #
 # Status Bar:
 #
