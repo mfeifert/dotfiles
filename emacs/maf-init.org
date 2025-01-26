@@ -303,6 +303,7 @@
       (kbd "M-t") 'tab-new
       (kbd "M-w") 'tab-close)
 
+    (evil-set-initial-state 'fundamental-mode 'emacs)
     (evil-set-initial-state 'ledger-report-mode 'emacs)
     (evil-set-initial-state 'elfeed-search-mode 'emacs)
     (evil-set-initial-state 'elfeed-show-mode 'emacs)
