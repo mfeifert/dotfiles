@@ -4,6 +4,13 @@
   ;; -*- lexical-binding: t; -*-
 #+end_src
 
+* Custom configurations
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (setq custom-file (locate-user-emacs-file "custom.el"))
+  (load custom-file :no-error-if-file-is-missing)
+#+end_src
+
 * Package
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
