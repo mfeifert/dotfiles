@@ -39,7 +39,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*",
   callback = function ()
     if vim.tbl_contains({ 'sh', 'bash', 'zsh' }, vim.bo.filetype) then
-      vim.cmd(":silent !shfmt -w -i 2 -ci %")
+      vim.cmd(":silent !shfmt -w -ci %")
     end
   end,
 })
