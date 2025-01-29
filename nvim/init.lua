@@ -1,7 +1,8 @@
 vim.o.number = true
 vim.o.relativenumber = true
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
+vim.o.tabstop = 8
+vim.o.shiftwidth = 8
+vim.o.expandtab = false
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 vim.o.wrap = false
@@ -31,7 +32,7 @@ vim.keymap.set('n', '<S-Tab>', ':tabprevious<cr>')
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = {"*.c", "*.h"},
   callback = function ()
-    vim.cmd(":silent !indent -kr %")
+    vim.cmd(":silent !indent -linux %")
   end,
 })
 
