@@ -29,6 +29,8 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<leader>t', ':tabnew<cr>')
 vim.keymap.set('n', '<Tab>', ':tabnext<cr>')
 vim.keymap.set('n', '<S-Tab>', ':tabprevious<cr>')
+vim.keymap.set('i', '<C-f>', '<Right>')
+vim.keymap.set('i', '<C-b>', '<Left>')
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = {"*.c", "*.h"},
