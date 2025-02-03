@@ -35,7 +35,7 @@ vim.keymap.set('i', '<C-b>', '<Left>')
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = {"*.c", "*.h"},
   callback = function ()
-    vim.cmd(":silent !indent -linux %")
+    vim.cmd(":silent !maf-indent %")
   end,
 })
 
