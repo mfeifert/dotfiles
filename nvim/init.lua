@@ -13,6 +13,7 @@ vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.backup = false
 vim.o.writebackup = false
+vim.cmd(":colorscheme torte")
 
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>f', ':FZF<cr>')
