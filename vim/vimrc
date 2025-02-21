@@ -1,2 +1,41 @@
 set viminfofile=$XDG_STATE_HOME/vim/viminfo
 let g:netrw_home='$XDG_STATE_HOME/vim'
+
+syntax enable
+
+set number
+"set relativenumber
+set tabstop=8
+set shiftwidth=8
+set scrolloff=8
+set sidescrolloff=8
+set wrap
+set linebreak
+set autoread
+set clipboard=unnamedplus  " requires vim to be compiled with +clipboard option
+set autoindent
+set smartindent
+set nobackup
+set nowritebackup
+set wildoptions=pum
+
+nnoremap <Space> <Nop>
+let mapleader = " "
+nnoremap <Leader>f :FZF<CR>
+nnoremap <Leader>w :set wrap!<CR>
+nnoremap <Leader>h :let @/ = ""<CR>
+nnoremap H :bp<CR>
+nnoremap L :bn<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <Leader>t :tabnew<CR>
+nnoremap <Tab> :tabnext<CR>
+nnoremap <S-Tab> :tabprevious<CR>
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+
+au BufWritePost *.c,*.h {
+	silent !maf-indent %
+}
