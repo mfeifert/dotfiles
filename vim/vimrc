@@ -1,9 +1,9 @@
 set viminfofile=$XDG_STATE_HOME/vim/viminfo
 let g:netrw_home='$XDG_STATE_HOME/vim'
 
-syntax enable
+syntax off
 
-set number
+"set number
 "set relativenumber
 set tabstop=8
 set shiftwidth=8
