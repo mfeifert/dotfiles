@@ -102,7 +102,6 @@
 * Mode line
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (setq modus-themes-mode-line '(borderless accented 3d))
   (column-number-mode 1)
 #+end_src
 
@@ -136,7 +135,6 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (setq modus-themes-markup '(bold))
-  (setq modus-themes-org-blocks 'gray-background)
   (setq modus-themes-intense-mouseovers t)
   (load-theme 'modus-vivendi)
 
