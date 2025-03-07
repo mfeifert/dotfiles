@@ -1,4 +1,4 @@
-vim.o.number = true
+vim.o.number = false
 vim.o.relativenumber = false
 vim.o.tabstop = 8
 vim.o.shiftwidth = 8
@@ -13,7 +13,9 @@ vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.backup = false
 vim.o.writebackup = false
-vim.cmd(":colorscheme wildcharm")
+vim.o.laststatus = 1
+vim.cmd(":colorscheme vim")
+vim.cmd(":syntax off")
 
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>f', ':FZF<cr>')
