@@ -1,17 +1,17 @@
 # System-specific configuration
 
 case $(uname -s) in
-  "Darwin")
-    alias ls='ls -Ah --color=always'
-    ;;
-  "Linux")
-    alias ls='ls -Ahv --color=auto --group-directories-first'
-    alias ip='ip -c'
-    alias ports='sudo ss -tulpnQH | sort -k 5'
-    ;;
-  *)
-    echo "Unknown system type"
-    ;;
+	"Darwin")
+		alias ls='ls -Ah --color=always'
+		;;
+	"Linux")
+		alias ls='ls -Ahv --color=auto --group-directories-first'
+		alias ip='ip -c'
+		alias ports='sudo ss -tulpnQH | sort -k 5'
+		;;
+	*)
+		echo "Unknown system type"
+		;;
 esac
 
 # Environment variables
@@ -33,6 +33,8 @@ alias nvl='NVIM_APPNAME=nvim-lazyvim nvim'
 
 alias c='clear'
 alias ll='eza -Algh --icons=auto --group-directories-first --sort Name'
+alias cp='cp -iv'
+alias mv='mv -iv'
 alias p='python3 -q'
 alias lg='lazygit'
 alias watch='watch --color'
