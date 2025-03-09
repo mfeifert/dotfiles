@@ -48,6 +48,7 @@ alias t='tmux attach'
 alias tk='tmux kill-session'
 alias tl='tmux ls'
 alias ff='fastfetch'
+alias emacs='emacs -nw'
 
 ## Scripts
 
