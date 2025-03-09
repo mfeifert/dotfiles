@@ -6,6 +6,11 @@
 
 # Source this file in ~/.bash_profile or ~/.zshenv
 
+# Unable to clean up:
+# ~/.doxbox/
+# ~/.links/
+# ~/.packettracer
+
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
@@ -23,22 +28,23 @@ export SCREENRC=$XDG_CONFIG_HOME/screen/screenrc
 export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
 export SQLITE_HISTORY=$XDG_STATE_HOME/sqlite_history
 export DVDCSS_CACHE=$XDG_CACHE_HOME/dvdcss
+export W3M_DIR=$XDG_STATE_HOME/w3m
 
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
 case $(uname -s) in
-  "Darwin")
-    export LESSHISTFILE=$XDG_STATE_HOME/lesshst
-    alias vim='nvim'
-    ;;
-  "Linux")
-    export SCREENDIR=$XDG_RUNTIME_DIR/screen
-    mkdir -p $XDG_STATE_HOME/vim
-    ;;
-  *)
-    echo "Unknown system type"
-    ;;
+	"Darwin")
+		export LESSHISTFILE=$XDG_STATE_HOME/lesshst
+		alias vim='nvim'
+		;;
+	"Linux")
+		export SCREENDIR=$XDG_RUNTIME_DIR/screen
+		mkdir -p $XDG_STATE_HOME/vim
+		;;
+	*)
+		echo "Unknown system type"
+		;;
 esac
 
 # To be placed in .bashrc
