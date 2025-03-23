@@ -18,7 +18,6 @@ vim.cmd(":colorscheme vim")
 vim.cmd(":syntax off")
 
 vim.g.mapleader = ' '
-vim.keymap.set('n', '<leader>f', ':FZF<cr>')
 vim.keymap.set('n', '<leader>w', ':set wrap!<cr>')
 vim.keymap.set('n', '<leader>h', ':let @/ = ""<cr>')
 vim.keymap.set('n', '<leader>b', ':lua toggle_background()<cr>')
@@ -33,6 +32,8 @@ vim.keymap.set('n', '<Tab>', ':tabnext<cr>')
 vim.keymap.set('n', '<S-Tab>', ':tabprevious<cr>')
 vim.keymap.set('i', '<C-f>', '<Right>')
 vim.keymap.set('i', '<C-b>', '<Left>')
+vim.keymap.set('n', '<leader>f', ':FZF<cr>')
+vim.keymap.set('n', '<leader>g', ':Rg<cr>')  -- Requires fzf.vim plugin
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = {"*.c", "*.h"},
