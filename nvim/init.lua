@@ -8,12 +8,12 @@ vim.o.sidescrolloff = 4
 vim.o.wrap = false
 vim.o.linebreak = true
 vim.o.autoread = true
-vim.o.clipboard = 'unnamedplus'
 vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.laststatus = 1
+vim.o.clipboard = 'unnamedplus'
 
 vim.cmd(':colorscheme vim')
 vim.cmd(':syntax off')
