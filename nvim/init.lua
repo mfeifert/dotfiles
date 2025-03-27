@@ -14,10 +14,12 @@ vim.o.smartindent = true
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.laststatus = 1
-vim.cmd(":colorscheme vim")
-vim.cmd(":syntax off")
+
+vim.cmd(':colorscheme vim')
+vim.cmd(':syntax off')
 
 vim.g.mapleader = ' '
+
 vim.keymap.set('n', '<leader>w', ':set wrap!<cr>')
 vim.keymap.set('n', '<leader>h', ':let @/ = ""<cr>')
 vim.keymap.set('n', '<leader>t', ':lua toggle_background()<cr>')
@@ -44,23 +46,21 @@ vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 
-vim.api.nvim_create_autocmd({ "TermOpen", "WinEnter" }, {
-  pattern = "term://*",
-  command = "startinsert"
+vim.api.nvim_create_autocmd({ 'TermOpen', 'WinEnter' }, {
+  pattern = 'term://*',
+  command = 'startinsert'
 })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = {"*.c", "*.h"},
-  callback = function ()
-    vim.cmd(":silent !maf-indent %")
-  end,
+vim.api.nvim_create_autocmd('BufWritePost', {
+  pattern = { '*.c', '*.h' },
+  command = ":silent !maf-indent %"
 })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "*",
+vim.api.nvim_create_autocmd('BufWritePost', {
+  pattern = '*',
   callback = function ()
     if vim.tbl_contains({ 'sh', 'bash', 'zsh' }, vim.bo.filetype) then
-      vim.cmd(":silent !maf-shfmt %")
+      vim.cmd(':silent !maf-shfmt %')
     end
   end,
 })
