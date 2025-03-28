@@ -23,7 +23,7 @@ export DB_DIR=~/sync/db
 export LEDGER_FILE=~/sync/finance/current_year.ledger
 export BAT_THEME='ansi'
 export FZF_DEFAULT_COMMAND='rg --hidden --files'
-export FZF_DEFAULT_OPTS="--style=full --border=rounded --layout=reverse --preview 'bat --style=plain --color=always {}'"
+export FZF_DEFAULT_OPTS="--style=full --border=rounded --layout=reverse --preview-window='right:60%' --preview 'bat --color=always {}'"
 
 # Neovim configurations
 
