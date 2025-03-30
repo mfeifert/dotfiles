@@ -45,6 +45,10 @@ alias tl="tmux ls"
 alias ff="fastfetch"
 alias lg="lazygit"
 alias ll="eza -Algh --icons=auto --group-directories-first --sort Name"
+alias fze='env | sort | fzf --no-preview'
+alias fza='alias | fzf --no-preview'
+alias fzfonts='fc-list : family | sort | column --table --separator="," | fzf --no-preview'
+alias glt='ghostty +list-themes'
 
 alias pp="ping 1.1.1.1"
 alias db="cd $DB_DIR"
