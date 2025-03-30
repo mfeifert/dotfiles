@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # System-specific configuration
 
 case $(uname -s) in
@@ -19,7 +21,12 @@ export HISTSIZE=
 export EDITOR="nvim"
 export BAT_THEME="ansi"
 export FZF_DEFAULT_COMMAND="rg --hidden --files"
-export FZF_DEFAULT_OPTS="--style=full --border=rounded --layout=reverse --preview-window='right:60%' --preview 'bat --color=always {}'"
+export FZF_DEFAULT_OPTS=" \
+	--style=full \
+	--border=rounded \
+	--layout=reverse \
+	--preview-window='right:60%' \
+	--preview 'bat --color=always {}'"
 
 # Aliases
 
