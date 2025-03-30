@@ -7,7 +7,6 @@ case $(uname -s) in
 	"Linux")
 		alias ls='ls -Ahv --color=auto --group-directories-first'
 		alias ip='ip -c'
-		alias ports='sudo ss -tulpnQH | sort -k 5'
 		;;
 	*)
 		echo "Unknown system type"
