@@ -15,8 +15,8 @@ vim.o.writebackup = false
 vim.o.laststatus = 1
 vim.o.clipboard = 'unnamedplus'
 
-vim.cmd(':colorscheme vim')
-vim.cmd(':syntax off')
+vim.cmd(':colorscheme lunaperche')
+vim.cmd(':syntax on')
 
 vim.g.mapleader = ' '
 
