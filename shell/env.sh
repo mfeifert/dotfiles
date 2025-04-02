@@ -26,7 +26,8 @@ export FZF_DEFAULT_OPTS=" \
 	--border=rounded \
 	--layout=reverse \
 	--preview-window='right:60%' \
-	--preview 'bat --color=always {}'"
+	--preview 'bat --color=always {}' \
+"
 
 # Aliases
 
