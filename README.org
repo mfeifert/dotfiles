@@ -1,10 +1,3 @@
 * dotfiles
 
-*WARNING* These dotfiles are *NOT*:
-
-- intended for public consumption
-- intended for purposes of enrichment or enjoyment
-- appropriate for civilized company
-- conducive to any level of self respect
-- to be understood as an example of even the most basic level of moral or civic responsibility
-- expected to reflect positively upon their author(s) or upon anyone who is caught using them
+These dotfiles are not intended for public consumption or for purposes of enrichment or enjoyment.  They are not appropriate for civilized company, nor are they conducive to any level of self respect, or to be understood as an example of even the most basic level of moral or civic responsibility.  They are not expected to reflect positively upon their author(s) or upon anyone who uses them.
