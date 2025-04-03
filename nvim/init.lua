@@ -21,7 +21,9 @@ vim.cmd(':syntax on')
 vim.g.mapleader = ' '
 
 vim.keymap.set('n', '<leader>w', ':set wrap!<cr>')
+vim.keymap.set('n', '<leader>n', ':set number!<cr>')
 vim.keymap.set('n', '<leader>t', ':lua toggle_background()<cr>')
+vim.keymap.set('n', '<leader>s', ':if exists("g:syntax_on") | syntax off | else | syntax enable | endif<CR>')
 vim.keymap.set('n', '<leader>h', ':let @/ = ""<cr>')
 vim.keymap.set('n', '<Esc>', ':noh<CR>')
 vim.keymap.set('n', 'H', ':bn<cr>')
