@@ -1,17 +1,17 @@
+bold-is-bright = true
+# cursor-style = bar
+cursor-style-blink = false
 font-family = monospace
 font-size = 15
 font-feature = -calt,-dlig,-liga
-bold-is-bright = true
-cursor-style-blink = false
-shell-integration-features = no-cursor
-#cursor-style = bar
+gtk-titlebar = false
 mouse-hide-while-typing = true
+shell-integration-features = no-cursor
+theme = dark:maf-midnight-in-mojave,light:maf_Raycast_Light
+unfocused-split-opacity = 1
+window-decoration = none
 window-height = 54
 window-width = 200
-window-decoration = none
-theme = dark:maf-midnight-in-mojave,light:maf_Raycast_Light
-gtk-titlebar = false
-unfocused-split-opacity = 1
 
 keybind = alt+t=new_tab
 keybind = alt+w=close_tab
