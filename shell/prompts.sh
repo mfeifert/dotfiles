@@ -1,7 +1,7 @@
 ########
 # bash #
 ########
-#
+
 # simple bash prompt for Fedora
 BLUE="\e[1;34m" # bold blue
 BOLD="\e[1;37m" # bold white
@@ -14,7 +14,7 @@ RC="\e[0m" # reset color
 PS1="${BLUE}[${RC}\u@\h \W${BLUE}]${RC}\\$ "
 
 # colorful bash prompt from LARBS
-PS1='\[\e[1;31m\][\[\e[1;33m\]\u\[\e[1;32m\]@\[\e[1;34m\]\h\[\e[1;35m\] \W\[\e[1;31m\]]\[\e[1;37m\]\$\e[0m '
+PS1="\[\e[1;31m\][\[\e[1;33m\]\u\[\e[1;32m\]@\[\e[1;34m\]\h\[\e[1;35m\] \W\[\e[1;31m\]]\[\e[1;0m\]\$\e[0m "
 
 #######
 # zsh #
