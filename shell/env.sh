@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # System-specific configuration
 
 case $(uname -s) in
@@ -21,40 +19,37 @@ export HISTSIZE=
 export EDITOR="nvim"
 export BAT_THEME="ansi"
 export FZF_DEFAULT_COMMAND="rg --hidden --files"
-export FZF_DEFAULT_OPTS=" \
-	--style=full \
+export FZF_DEFAULT_OPTS="
 	--border=rounded \
 	--layout=reverse \
 	--preview-window='right:60%' \
 	--preview 'bat --color=always {}' \
-"
+	--style=full"
 
 # Aliases
 
-alias cp="cp -iv"
-alias mv="mv -iv"
-alias grep="grep --color=auto --exclude-dir=.git"
+## default options
+alias cp="cp -i"
 alias diff="diff --color=auto"
-alias watch="watch --color"
 alias emacs="emacs -nw"
+alias eza="eza -Agh --icons=auto --group-directories-first --sort Name"
+alias grep="grep --color=auto --exclude-dir=.git"
+alias mv="mv -i"
+alias watch="watch --color"
 
+## shortcuts
 alias c="clear"
+alias ff="fastfetch"
+alias glk="ghostty +list-keybinds"
+alias glt="ghostty +list-themes"
+alias lg="lazygit"
 alias p="python3 -q"
 alias t="tmux attach"
 alias tk="tmux kill-session"
 alias tl="tmux ls"
-alias ff="fastfetch"
-alias lg="lazygit"
-alias eza="eza -Agh --icons=auto --group-directories-first --sort Name"
-alias fze='env | sort | fzf --no-preview'
-alias fza='alias | fzf --no-preview'
-alias fzfonts='fc-list : family | sort | column --table --separator="," | fzf --no-preview'
-alias glt='ghostty +list-themes'
 
+## utilities
+alias fze="env | sort | fzf --no-preview"
+alias fza="alias | fzf --no-preview"
+alias fzfonts="fc-list : family | sort | column --table --separator=',' | fzf --no-preview"
 alias pp="ping 1.1.1.1"
-alias db="cd $DB_DIR"
-alias dot='(cd "$HOME/dotfiles" && nvim -c FZF)'
-alias www='(cd "$HOME/www" && nvim -c FZF)'
-
-alias nvm="NVIM_APPNAME=nvim-maf nvim"
-alias nvl="NVIM_APPNAME=nvim-lazyvim nvim"
