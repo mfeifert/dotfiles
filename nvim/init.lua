@@ -1,7 +1,7 @@
 vim.o.number = false
 vim.o.relativenumber = false
 vim.o.tabstop = 8
-vim.o.shiftwidth = 8
+vim.o.shiftwidth = 0
 vim.o.expandtab = false
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 4
