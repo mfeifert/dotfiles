@@ -15,9 +15,10 @@ esac
 
 # Environment variables
 
-export HISTSIZE=
-export EDITOR="nvim"
 export BAT_THEME="ansi"
+export EDITOR="nvim"
+export HISTSIZE=
+export VERSION_CONTROL="never" # used by GNU indent
 export FZF_DEFAULT_COMMAND="rg --hidden --files"
 export FZF_DEFAULT_OPTS="
 	--border=rounded \
