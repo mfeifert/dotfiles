@@ -4,17 +4,24 @@
 
 # simple bash prompt for Fedora
 BLUE="\e[1;34m" # bold blue
-BOLD="\e[1;37m" # bold white
-RC="\e[0m" # reset color
-PS1="${BLUE}[${BOLD}\u@\h \W${BLUE}]${RC}\\$ "
+BOLD="\e[1;0m"
+RESET="\e[0m"
+PS1="${BLUE}[${BOLD}\u@\h \W${BLUE}]${RESET}\\$ "
 
 # simple bash prompt for Arch
 BLUE="\e[1;38;2;51;170;221m"
-RC="\e[0m" # reset color
-PS1="${BLUE}[${RC}\u@\h \W${BLUE}]${RC}\\$ "
+RESET="\e[0m"
+PS1="${BLUE}[${RESET}\u@\h \W${BLUE}]${RESET}\\$ "
 
 # colorful bash prompt from LARBS
-PS1="\[\e[1;31m\][\[\e[1;33m\]\u\[\e[1;32m\]@\[\e[1;34m\]\h\[\e[1;35m\] \W\[\e[1;31m\]]\[\e[1;0m\]\$\e[0m "
+red="\e[1;31m"
+yellow="\e[1;33m"
+green="\e[1;32m"
+blue="\e[1;34m"
+purple="\e[1;35m"
+bold="\e[1;0m"
+reset="\e[0m"
+PS1="${red}[${yellow}\u${green}@${blue}\h${purple} \W${red}]${bold}$ ${reset}"
 
 #######
 # zsh #
