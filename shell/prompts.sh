@@ -27,10 +27,14 @@ PS1="${red}[${yellow}\u${green}@${blue}\h${purple} \W${red}]${bold}$ ${reset}"
 git_status_indicator()
 {
 	if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-		if [[ -z $(git status --porcelain) ]]; then
-			git=" ${green}*${reset} "
-		else
+		if [[ -n $(git status --porcelain) ]]; then
 			git=" ${red}*${reset} "
+		else
+			if [[ $(git rev-list --count @{u}..HEAD) -gt 0 ]]; then
+				git=" ${yellow}*${reset} "
+			else
+				git=" ${green}*${reset} "
+			fi
 		fi
 	else
 		git=""
