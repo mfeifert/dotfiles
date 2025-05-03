@@ -23,6 +23,29 @@ bold="\e[1;0m"
 reset="\e[0m"
 PS1="${red}[${yellow}\u${green}@${blue}\h${purple} \W${red}]${bold}$ ${reset}"
 
+# colorful bash prompt from LARBS with git status indicator
+red="\e[1;31m"
+yellow="\e[1;33m"
+green="\e[1;32m"
+blue="\e[1;34m"
+purple="\e[1;35m"
+bold="\e[1;0m"
+reset="\e[0m"
+git_status_indicator()
+{
+	if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+		if [[ -z $(git status --porcelain) ]]; then
+			git=" ${green}*${reset} "
+		else
+			git=" ${red}*${reset} "
+		fi
+	else
+		git=""
+	fi
+	PS1="${red}[${yellow}\u${green}@${blue}\h ${purple}\W${red}]${git}${bold}$ ${reset}"
+}
+PROMPT_COMMAND="git_status_indicator"
+
 #######
 # zsh #
 #######
