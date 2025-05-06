@@ -54,3 +54,34 @@ alias fze="env | sort | fzf --no-preview"
 alias fza="alias | fzf --no-preview"
 alias fzfonts="fc-list : family | sort | column --table --separator=',' | fzf --no-preview"
 alias pp="ping 1.1.1.1"
+
+# Functions
+
+function task()
+{
+	if [[ $1 == "e" ]]; then
+		(cd "$TASK_DATA_DIR" && nvim -c FZF)
+	else
+		clear
+		task-dashboard
+		echo
+	fi
+}
+
+function tt()
+{
+	task-todo "${@}"
+	task
+}
+
+function td()
+{
+	task-daily "$@"
+	[[ $1 != "a" ]] && task
+}
+
+function tm()
+{
+	task-monthly "${@}"
+	[[ $1 != "a" ]] && task
+}
