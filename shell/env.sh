@@ -70,18 +70,18 @@ function task()
 
 function tt()
 {
-	task-todo "${@}"
+	task-todo
 	task
 }
 
 function td()
 {
-	task-daily "$@"
+	task-daily
 	[[ $1 != "a" ]] && task
 }
 
 function tm()
 {
-	task-monthly "${@}"
+	task-monthly
 	[[ $1 != "a" ]] && task
 }
