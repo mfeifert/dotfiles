@@ -1,6 +1,6 @@
 vim.o.number = false
 vim.o.relativenumber = false
-vim.o.tabstop = 8
+vim.o.tabstop = 4
 vim.o.shiftwidth = 0
 vim.o.expandtab = false
 vim.o.scrolloff = 8
