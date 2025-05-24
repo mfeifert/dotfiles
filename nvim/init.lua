@@ -32,6 +32,10 @@ vim.keymap.set('n', '<Tab>', ':tabnext<cr>')
 vim.keymap.set('n', '<S-Tab>', ':tabprevious<cr>')
 vim.keymap.set('i', '<C-f>', '<Right>')
 vim.keymap.set('i', '<C-b>', '<Left>')
+vim.keymap.set('i', '(', '()<Left>')
+vim.keymap.set('i', '[', '[]<Left>')
+vim.keymap.set('i', '{', '{}<Left>')
+vim.keymap.set('i', '"', '""<Left>')
 vim.keymap.set('n', '<leader>f', ':FZF<cr>')
 vim.keymap.set('n', '<leader>g', ':Rg<cr>')  -- requires fzf.vim plugin
 vim.keymap.set('n', '<leader>b', ':Buffers<cr>')  -- requires fzf.vim plugin
