@@ -140,6 +140,7 @@
 
   (use-package ef-themes)
   (use-package standard-themes)
+  (use-package doric-themes)
 #+end_src
 
 * Icon fonts
