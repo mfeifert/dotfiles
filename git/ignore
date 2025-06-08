@@ -2,3 +2,6 @@
 *.out
 test
 tst
+test.c
+test.go
+test.py
