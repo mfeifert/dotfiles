@@ -290,6 +290,7 @@
     (evil-define-key '(normal motion visual) 'global
       (kbd "RET") nil ; unset RET to use with org-return-follows-link
       (kbd "SPC") maf-spc-map
+      (kbd "g c") 'comment-line
       ;; (kbd "j") (kbd "g j")
       ;; (kbd "k") (kbd "g k")
       )
