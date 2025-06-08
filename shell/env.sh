@@ -86,3 +86,9 @@ function tm()
 	task-monthly "$@"
 	[[ $1 != "a" ]] && task
 }
+
+function f()
+{
+	file=$(fzf)
+	[[ -n $file ]] && nvim $file
+}
