@@ -39,7 +39,8 @@ git_status_indicator()
 	else
 		git=""
 	fi
-	PS1="${red}[${yellow}\u${green}@${blue}\h ${purple}\W${red}]${git}${bold}$ ${reset}"
+	# Key: \u username, \h hostname, \W basename of $PWD, \$ $ or # (if root)
+	PS1="${red}[${yellow}\u${green}@${blue}\h ${purple}\W${red}]${git}${bold}\$ ${reset}"
 }
 PROMPT_COMMAND="git_status_indicator"
 
