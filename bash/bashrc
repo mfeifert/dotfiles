@@ -8,6 +8,7 @@ export BAT_THEME="ansi"
 export EDITOR="nvim"
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 export HISTSIZE=
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -l man'"
 export VERSION_CONTROL="never" # used by GNU indent
 export FZF_DEFAULT_COMMAND="rg --hidden --files"
 export FZF_DEFAULT_OPTS="
@@ -33,6 +34,7 @@ alias watch="watch --color"
 
 ## shortcuts
 alias c="clear"
+alias d='(export EDITOR="nvim +" && denote)'
 alias glk="ghostty +list-keybinds"
 alias glt="ghostty +list-themes"
 alias gr="go run ."
@@ -86,4 +88,9 @@ f()
 {
 	file=$(fzf)
 	[[ -n $file ]] && nvim $file
+}
+
+h()
+{
+	"$@" --help 2>&1 | bat --plain --language=help
 }
