@@ -8,7 +8,7 @@ export BAT_THEME="ansi"
 export EDITOR="nvim"
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 export HISTSIZE=
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="sh -c 'col --spaces --no-backspaces | bat --plain --language man'"
 export MANROFFOPT="-c"
 export VERSION_CONTROL="never" # used by GNU indent
 export FZF_DEFAULT_COMMAND="rg --hidden --files"
@@ -35,14 +35,15 @@ alias watch="watch --color"
 
 ## shortcuts
 alias c="clear"
-alias d='(export EDITOR="nvim +" && denote)'
+alias d='(export EDITOR="nvim +"; denote)'
 alias glk="ghostty +list-keybinds"
 alias glt="ghostty +list-themes"
 alias gr="go run ."
 alias lg="lazygit"
 alias ll="ls -l"
-alias n="(cd $NOTES_DIR && f)"
+alias n="(cd $NOTES_DIR; f)"
 alias p="python3 -q"
+alias s="shows"
 alias sc="shellcheck"
 alias t="tmux attach"
 alias tk="tmux kill-session"
@@ -56,10 +57,16 @@ alias pp="ping 1.1.1.1"
 
 # Functions
 
+f()
+{
+	file=$(fzf)
+	[[ -n $file ]] && nvim "$file"
+}
+
 task()
 {
 	if [[ $1 == "e" ]]; then
-		(cd "$TASK_DATA_DIR" && nvim -c FZF)
+		(cd "$TASK_DATA_DIR" && f)
 	else
 		clear
 		task-dashboard
@@ -85,13 +92,7 @@ tm()
 	[[ $1 != "a" ]] && task
 }
 
-f()
-{
-	file=$(fzf)
-	[[ -n $file ]] && nvim $file
-}
-
 h()
 {
-	"$@" --help 2>&1 | bat --plain --language=help
+	"$@" --help 2>&1 | bat --plain --language="help"
 }
