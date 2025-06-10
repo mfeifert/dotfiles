@@ -27,3 +27,14 @@ fi
 # \$  $ if regular user, # if root
 
 export PS1="${red}[${yellow}\u${green}@${blue}\h ${purple}\W${red}]${git}${bold}\$ ${reset}"
+
+# # simple bash prompt for Fedora
+# BLUE="\[\e[1;34m\]" # bold blue
+# BOLD="\[\e[1;0m\]"
+# RESET="\[\e[0m\]"
+# PS1="${BLUE}[${BOLD}\u@\h \W${BLUE}]${RESET}\\$ "
+
+# # simple bash prompt for Arch
+# BLUE="\[\e[1;38;2;51;170;221m\]"
+# RESET="\[\e[0m\]"
+# PS1="${BLUE}[${RESET}\u@\h \W${BLUE}]${RESET}\\$ "
