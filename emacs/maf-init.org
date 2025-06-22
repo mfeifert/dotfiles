@@ -250,6 +250,7 @@
   (keymap-global-set "<f7>" 'maf-ide)
   (keymap-global-set "<f8>" 'maf-notes)
   (keymap-global-set "<f9>" 'maf-ledger)
+  (keymap-global-set "C-<f11>" 'maf-reset-frame-size-and-position)
   (keymap-global-set "<f12>" 'maf-scratch)
   (keymap-global-set "C-<f12>" 'maf-init)
 #+end_src
