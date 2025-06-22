@@ -257,21 +257,21 @@
     :doc "First layer keymap."
     "SPC" maf-spc-spc-map
     "x" ctl-x-map
-    "c" 'org-ctrl-c-ctrl-c
     "h" help-map
-    "s" 'save-buffer
-    "r" 'recompile
+    "b" 'switch-to-buffer
+    "c" 'org-ctrl-c-ctrl-c
+    "d" 'dired-jump
     "f" 'find-file
     "g" 'magit
-    "u" 'universal-argument ; C-u set to evil-scroll-up
-    "w" 'visual-line-mode
     "l" 'ledger-report
-    "b" 'switch-to-buffer
-    "d" 'dired-jump
     "m" 'bookmark-jump
     "n" 'display-line-numbers-mode
+    "o" 'olivetti-mode
+    "r" 'recompile
+    "s" 'save-buffer
     "t" 'modus-themes-toggle
-    "o" 'olivetti-mode)
+    "u" 'universal-argument ; C-u set to evil-scroll-up
+    "w" 'visual-line-mode)
 #+end_src
 
 * Evil
