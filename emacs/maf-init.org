@@ -462,9 +462,9 @@
     :config
     (setq ledger-default-date-format "%Y-%m-%d")
     (setq ledger-reports
-          '(("bs" "%(binary) -f %(ledger-file) bal Assets Liabilities")
-            ("is" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
-            ("reg" "%(binary) -f %(ledger-file) reg"))))
+          '(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
+            ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
+            ("Register" "%(binary) -f %(ledger-file) reg"))))
 #+end_src
 
 * Focus mode
@@ -610,14 +610,14 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   ;; Set to <f9>
-  ;; This function is incomplete. I want this script to open
-  ;; the ledger report, but (ledger-report) does not work
-  ;; as exected. So far it only causes problems.
   (defun maf-ledger ()
     "Open ledger file and ledger-report windows."
     (interactive)
     (delete-other-windows)
-    (find-file "~/sync/finance/current_year.ledger"))
+    (find-file "~/sync/finance/current_year.ledger")
+    (ledger-report "Balance Sheet" nil)
+    (other-window 1)
+    (message nil))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
