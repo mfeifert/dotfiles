@@ -119,6 +119,7 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (setq auto-save-default nil)
   (setq make-backup-files nil)
+  (setq delete-by-moving-to-trash t)
   (global-auto-revert-mode t)
   (save-place-mode 1)
 #+end_src
