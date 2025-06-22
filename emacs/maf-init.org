@@ -51,7 +51,7 @@
     (message nil))
 
   ;; Line numbers
-  (setq display-line-numbers-type 'visual) ; 'visual for Evil mode, 'absolute for Emacs mode
+  (setq display-line-numbers-type 'absolute) ; 'visual or 'absolute
   (setq-default display-line-numbers-width 4) ; To prevent distracting auto-resizing in long org files
 
   ;; Auto-close brackets and quotes
@@ -92,7 +92,7 @@
   (defun maf-text-editing-mode ()
     "Enables modes used for normal text editing."
     (interactive)
-    (display-line-numbers-mode 1)
+    ;; (display-line-numbers-mode 1)
     (visual-line-mode 1))
 
   (add-hook 'prog-mode-hook #'maf-text-editing-mode)
