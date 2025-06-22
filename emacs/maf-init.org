@@ -33,12 +33,21 @@
 * Windows
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  ;; Window features
   (scroll-bar-mode -1)
   (fringe-mode 0)
   (blink-cursor-mode -1)
+
+  ;; Window splits
   (setq split-width-threshold 0)
   (setq split-height-threshold nil)
+
+  ;; Help window
   (setq help-window-select t)
+
+  ;; Scroll behavior
+  (setq scroll-margin 8) ; Scroll up or down when cursor moves within 8 lines of the top or bottom of screen
+  (setq scroll-conservatively 101) ; Scroll one line at a time
 #+end_src
 
 * Buffers
