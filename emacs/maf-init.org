@@ -305,17 +305,6 @@
     (completion-category-overrides '((file (styles basic partial-completion)))))
 #+end_src
 
-** Corfu
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package corfu
-    :init
-    (setq corfu-auto t)
-    ;; :hook
-    ;; (prog-mode ledger-mode)
-    )
-#+end_src
-
 ** Company
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
@@ -394,12 +383,6 @@
     :after marginalia
     :config
     (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
-
-  (use-package nerd-icons-corfu
-    :ensure t
-    :after corfu
-    :config
-    (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
   (use-package nerd-icons-dired
     :ensure t
