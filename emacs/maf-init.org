@@ -614,8 +614,9 @@
     (interactive)
     (delete-other-windows)
     (dired "~/sync/notes/")
-    (split-window-right)
-    (other-window 1))
+    ;; (split-window-right)
+    ;; (other-window 1)
+    )
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
