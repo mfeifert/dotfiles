@@ -70,50 +70,6 @@
   (savehist-mode 1)
 #+end_src
 
-* Tree-sitter
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (setq major-mode-remap-alist '((c-mode . c-ts-mode)
-                                 (python-mode . python-ts-mode)))
-#+end_src
-
-* LSP
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package lsp-mode
-    :hook
-    ((c-ts-mode . lsp)
-     (python-ts-mode . lsp)
-     (lsp-mode . lsp-enable-which-key-integration))
-    :init
-    (setq lsp-enable-snippet nil))
-#+end_src
-
-* Flycheck
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package flycheck)
-#+end_src
-
-* Text editing mode
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-text-editing-mode ()
-    "Enables modes used for normal text editing."
-    (interactive)
-    ;; (display-line-numbers-mode 1)
-    (visual-line-mode 1))
-
-  (add-hook 'prog-mode-hook #'maf-text-editing-mode)
-  (add-hook 'text-mode-hook #'maf-text-editing-mode)
-#+end_src
-
-* Mode line
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (column-number-mode 1)
-#+end_src
-
 * Files
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
@@ -122,24 +78,6 @@
   (setq delete-by-moving-to-trash t)
   (global-auto-revert-mode t)
   (save-place-mode 1)
-#+end_src
-
-* Dired
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (setq dired-kill-when-opening-new-dired-buffer t)
-  (setq dired-auto-revert-buffer #'dired-directory-changed-p)
-  (setq dired-free-space nil)
-  (setq dired-dwim-target t)
-  (add-hook 'dired-mode-hook #'dired-hide-details-mode)
-  (add-hook 'dired-mode-hook #'hl-line-mode)
-  (add-hook 'dired-mode-hook #'denote-dired-mode)
-#+end_src
-
-* Magit
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package magit)
 #+end_src
 
 * Appearance
@@ -154,89 +92,10 @@
   (use-package doric-themes)
 #+end_src
 
-* Icon fonts
+* Mode line
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package nerd-icons
-    :ensure t)
-
-  (use-package nerd-icons-completion
-    :ensure t
-    :after marginalia
-    :config
-    (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
-
-  (use-package nerd-icons-corfu
-    :ensure t
-    :after corfu
-    :config
-    (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
-
-  (use-package nerd-icons-dired
-    :ensure t
-    :hook
-    (dired-mode . nerd-icons-dired-mode))
-#+end_src
-
-* Completion
-** Vertico
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package vertico
-    :init
-    (setq vertico-cycle t)
-    :config
-    (vertico-mode 1))
-#+end_src
-
-** Marginalia
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package marginalia
-    :config
-    (marginalia-mode 1))
-#+end_src
-
-** Orderless
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package orderless
-    :custom
-    (completion-styles '(orderless))
-    (completion-category-overrides '((file (styles basic partial-completion)))))
-#+end_src
-
-** Corfu
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package corfu
-    :init
-    (setq corfu-auto t)
-    ;; :hook
-    ;; (prog-mode ledger-mode)
-    )
-#+end_src
-
-** Company
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package company
-    :init
-    (setq company-minimum-prefix-length 1)
-    (setq company-tooltip-limit 20)
-    (setq company-tooltip-flip-when-above t)
-    :config
-    :hook
-    (prog-mode ledger-mode))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package company-quickhelp
-    :init
-    (setq company-quickhelp-delay 0)
-    (setq company-tooltip-align-annotations t)
-    :hook
-    (company-mode))
+  (column-number-mode 1)
 #+end_src
 
 * Key bindings
@@ -286,63 +145,16 @@
     "w" 'visual-line-mode)
 #+end_src
 
-* Evil
+* Dired
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package evil
-    :init
-    (setq evil-want-C-i-jump nil) ; make TAB work for org-cycle
-    (setq evil-want-C-u-scroll t)
-    :config
-    ;; Unset key commands in org-mode for easy tab controls
-    (add-hook 'org-mode-hook (lambda ()
-                               (keymap-local-unset "M-h") ; mark-paragraph
-                               (keymap-local-unset "M-t") ; org-transpose-words
-                               ))
-
-    (evil-define-key '(normal motion visual) 'global
-      (kbd "RET") nil ; unset RET to use with org-return-follows-link
-      (kbd "SPC") maf-spc-map
-      (kbd "g c") 'comment-line
-      ;; (kbd "j") (kbd "g j")
-      ;; (kbd "k") (kbd "g k")
-      )
-
-    (evil-define-key '(normal motion visual emacs) 'global
-      (kbd "M-k") 'evil-window-next
-      (kbd "M-j") 'evil-window-prev
-      (kbd "M-l") 'tab-next
-      (kbd "M-h") 'tab-previous
-      (kbd "M-t") 'tab-new
-      (kbd "M-w") 'tab-close)
-
-    (evil-set-initial-state 'fundamental-mode 'emacs)
-    (evil-set-initial-state 'ledger-report-mode 'emacs)
-    (evil-set-initial-state 'elfeed-search-mode 'emacs)
-    (evil-set-initial-state 'elfeed-show-mode 'emacs)
-    (evil-set-initial-state 'Buffer-menu-mode 'emacs)
-    (evil-set-initial-state 'calculator-mode 'emacs)
-    (evil-set-initial-state 'calc-trail-mode 'emacs)
-    (evil-set-initial-state 'calendar-mode 'emacs)
-    (evil-set-initial-state 'special-mode 'emacs)
-    (evil-set-initial-state 'eshell-mode 'emacs)
-    (evil-set-initial-state 'dired-mode 'emacs)
-    (evil-set-initial-state 'diff-mode 'emacs)
-    (evil-set-initial-state 'help-mode 'emacs)
-    (evil-set-initial-state 'Info-mode 'emacs)
-
-    (evil-mode -1))
-#+end_src
-
-* Calendar & Diary
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (load "~/sync/org/location.el")
-  (setq calendar-time-zone -480)
-  (setq calendar-standard-time-zone-name "PST")
-  (setq calendar-daylight-time-zone-name "PDT")
-  (setq diary-file "~/sync/org/diary")
-  (setq calendar-date-style 'iso)
+  (setq dired-kill-when-opening-new-dired-buffer t)
+  (setq dired-auto-revert-buffer #'dired-directory-changed-p)
+  (setq dired-free-space nil)
+  (setq dired-dwim-target t)
+  (add-hook 'dired-mode-hook #'dired-hide-details-mode)
+  (add-hook 'dired-mode-hook #'hl-line-mode)
+  (add-hook 'dired-mode-hook #'denote-dired-mode)
 #+end_src
 
 * Org
@@ -437,6 +249,214 @@
                                 ))
 #+end_src
 
+* Calendar & Diary
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (load "~/sync/org/location.el")
+  (setq calendar-time-zone -480)
+  (setq calendar-standard-time-zone-name "PST")
+  (setq calendar-daylight-time-zone-name "PDT")
+  (setq diary-file "~/sync/org/diary")
+  (setq calendar-date-style 'iso)
+#+end_src
+
+* which-key
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (which-key-mode 1)
+#+end_src
+
+* Text editing mode
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (defun maf-text-editing-mode ()
+    "Enables modes used for normal text editing."
+    (interactive)
+    ;; (display-line-numbers-mode 1)
+    (visual-line-mode 1))
+
+  (add-hook 'prog-mode-hook #'maf-text-editing-mode)
+  (add-hook 'text-mode-hook #'maf-text-editing-mode)
+#+end_src
+
+* Completion
+** Vertico
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package vertico
+    :init
+    (setq vertico-cycle t)
+    :config
+    (vertico-mode 1))
+#+end_src
+
+** Marginalia
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package marginalia
+    :config
+    (marginalia-mode 1))
+#+end_src
+
+** Orderless
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package orderless
+    :custom
+    (completion-styles '(orderless))
+    (completion-category-overrides '((file (styles basic partial-completion)))))
+#+end_src
+
+** Corfu
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package corfu
+    :init
+    (setq corfu-auto t)
+    ;; :hook
+    ;; (prog-mode ledger-mode)
+    )
+#+end_src
+
+** Company
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package company
+    :init
+    (setq company-minimum-prefix-length 1)
+    (setq company-tooltip-limit 20)
+    (setq company-tooltip-flip-when-above t)
+    :config
+    :hook
+    (prog-mode ledger-mode))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package company-quickhelp
+    :init
+    (setq company-quickhelp-delay 0)
+    (setq company-tooltip-align-annotations t)
+    :hook
+    (company-mode))
+#+end_src
+
+* Tree-sitter
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (setq major-mode-remap-alist '((c-mode . c-ts-mode)
+                                 (python-mode . python-ts-mode)))
+#+end_src
+
+* LSP
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package lsp-mode
+    :hook
+    ((c-ts-mode . lsp)
+     (python-ts-mode . lsp)
+     (lsp-mode . lsp-enable-which-key-integration))
+    :init
+    (setq lsp-enable-snippet nil))
+#+end_src
+
+* Flycheck
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package flycheck)
+#+end_src
+
+* Focus mode
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package olivetti
+    :init
+    (setq olivetti-body-width 100))
+
+  (use-package logos
+    :init
+    (setq logos-hide-mode-line t)
+    (setq logos-olivetti t)
+    (setq logos-hide-fringe t))
+#+end_src
+
+* Magit
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package magit)
+#+end_src
+
+* Icon fonts
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package nerd-icons
+    :ensure t)
+
+  (use-package nerd-icons-completion
+    :ensure t
+    :after marginalia
+    :config
+    (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
+
+  (use-package nerd-icons-corfu
+    :ensure t
+    :after corfu
+    :config
+    (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+
+  (use-package nerd-icons-dired
+    :ensure t
+    :hook
+    (dired-mode . nerd-icons-dired-mode))
+#+end_src
+
+* Evil
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (use-package evil
+    :init
+    (setq evil-want-C-i-jump nil) ; make TAB work for org-cycle
+    (setq evil-want-C-u-scroll t)
+    :config
+    ;; Unset key commands in org-mode for easy tab controls
+    (add-hook 'org-mode-hook (lambda ()
+                               (keymap-local-unset "M-h") ; mark-paragraph
+                               (keymap-local-unset "M-t") ; org-transpose-words
+                               ))
+
+    (evil-define-key '(normal motion visual) 'global
+      (kbd "RET") nil ; unset RET to use with org-return-follows-link
+      (kbd "SPC") maf-spc-map
+      (kbd "g c") 'comment-line
+      ;; (kbd "j") (kbd "g j")
+      ;; (kbd "k") (kbd "g k")
+      )
+
+    (evil-define-key '(normal motion visual emacs) 'global
+      (kbd "M-k") 'evil-window-next
+      (kbd "M-j") 'evil-window-prev
+      (kbd "M-l") 'tab-next
+      (kbd "M-h") 'tab-previous
+      (kbd "M-t") 'tab-new
+      (kbd "M-w") 'tab-close)
+
+    (evil-set-initial-state 'fundamental-mode 'emacs)
+    (evil-set-initial-state 'ledger-report-mode 'emacs)
+    (evil-set-initial-state 'elfeed-search-mode 'emacs)
+    (evil-set-initial-state 'elfeed-show-mode 'emacs)
+    (evil-set-initial-state 'Buffer-menu-mode 'emacs)
+    (evil-set-initial-state 'calculator-mode 'emacs)
+    (evil-set-initial-state 'calc-trail-mode 'emacs)
+    (evil-set-initial-state 'calendar-mode 'emacs)
+    (evil-set-initial-state 'special-mode 'emacs)
+    (evil-set-initial-state 'eshell-mode 'emacs)
+    (evil-set-initial-state 'dired-mode 'emacs)
+    (evil-set-initial-state 'diff-mode 'emacs)
+    (evil-set-initial-state 'help-mode 'emacs)
+    (evil-set-initial-state 'Info-mode 'emacs)
+
+    (evil-mode -1))
+#+end_src
+
 * Denote
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
@@ -453,12 +473,6 @@
   (use-package markdown-mode)
 #+end_src
 
-* which-key
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (which-key-mode 1)
-#+end_src
-
 * Ledger
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
@@ -469,20 +483,6 @@
           '(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
             ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
             ("Register" "%(binary) -f %(ledger-file) reg"))))
-#+end_src
-
-* Focus mode
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package olivetti
-    :init
-    (setq olivetti-body-width 100))
-
-  (use-package logos
-    :init
-    (setq logos-hide-mode-line t)
-    (setq logos-olivetti t)
-    (setq logos-hide-fringe t))
 #+end_src
 
 * Elfeed
@@ -500,10 +500,11 @@
 #+end_src
 
 * Functions
+** F5
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (defun maf-agenda ()
-    "Open agenda and tasks file. "
+    "Open agenda and tasks file."
     (interactive)
     (delete-other-windows)
     (find-file "~/sync/org/tasks.org")
@@ -515,7 +516,7 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   ;; Set to <f5>
   (defun maf-task-lists ()
-    "Open task-list and tech_tasks files. "
+    "Open task-list and tech_tasks files."
     (interactive)
     (delete-other-windows)
     (find-file "~/sync/org/tech_tasks.org")
@@ -528,7 +529,7 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (defun maf-task-list-and-agenda ()
-    "Open agenda and tasks file. "
+    "Open agenda and tasks file."
     (interactive)
     (delete-other-windows)
     (find-file "~/sync/org/tasks.org")
@@ -553,6 +554,8 @@
     (delete-window))
 #+end_src
 
+** F6
+
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   ;; Set to <f6>
   (defun maf-journal ()
@@ -573,6 +576,8 @@
     (delete-other-windows))
 #+end_src
 
+** F7
+
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   ;; Set to <f7>
   (defun maf-ide ()
@@ -591,15 +596,7 @@
     (evil-window-top-left))
 #+end_src
 
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-project ()
-    "Open windows for current project."
-    (interactive)
-    (delete-other-windows)
-    (dired "~/sync/projects/db_scripts/")
-    (split-window-right)
-    (other-window 1))
-#+end_src
+** F8
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   ;; Set to <f8>
@@ -613,6 +610,8 @@
     )
 #+end_src
 
+** F9
+
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   ;; Set to <f9>
   (defun maf-ledger ()
@@ -624,6 +623,8 @@
     (other-window 1)
     (message nil))
 #+end_src
+
+** F12
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   ;; Set to <f12>
@@ -642,6 +643,8 @@
     (find-file "~/dotfiles/emacs/maf-init.org")
     (delete-other-windows))
 #+end_src
+
+** Other
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (defun maf-insert-datetree-heading ()
