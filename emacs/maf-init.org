@@ -104,7 +104,7 @@
   (keymap-global-set "C-c a" 'org-agenda)
 
   ;; Shortcuts to workspace layouts
-  (keymap-global-set "<f5>" 'maf-task-lists)
+  (keymap-global-set "<f5>" 'maf-agenda)
   (keymap-global-set "C-<f5>" 'maf-calendar)
   (keymap-global-set "<f6>" 'maf-journal)
   (keymap-global-set "C-<f6>" 'maf-elfeed)
@@ -503,6 +503,7 @@
 ** F5
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  ;; Set to <f5>
   (defun maf-agenda ()
     "Open agenda and tasks file."
     (interactive)
@@ -514,7 +515,6 @@
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Set to <f5>
   (defun maf-task-lists ()
     "Open task-list and tech_tasks files."
     (interactive)
