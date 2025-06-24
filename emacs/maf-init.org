@@ -409,13 +409,6 @@
                                           ":CAPTURED: %U\n"
                                           ":END:\n\n"))
 
-                                ("c" "CCNA study" entry
-                                 (file+headline "tasks.org" "CCNA")
-                                 ,(concat "* TODO CCNA study - %?\n"
-                                          ":PROPERTIES:\n"
-                                          ":CAPTURED: %U\n"
-                                          ":END:\n\n"))
-
                                 ("m" "Emacs" entry
                                  (file+headline "tasks.org" "Emacs")
                                  ,(concat "* TODO ISSUE: %?\n"
