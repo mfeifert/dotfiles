@@ -83,8 +83,6 @@
 * Appearance
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (setq modus-themes-markup '(bold))
-  (setq modus-themes-intense-mouseovers t)
   (load-theme 'modus-vivendi)
 
   (use-package ef-themes)
