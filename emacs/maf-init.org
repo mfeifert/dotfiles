@@ -462,9 +462,7 @@
 * which-key
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package which-key
-    :config
-    (which-key-mode 1))
+  (which-key-mode 1)
 #+end_src
 
 * Ledger
