@@ -100,18 +100,17 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (keymap-global-set "C-c a" 'org-agenda)
-
+  (keymap-global-set "C-c i" 'maf-ide)
+  
   ;; Shortcuts to workspace layouts
   (keymap-global-set "<f5>" 'maf-agenda)
   (keymap-global-set "C-<f5>" 'maf-calendar)
   (keymap-global-set "<f6>" 'maf-journal)
   (keymap-global-set "C-<f6>" 'maf-elfeed)
-  (keymap-global-set "<f7>" 'maf-ide)
-  (keymap-global-set "<f8>" 'maf-notes)
-  (keymap-global-set "<f9>" 'maf-ledger)
-  (keymap-global-set "C-<f11>" 'maf-reset-frame-size-and-position)
-  (keymap-global-set "<f12>" 'maf-scratch)
-  (keymap-global-set "C-<f12>" 'maf-init)
+  (keymap-global-set "<f7>" 'maf-notes)
+  (keymap-global-set "<f8>" 'maf-ledger)
+  (keymap-global-set "<f9>" 'maf-scratch)
+  (keymap-global-set "C-<f9>" 'maf-init)
 #+end_src
 
 * Keymaps
@@ -483,8 +482,9 @@
 * Functions
 ** F5
 
+<f5>
+
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Set to <f5>
   (defun maf-agenda ()
     "Open agenda and tasks file."
     (interactive)
@@ -494,6 +494,113 @@
     (org-agenda-list)
     (balance-windows))
 #+end_src
+
+C-<f5>
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (defun maf-calendar ()
+    "Open the calendar and both diary views."
+    (interactive)
+    (delete-other-windows)
+    (calendar)
+    (other-window 1)
+    (diary)
+    (diary-show-all-entries)
+    (delete-window))
+#+end_src
+
+** F6
+
+<f6>
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (defun maf-journal ()
+    "Open journal file with settings suitable for writing."
+    (interactive)
+    (delete-other-windows)
+    (find-file "~/sync/journal/current_year.txt")
+    (display-line-numbers-mode -1)
+    (logos-focus-mode 1))
+#+end_src
+
+C-<f6>
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (defun maf-elfeed ()
+    "Open elfeed in a single window."
+    (interactive)
+    (elfeed)
+    (delete-other-windows))
+#+end_src
+
+** F7
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (defun maf-notes ()
+    "Open two dired denote-directory buffers side-by-side."
+    (interactive)
+    (delete-other-windows)
+    (dired "~/sync/notes/")
+    ;; (split-window-right)
+    ;; (other-window 1)
+    )
+#+end_src
+
+** F8
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (defun maf-ledger ()
+    "Open ledger file and ledger-report windows."
+    (interactive)
+    (delete-other-windows)
+    (find-file "~/sync/finance/current_year.ledger")
+    (ledger-report "Balance Sheet" nil)
+    (other-window 1)
+    (message nil))
+#+end_src
+
+** F9
+
+<f9>
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (defun maf-scratch ()
+    "Open scratch buffer in a single window."
+    (interactive)
+    (scratch-buffer)
+    (delete-other-windows))
+#+end_src
+
+C-<f9>
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (defun maf-init ()
+    "Open main init file."
+    (interactive)
+    (find-file "~/dotfiles/emacs/maf-init.org")
+    (delete-other-windows))
+#+end_src
+
+** C-c
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  (defun maf-ide ()
+    "Open windows for programming environment.
+     Requires evil-mode."
+    (interactive)
+    (delete-other-windows)
+    (list-flycheck-errors)
+    (evil-window-right 1)
+    (evil-window-move-very-bottom)
+    (shrink-window 20)
+    (evil-window-top-left)
+    (split-window-right)
+    (evil-window-right 1)
+    (project-eshell)
+    (evil-window-top-left))
+#+end_src
+
+** Unbound
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (defun maf-task-lists ()
@@ -521,111 +628,6 @@
     (balance-windows)
     (other-window 1))
 #+end_src
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Set to C-<f5>
-  (defun maf-calendar ()
-    "Open the calendar and both diary views."
-    (interactive)
-    (delete-other-windows)
-    (calendar)
-    (other-window 1)
-    (diary)
-    (diary-show-all-entries)
-    (delete-window))
-#+end_src
-
-** F6
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Set to <f6>
-  (defun maf-journal ()
-    "Open journal file with settings suitable for writing."
-    (interactive)
-    (delete-other-windows)
-    (find-file "~/sync/journal/current_year.txt")
-    (display-line-numbers-mode -1)
-    (logos-focus-mode 1))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Set to C-<f6>
-  (defun maf-elfeed ()
-    "Open elfeed in a single window."
-    (interactive)
-    (elfeed)
-    (delete-other-windows))
-#+end_src
-
-** F7
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Set to <f7>
-  (defun maf-ide ()
-    "Open windows for programming environment.
-     Requires evil-mode."
-    (interactive)
-    (delete-other-windows)
-    (list-flycheck-errors)
-    (evil-window-right 1)
-    (evil-window-move-very-bottom)
-    (shrink-window 20)
-    (evil-window-top-left)
-    (split-window-right)
-    (evil-window-right 1)
-    (project-eshell)
-    (evil-window-top-left))
-#+end_src
-
-** F8
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Set to <f8>
-  (defun maf-notes ()
-    "Open two dired denote-directory buffers side-by-side."
-    (interactive)
-    (delete-other-windows)
-    (dired "~/sync/notes/")
-    ;; (split-window-right)
-    ;; (other-window 1)
-    )
-#+end_src
-
-** F9
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Set to <f9>
-  (defun maf-ledger ()
-    "Open ledger file and ledger-report windows."
-    (interactive)
-    (delete-other-windows)
-    (find-file "~/sync/finance/current_year.ledger")
-    (ledger-report "Balance Sheet" nil)
-    (other-window 1)
-    (message nil))
-#+end_src
-
-** F12
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Set to <f12>
-  (defun maf-scratch ()
-    "Open scratch buffer in a single window."
-    (interactive)
-    (scratch-buffer)
-    (delete-other-windows))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Set to <C-f12>
-  (defun maf-init ()
-    "Open main init file."
-    (interactive)
-    (find-file "~/dotfiles/emacs/maf-init.org")
-    (delete-other-windows))
-#+end_src
-
-** Other
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (defun maf-insert-datetree-heading ()
