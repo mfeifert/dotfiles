@@ -564,6 +564,7 @@ C-<f9>
   "Open main init file."
   (interactive)
   (find-file "~/dotfiles/emacs/maf-init.org")
+  (org-indent-mode -1)
   (delete-other-windows))
 #+end_src
 
