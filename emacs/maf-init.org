@@ -1,467 +1,468 @@
 * Lexical Binding
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: t; -*-
 #+end_src
 
 * Custom configurations
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (setq custom-file (locate-user-emacs-file "custom.el"))
-  (load custom-file :no-error-if-file-is-missing)
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(load custom-file :no-error-if-file-is-missing)
 #+end_src
 
 * Package
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (require 'package)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-  (require 'use-package-ensure)
-  (setq use-package-always-ensure t)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 #+end_src
 
 * Frames
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (setq ring-bell-function 'ignore)
-  (menu-bar-mode -1)
-  (tool-bar-mode -1)
-  (setq tab-bar-show 1)
-  (tab-bar-mode 1)
+(setq ring-bell-function 'ignore)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(setq tab-bar-show 1)
+(tab-bar-mode 1)
 #+end_src
 
 * Windows
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Window features
-  (scroll-bar-mode -1)
-  (fringe-mode 0)
-  (blink-cursor-mode -1)
+;; Window features
+(scroll-bar-mode -1)
+(fringe-mode 0)
+(blink-cursor-mode -1)
 
-  ;; Window splits
-  (setq split-width-threshold 0)
-  (setq split-height-threshold nil)
+;; Window splits
+(setq split-width-threshold 0)
+(setq split-height-threshold nil)
 
-  ;; Help window
-  (setq help-window-select t)
+;; Help window
+(setq help-window-select t)
 
-  ;; Scroll behavior
-  (setq scroll-margin 8) ; Scroll up or down when cursor moves within 8 lines of the top or bottom of screen
-  (setq scroll-conservatively 101) ; Scroll one line at a time
+;; Scroll behavior
+(setq scroll-margin 8) ; Scroll up or down when cursor moves within 8 lines of the top or bottom of screen
+(setq scroll-conservatively 101) ; Scroll one line at a time
 #+end_src
 
 * Buffers
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Inhibit startup messages
-  (setq initial-scratch-message nil)
-  (setq inhibit-startup-screen t)
-  (defun display-startup-echo-area-message ()
-    (message nil))
+;; Inhibit startup messages
+(setq initial-scratch-message nil)
+(setq inhibit-startup-screen t)
+(defun display-startup-echo-area-message ()
+  (message nil))
 
-  ;; Line numbers
-  (setq display-line-numbers-type 'absolute) ; 'visual or 'absolute
-  ;; (setq-default display-line-numbers-width 4) ; Prevent distracting auto-resizing of line number width in long org files
+;; Line numbers
+(setq display-line-numbers-type 'absolute) ; 'visual or 'absolute
+;; (setq-default display-line-numbers-width 4) ; Prevent distracting auto-resizing of line number width in long org files
 
-  ;; Auto-close brackets and quotes
-  (electric-pair-mode 1)
+;; Auto-close brackets and quotes
+(electric-pair-mode 1)
 
-  ;; Minibuffer history
-  (savehist-mode 1)
+;; Minibuffer history
+(savehist-mode 1)
 #+end_src
 
 * Files
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (setq auto-save-default nil)
-  (setq make-backup-files nil)
-  (setq delete-by-moving-to-trash t)
-  (global-auto-revert-mode t)
-  (save-place-mode 1)
+(setq auto-save-default nil)
+(setq make-backup-files nil)
+(setq delete-by-moving-to-trash t)
+(global-auto-revert-mode t)
+(save-place-mode 1)
 #+end_src
 
 * Appearance
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (load-theme 'modus-vivendi)
+(load-theme 'modus-vivendi)
 
-  (use-package ef-themes)
-  (use-package standard-themes)
-  (use-package doric-themes)
+(use-package ef-themes)
+(use-package standard-themes)
+(use-package doric-themes)
 #+end_src
 
 * Mode line
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (column-number-mode 1)
+(column-number-mode 1)
 #+end_src
 
 * Key bindings
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (keymap-global-set "C-c a" 'org-agenda)
-  (keymap-global-set "C-c i" 'maf-ide)
-  
-  ;; Shortcuts to workspace layouts
-  (keymap-global-set "<f5>" 'maf-agenda)
-  (keymap-global-set "C-<f5>" 'maf-calendar)
-  (keymap-global-set "<f6>" 'maf-journal)
-  (keymap-global-set "C-<f6>" 'maf-elfeed)
-  (keymap-global-set "<f7>" 'maf-notes)
-  (keymap-global-set "<f8>" 'maf-ledger)
-  (keymap-global-set "<f9>" 'maf-scratch)
-  (keymap-global-set "C-<f9>" 'maf-init)
+(keymap-global-set "C-c a" 'org-agenda)
+(keymap-global-set "C-c i" 'maf-ide)
+
+;; Shortcuts to workspace layouts
+(keymap-global-set "<f5>" 'maf-agenda)
+(keymap-global-set "C-<f5>" 'maf-calendar)
+(keymap-global-set "<f6>" 'maf-journal)
+(keymap-global-set "C-<f6>" 'maf-elfeed)
+(keymap-global-set "<f7>" 'maf-notes)
+(keymap-global-set "<f8>" 'maf-ledger)
+(keymap-global-set "<f9>" 'maf-scratch)
+(keymap-global-set "C-<f9>" 'maf-init)
 #+end_src
 
 * Keymaps
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defvar-keymap maf-spc-spc-map
-    :doc "Second layer keymap."
-    "b" 'buffer-menu
-    "d" 'maf-insert-datetree-heading)
+(defvar-keymap maf-spc-spc-map
+  :doc "Second layer keymap."
+  "b" 'buffer-menu
+  "d" 'maf-insert-datetree-heading)
 
-  (defvar-keymap maf-spc-map
-    :doc "First layer keymap."
-    "SPC" maf-spc-spc-map
-    "x" ctl-x-map
-    "h" help-map
-    "b" 'switch-to-buffer
-    "c" 'org-ctrl-c-ctrl-c
-    "d" 'dired-jump
-    "f" 'find-file
-    "g" 'magit
-    "l" 'ledger-report
-    "m" 'bookmark-jump
-    "n" 'display-line-numbers-mode
-    "o" 'olivetti-mode
-    "r" 'recompile
-    "s" 'save-buffer
-    "t" 'modus-themes-toggle
-    "u" 'universal-argument ; C-u set to evil-scroll-up
-    "w" 'visual-line-mode)
+(defvar-keymap maf-spc-map
+  :doc "First layer keymap."
+  "SPC" maf-spc-spc-map
+  "x" ctl-x-map
+  "h" help-map
+  "b" 'switch-to-buffer
+  "c" 'org-ctrl-c-ctrl-c
+  "d" 'dired-jump
+  "f" 'find-file
+  "g" 'magit
+  "l" 'ledger-report
+  "m" 'bookmark-jump
+  "n" 'display-line-numbers-mode
+  "o" 'olivetti-mode
+  "r" 'recompile
+  "s" 'save-buffer
+  "t" 'modus-themes-toggle
+  "u" 'universal-argument ; C-u set to evil-scroll-up
+  "w" 'visual-line-mode)
 #+end_src
 
 * Dired
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (setq dired-kill-when-opening-new-dired-buffer t)
-  (setq dired-auto-revert-buffer #'dired-directory-changed-p)
-  (setq dired-free-space nil)
-  (setq dired-dwim-target t)
-  (add-hook 'dired-mode-hook #'dired-hide-details-mode)
-  (add-hook 'dired-mode-hook #'hl-line-mode)
-  (add-hook 'dired-mode-hook #'denote-dired-mode)
+(setq dired-kill-when-opening-new-dired-buffer t)
+(setq dired-auto-revert-buffer #'dired-directory-changed-p)
+(setq dired-free-space nil)
+(setq dired-dwim-target t)
+(add-hook 'dired-mode-hook #'dired-hide-details-mode)
+(add-hook 'dired-mode-hook #'hl-line-mode)
+(add-hook 'dired-mode-hook #'denote-dired-mode)
 #+end_src
 
 * Org
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (setq org-startup-indented t)
-  (setq org-startup-folded t)
-  (setq org-hide-emphasis-markers t)
-  (setq org-return-follows-link t)
-  (setq org-M-RET-may-split-line '((default . nil)))
-  (setq org-insert-heading-respect-content t)
-  (setq org-log-done 'time)
-  (setq org-log-into-drawer t)
+(setq org-startup-indented t)
+(setq org-startup-folded t)
+(setq org-edit-src-content-indentation 0)
+(setq org-hide-emphasis-markers t)
+(setq org-return-follows-link t)
+(setq org-M-RET-may-split-line '((default . nil)))
+(setq org-insert-heading-respect-content t)
+(setq org-log-done 'time)
+(setq org-log-into-drawer t)
 
-  (setq org-directory "~/sync/org/")
-  (setq org-agenda-files (list org-directory))
-  (setq org-agenda-use-time-grid nil)
-  (setq org-agenda-clockreport-parameter-plist
-        '(:link t :maxlevel 2 :fileskip0 t))
+(setq org-directory "~/sync/org/")
+(setq org-agenda-files (list org-directory))
+(setq org-agenda-use-time-grid nil)
+(setq org-agenda-clockreport-parameter-plist
+      '(:link t :maxlevel 2 :fileskip0 t))
 
-  (setq org-agenda-prefix-format
-        '((agenda . " %i %-12:c%-12t")
-          (todo . " %i %-12:c")
-          (tags . " %i %-12:c")
-          (search . " %i %-12:c")))
+(setq org-agenda-prefix-format
+      '((agenda . " %i %-12:c%-12t")
+        (todo . " %i %-12:c")
+        (tags . " %i %-12:c")
+        (search . " %i %-12:c")))
 
-  (setq org-structure-template-alist
-        '(("s" . "src")
-          ("e" . "src emacs-lisp")
-          ("t" . "src emacs-lisp :tangle \"~/.config/emacs/maf-init.el\"")
-          ("a" . "export ascii")
-          ("c" . "center")
-          ("C" . "comment")
-          ("E" . "export")
-          ("h" . "export html")
-          ("l" . "export latex")
-          ("q" . "quote")
-          ("v" . "verse")
-          ("x" . "example")))
+(setq org-structure-template-alist
+      '(("s" . "src")
+        ("e" . "src emacs-lisp")
+        ("t" . "src emacs-lisp :tangle \"~/.config/emacs/maf-init.el\"")
+        ("a" . "export ascii")
+        ("c" . "center")
+        ("C" . "comment")
+        ("E" . "export")
+        ("h" . "export html")
+        ("l" . "export latex")
+        ("q" . "quote")
+        ("v" . "verse")
+        ("x" . "example")))
 #+end_src
 
 * Org capture templates
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (setq org-capture-templates `(
-                                ("t" "TODO item" entry
-                                 (file+headline "tasks.org" "To be reviewed")
-                                 ,(concat "* TODO %?\n"
-                                          ":PROPERTIES:\n"
-                                          ":CAPTURED: %U\n"
-                                          ":END:\n\n"))
+(setq org-capture-templates `(
+                              ("t" "TODO item" entry
+                               (file+headline "tasks.org" "To be reviewed")
+                               ,(concat "* TODO %?\n"
+                                        ":PROPERTIES:\n"
+                                        ":CAPTURED: %U\n"
+                                        ":END:\n\n"))
 
-                                ("i" "Idea" entry
-                                 (file+headline "tasks.org" "Ideas")
-                                 ,(concat "* %?\n"
-                                          ":PROPERTIES:\n"
-                                          ":CAPTURED: %U\n"
-                                          ":END:\n\n"))
+                              ("i" "Idea" entry
+                               (file+headline "tasks.org" "Ideas")
+                               ,(concat "* %?\n"
+                                        ":PROPERTIES:\n"
+                                        ":CAPTURED: %U\n"
+                                        ":END:\n\n"))
 
-                                ("a" "Anki" entry
-                                 (file+headline "tasks.org" "Anki")
-                                 ,(concat "* TODO Anki\n"
-                                          ":PROPERTIES:\n"
-                                          ":CAPTURED: %U\n"
-                                          ":END:\n\n"))
+                              ("a" "Anki" entry
+                               (file+headline "tasks.org" "Anki")
+                               ,(concat "* TODO Anki\n"
+                                        ":PROPERTIES:\n"
+                                        ":CAPTURED: %U\n"
+                                        ":END:\n\n"))
 
-                                ("m" "Emacs" entry
-                                 (file+headline "tasks.org" "Emacs")
-                                 ,(concat "* TODO ISSUE: %?\n"
-                                          ":PROPERTIES:\n"
-                                          ":CAPTURED: %U\n"
-                                          ":END:\n\n"))
+                              ("m" "Emacs" entry
+                               (file+headline "tasks.org" "Emacs")
+                               ,(concat "* TODO ISSUE: %?\n"
+                                        ":PROPERTIES:\n"
+                                        ":CAPTURED: %U\n"
+                                        ":END:\n\n"))
 
-                                ("e" "Exercise")
+                              ("e" "Exercise")
 
-                                ("es" "Strength workout" entry
-                                 (file+headline "tasks.org" "Exercise")
-                                 ,(concat "* TODO Strength training\n"
-                                          ":PROPERTIES:\n"
-                                          ":CAPTURED: %U\n"
-                                          ":END:\n\n"))
+                              ("es" "Strength workout" entry
+                               (file+headline "tasks.org" "Exercise")
+                               ,(concat "* TODO Strength training\n"
+                                        ":PROPERTIES:\n"
+                                        ":CAPTURED: %U\n"
+                                        ":END:\n\n"))
 
-                                ("ec" "Cardio workout" entry
-                                 (file+headline "tasks.org" "Exercise")
-                                 ,(concat "* TODO %?\n"
-                                          ":PROPERTIES:\n"
-                                          ":CAPTURED: %U\n"
-                                          ":END:\n\n"))
+                              ("ec" "Cardio workout" entry
+                               (file+headline "tasks.org" "Exercise")
+                               ,(concat "* TODO %?\n"
+                                        ":PROPERTIES:\n"
+                                        ":CAPTURED: %U\n"
+                                        ":END:\n\n"))
 
-                                ("d" "Datetree item" plain
-                                 (file+datetree "datetree.org") "%?")
-                                ))
+                              ("d" "Datetree item" plain
+                               (file+datetree "datetree.org") "%?")
+                              ))
 #+end_src
 
 * Calendar & Diary
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (load "~/sync/org/location.el")
-  (setq calendar-time-zone -480)
-  (setq calendar-standard-time-zone-name "PST")
-  (setq calendar-daylight-time-zone-name "PDT")
-  (setq diary-file "~/sync/org/diary")
-  (setq calendar-date-style 'iso)
+(load "~/sync/org/location.el")
+(setq calendar-time-zone -480)
+(setq calendar-standard-time-zone-name "PST")
+(setq calendar-daylight-time-zone-name "PDT")
+(setq diary-file "~/sync/org/diary")
+(setq calendar-date-style 'iso)
 #+end_src
 
 * which-key
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (which-key-mode 1)
+(which-key-mode 1)
 #+end_src
 
 * Text editing mode
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-text-editing-mode ()
-    "Enables modes used for normal text editing."
-    (interactive)
-    ;; (display-line-numbers-mode 1)
-    (visual-line-mode 1))
+(defun maf-text-editing-mode ()
+  "Enables modes used for normal text editing."
+  (interactive)
+  ;; (display-line-numbers-mode 1)
+  (visual-line-mode 1))
 
-  (add-hook 'prog-mode-hook #'maf-text-editing-mode)
-  (add-hook 'text-mode-hook #'maf-text-editing-mode)
+(add-hook 'prog-mode-hook #'maf-text-editing-mode)
+(add-hook 'text-mode-hook #'maf-text-editing-mode)
 #+end_src
 
 * Completion
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package vertico
-    :init
-    (setq vertico-cycle t)
-    :config
-    (vertico-mode 1))
+(use-package vertico
+  :init
+  (setq vertico-cycle t)
+  :config
+  (vertico-mode 1))
 
-  (use-package marginalia
-    :config
-    (marginalia-mode 1))
+(use-package marginalia
+  :config
+  (marginalia-mode 1))
 
-  (use-package orderless
-    :custom
-    (completion-styles '(orderless))
-    (completion-category-overrides '((file (styles basic partial-completion)))))
-  
-  (use-package company
-    :init
-    (setq company-minimum-prefix-length 1)
-    (setq company-tooltip-limit 20)
-    (setq company-tooltip-flip-when-above t)
-    :config
-    :hook
-    (prog-mode ledger-mode))
+(use-package orderless
+  :custom
+  (completion-styles '(orderless))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 
-  (use-package company-quickhelp
-    :init
-    (setq company-quickhelp-delay 0)
-    (setq company-tooltip-align-annotations t)
-    :hook
-    (company-mode))
+(use-package company
+  :init
+  (setq company-minimum-prefix-length 1)
+  (setq company-tooltip-limit 20)
+  (setq company-tooltip-flip-when-above t)
+  :config
+  :hook
+  (prog-mode ledger-mode))
+
+(use-package company-quickhelp
+  :init
+  (setq company-quickhelp-delay 0)
+  (setq company-tooltip-align-annotations t)
+  :hook
+  (company-mode))
 #+end_src
 
 * Tree-sitter
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (setq major-mode-remap-alist '((c-mode . c-ts-mode)
-                                 (python-mode . python-ts-mode)))
+(setq major-mode-remap-alist '((c-mode . c-ts-mode)
+                               (python-mode . python-ts-mode)))
 #+end_src
 
 * LSP
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package lsp-mode
-    :hook
-    ((c-ts-mode . lsp)
-     (python-ts-mode . lsp)
-     (lsp-mode . lsp-enable-which-key-integration))
-    :init
-    (setq lsp-enable-snippet nil))
+(use-package lsp-mode
+  :hook
+  ((c-ts-mode . lsp)
+   (python-ts-mode . lsp)
+   (lsp-mode . lsp-enable-which-key-integration))
+  :init
+  (setq lsp-enable-snippet nil))
 #+end_src
 
 * Flycheck
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package flycheck)
+(use-package flycheck)
 #+end_src
 
 * Focus mode
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package olivetti
-    :init
-    (setq olivetti-body-width 100))
+(use-package olivetti
+  :init
+  (setq olivetti-body-width 100))
 
-  (use-package logos
-    :init
-    (setq logos-hide-mode-line t)
-    (setq logos-olivetti t)
-    (setq logos-hide-fringe t))
+(use-package logos
+  :init
+  (setq logos-hide-mode-line t)
+  (setq logos-olivetti t)
+  (setq logos-hide-fringe t))
 #+end_src
 
 * Magit
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package magit)
+(use-package magit)
 #+end_src
 
 * Icon fonts
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package nerd-icons
-    :ensure t)
+(use-package nerd-icons
+  :ensure t)
 
-  (use-package nerd-icons-completion
-    :ensure t
-    :after marginalia
-    :config
-    (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
+(use-package nerd-icons-completion
+  :ensure t
+  :after marginalia
+  :config
+  (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
 
-  (use-package nerd-icons-dired
-    :ensure t
-    :hook
-    (dired-mode . nerd-icons-dired-mode))
+(use-package nerd-icons-dired
+  :ensure t
+  :hook
+  (dired-mode . nerd-icons-dired-mode))
 #+end_src
 
 * Evil
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package evil
-    :init
-    (setq evil-want-C-i-jump nil) ; make TAB work for org-cycle
-    (setq evil-want-C-u-scroll t)
-    :config
-    ;; Unset key commands in org-mode for easy tab controls
-    (add-hook 'org-mode-hook (lambda ()
-                               (keymap-local-unset "M-h") ; mark-paragraph
-                               (keymap-local-unset "M-t") ; org-transpose-words
-                               ))
+(use-package evil
+  :init
+  (setq evil-want-C-i-jump nil) ; make TAB work for org-cycle
+  (setq evil-want-C-u-scroll t)
+  :config
+  ;; Unset key commands in org-mode for easy tab controls
+  (add-hook 'org-mode-hook (lambda ()
+                             (keymap-local-unset "M-h") ; mark-paragraph
+                             (keymap-local-unset "M-t") ; org-transpose-words
+                             ))
 
-    (evil-define-key '(normal motion visual) 'global
-      (kbd "RET") nil ; unset RET to use with org-return-follows-link
-      (kbd "SPC") maf-spc-map
-      (kbd "g c") 'comment-line
-      ;; (kbd "j") (kbd "g j")
-      ;; (kbd "k") (kbd "g k")
-      )
+  (evil-define-key '(normal motion visual) 'global
+    (kbd "RET") nil ; unset RET to use with org-return-follows-link
+    (kbd "SPC") maf-spc-map
+    (kbd "g c") 'comment-line
+    ;; (kbd "j") (kbd "g j")
+    ;; (kbd "k") (kbd "g k")
+    )
 
-    (evil-define-key '(normal motion visual emacs) 'global
-      (kbd "M-k") 'evil-window-next
-      (kbd "M-j") 'evil-window-prev
-      (kbd "M-l") 'tab-next
-      (kbd "M-h") 'tab-previous
-      (kbd "M-t") 'tab-new
-      (kbd "M-w") 'tab-close)
+  (evil-define-key '(normal motion visual emacs) 'global
+    (kbd "M-k") 'evil-window-next
+    (kbd "M-j") 'evil-window-prev
+    (kbd "M-l") 'tab-next
+    (kbd "M-h") 'tab-previous
+    (kbd "M-t") 'tab-new
+    (kbd "M-w") 'tab-close)
 
-    (evil-set-initial-state 'fundamental-mode 'emacs)
-    (evil-set-initial-state 'ledger-report-mode 'emacs)
-    (evil-set-initial-state 'elfeed-search-mode 'emacs)
-    (evil-set-initial-state 'elfeed-show-mode 'emacs)
-    (evil-set-initial-state 'Buffer-menu-mode 'emacs)
-    (evil-set-initial-state 'calculator-mode 'emacs)
-    (evil-set-initial-state 'calc-trail-mode 'emacs)
-    (evil-set-initial-state 'calendar-mode 'emacs)
-    (evil-set-initial-state 'special-mode 'emacs)
-    (evil-set-initial-state 'eshell-mode 'emacs)
-    (evil-set-initial-state 'dired-mode 'emacs)
-    (evil-set-initial-state 'diff-mode 'emacs)
-    (evil-set-initial-state 'help-mode 'emacs)
-    (evil-set-initial-state 'Info-mode 'emacs)
+  (evil-set-initial-state 'fundamental-mode 'emacs)
+  (evil-set-initial-state 'ledger-report-mode 'emacs)
+  (evil-set-initial-state 'elfeed-search-mode 'emacs)
+  (evil-set-initial-state 'elfeed-show-mode 'emacs)
+  (evil-set-initial-state 'Buffer-menu-mode 'emacs)
+  (evil-set-initial-state 'calculator-mode 'emacs)
+  (evil-set-initial-state 'calc-trail-mode 'emacs)
+  (evil-set-initial-state 'calendar-mode 'emacs)
+  (evil-set-initial-state 'special-mode 'emacs)
+  (evil-set-initial-state 'eshell-mode 'emacs)
+  (evil-set-initial-state 'dired-mode 'emacs)
+  (evil-set-initial-state 'diff-mode 'emacs)
+  (evil-set-initial-state 'help-mode 'emacs)
+  (evil-set-initial-state 'Info-mode 'emacs)
 
-    (evil-mode -1))
+  (evil-mode -1))
 #+end_src
 
 * Denote
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package denote
-    :init
-    (setq denote-directory (expand-file-name "~/sync/notes/"))
-    :config
-    (denote-rename-buffer-mode 1))
+(use-package denote
+  :init
+  (setq denote-directory (expand-file-name "~/sync/notes/"))
+  :config
+  (denote-rename-buffer-mode 1))
 #+end_src
 
 * Markdown mode
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package markdown-mode)
+(use-package markdown-mode)
 #+end_src
 
 * Ledger
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package ledger-mode
-    :config
-    (setq ledger-default-date-format "%Y-%m-%d")
-    (setq ledger-reports
-          '(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
-            ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
-            ("Register" "%(binary) -f %(ledger-file) reg"))))
+(use-package ledger-mode
+  :config
+  (setq ledger-default-date-format "%Y-%m-%d")
+  (setq ledger-reports
+        '(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
+          ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
+          ("Register" "%(binary) -f %(ledger-file) reg"))))
 #+end_src
 
 * Elfeed
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (use-package elfeed
-    :init
-    (setq elfeed-db-directory "~/.config/emacs/elfeed")
-    (setq elfeed-feeds '(
-                         "https://davissystem.net/index.xml"
-                         "https://archlinux.org/feeds/news/"
-                         "https://protesilaos.com/codelog.xml"
-                         "https://xkcd.com/atom.xml"
-                         )))
+(use-package elfeed
+  :init
+  (setq elfeed-db-directory "~/.config/emacs/elfeed")
+  (setq elfeed-feeds '(
+                       "https://davissystem.net/index.xml"
+                       "https://archlinux.org/feeds/news/"
+                       "https://protesilaos.com/codelog.xml"
+                       "https://xkcd.com/atom.xml"
+                       )))
 #+end_src
 
 * Functions
@@ -470,28 +471,28 @@
 <f5>
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-agenda ()
-    "Open agenda and tasks file."
-    (interactive)
-    (delete-other-windows)
-    (find-file "~/sync/org/tasks.org")
-    (display-line-numbers-mode -1)
-    (org-agenda-list)
-    (balance-windows))
+(defun maf-agenda ()
+  "Open agenda and tasks file."
+  (interactive)
+  (delete-other-windows)
+  (find-file "~/sync/org/tasks.org")
+  (display-line-numbers-mode -1)
+  (org-agenda-list)
+  (balance-windows))
 #+end_src
 
 C-<f5>
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-calendar ()
-    "Open the calendar and both diary views."
-    (interactive)
-    (delete-other-windows)
-    (calendar)
-    (other-window 1)
-    (diary)
-    (diary-show-all-entries)
-    (delete-window))
+(defun maf-calendar ()
+  "Open the calendar and both diary views."
+  (interactive)
+  (delete-other-windows)
+  (calendar)
+  (other-window 1)
+  (diary)
+  (diary-show-all-entries)
+  (delete-window))
 #+end_src
 
 ** F6
@@ -499,49 +500,49 @@ C-<f5>
 <f6>
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-journal ()
-    "Open journal file with settings suitable for writing."
-    (interactive)
-    (delete-other-windows)
-    (find-file "~/sync/journal/current_year.txt")
-    (display-line-numbers-mode -1)
-    (logos-focus-mode 1))
+(defun maf-journal ()
+  "Open journal file with settings suitable for writing."
+  (interactive)
+  (delete-other-windows)
+  (find-file "~/sync/journal/current_year.txt")
+  (display-line-numbers-mode -1)
+  (logos-focus-mode 1))
 #+end_src
 
 C-<f6>
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-elfeed ()
-    "Open elfeed in a single window."
-    (interactive)
-    (elfeed)
-    (delete-other-windows))
+(defun maf-elfeed ()
+  "Open elfeed in a single window."
+  (interactive)
+  (elfeed)
+  (delete-other-windows))
 #+end_src
 
 ** F7
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-notes ()
-    "Open two dired denote-directory buffers side-by-side."
-    (interactive)
-    (delete-other-windows)
-    (dired "~/sync/notes/")
-    ;; (split-window-right)
-    ;; (other-window 1)
-    )
+(defun maf-notes ()
+  "Open two dired denote-directory buffers side-by-side."
+  (interactive)
+  (delete-other-windows)
+  (dired "~/sync/notes/")
+  ;; (split-window-right)
+  ;; (other-window 1)
+  )
 #+end_src
 
 ** F8
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-ledger ()
-    "Open ledger file and ledger-report windows."
-    (interactive)
-    (delete-other-windows)
-    (find-file "~/sync/finance/current_year.ledger")
-    (ledger-report "Balance Sheet" nil)
-    (other-window 1)
-    (message nil))
+(defun maf-ledger ()
+  "Open ledger file and ledger-report windows."
+  (interactive)
+  (delete-other-windows)
+  (find-file "~/sync/finance/current_year.ledger")
+  (ledger-report "Balance Sheet" nil)
+  (other-window 1)
+  (message nil))
 #+end_src
 
 ** F9
@@ -549,110 +550,110 @@ C-<f6>
 <f9>
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-scratch ()
-    "Open scratch buffer in a single window."
-    (interactive)
-    (scratch-buffer)
-    (delete-other-windows))
+(defun maf-scratch ()
+  "Open scratch buffer in a single window."
+  (interactive)
+  (scratch-buffer)
+  (delete-other-windows))
 #+end_src
 
 C-<f9>
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-init ()
-    "Open main init file."
-    (interactive)
-    (find-file "~/dotfiles/emacs/maf-init.org")
-    (delete-other-windows))
+(defun maf-init ()
+  "Open main init file."
+  (interactive)
+  (find-file "~/dotfiles/emacs/maf-init.org")
+  (delete-other-windows))
 #+end_src
 
 ** C-c
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-ide ()
-    "Open windows for programming environment.
-     Requires evil-mode."
-    (interactive)
-    (delete-other-windows)
-    (list-flycheck-errors)
-    (evil-window-right 1)
-    (evil-window-move-very-bottom)
-    (shrink-window 20)
-    (evil-window-top-left)
-    (split-window-right)
-    (evil-window-right 1)
-    (project-eshell)
-    (evil-window-top-left))
+(defun maf-ide ()
+  "Open windows for programming environment.
+   Requires evil-mode."
+  (interactive)
+  (delete-other-windows)
+  (list-flycheck-errors)
+  (evil-window-right 1)
+  (evil-window-move-very-bottom)
+  (shrink-window 20)
+  (evil-window-top-left)
+  (split-window-right)
+  (evil-window-right 1)
+  (project-eshell)
+  (evil-window-top-left))
 #+end_src
 
 ** Unbound
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-task-lists ()
-    "Open task-list and tech_tasks files."
-    (interactive)
-    (delete-other-windows)
-    (find-file "~/sync/org/tech_tasks.org")
-    (display-line-numbers-mode -1)
-    (split-window-right)
-    (find-file "~/sync/org/task-list.org")
-    (display-line-numbers-mode -1)
-    (balance-windows))
+(defun maf-task-lists ()
+  "Open task-list and tech_tasks files."
+  (interactive)
+  (delete-other-windows)
+  (find-file "~/sync/org/tech_tasks.org")
+  (display-line-numbers-mode -1)
+  (split-window-right)
+  (find-file "~/sync/org/task-list.org")
+  (display-line-numbers-mode -1)
+  (balance-windows))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-task-list-and-agenda ()
-    "Open agenda and tasks file."
-    (interactive)
-    (delete-other-windows)
-    (find-file "~/sync/org/tasks.org")
-    (display-line-numbers-mode -1)
-    (find-file "~/sync/org/task-list.org")
-    (display-line-numbers-mode -1)
-    (org-agenda-list)
-    (balance-windows)
-    (other-window 1))
+(defun maf-task-list-and-agenda ()
+  "Open agenda and tasks file."
+  (interactive)
+  (delete-other-windows)
+  (find-file "~/sync/org/tasks.org")
+  (display-line-numbers-mode -1)
+  (find-file "~/sync/org/task-list.org")
+  (display-line-numbers-mode -1)
+  (org-agenda-list)
+  (balance-windows)
+  (other-window 1))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-insert-datetree-heading ()
-    "Insert org heading with tomorrow's date without brackets."
-    (interactive)
-    (org-insert-heading-respect-content)
-    (let* ((now (current-time))
-           (tomorrow (time-add now (seconds-to-time 86400)))
-           (timestamp (format-time-string "%F %a [/]" tomorrow)))
-      (insert timestamp))
-    (org-ctrl-c-ctrl-c))
+(defun maf-insert-datetree-heading ()
+  "Insert org heading with tomorrow's date without brackets."
+  (interactive)
+  (org-insert-heading-respect-content)
+  (let* ((now (current-time))
+         (tomorrow (time-add now (seconds-to-time 86400)))
+         (timestamp (format-time-string "%F %a [/]" tomorrow)))
+    (insert timestamp))
+  (org-ctrl-c-ctrl-c))
 #+end_src
 
 * System type specifics
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-init-linux ()
-    "Customization options which should be set on Linux systems only."
-    (setq dired-listing-switches
-          "-AGFhlv --group-directories-first --time-style=long-iso"))
+(defun maf-init-linux ()
+  "Customization options which should be set on Linux systems only."
+  (setq dired-listing-switches
+        "-AGFhlv --group-directories-first --time-style=long-iso"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  (defun maf-init-mac ()
-    "Customization options which should be set on mac systems only."
-    (setq default-frame-alist '((height . 75) (width . 220)))
-    (set-frame-font "Hack Nerd Font 15" nil t)
-    (setq dired-listing-switches "-AGFhlv")
-    (desktop-save-mode 1)
-    (menu-bar-mode 1)
-    (keymap-global-set "<f13>" 'maf-ledger)
-    (keymap-global-set "<f14>" 'maf-notes)
-    (keymap-global-set "<f15>" 'maf-scratch)
-    (keymap-global-set "<f16>" 'maf-init))
+(defun maf-init-mac ()
+  "Customization options which should be set on mac systems only."
+  (setq default-frame-alist '((height . 75) (width . 220)))
+  (set-frame-font "Hack Nerd Font 15" nil t)
+  (setq dired-listing-switches "-AGFhlv")
+  (desktop-save-mode 1)
+  (menu-bar-mode 1)
+  (keymap-global-set "<f13>" 'maf-ledger)
+  (keymap-global-set "<f14>" 'maf-notes)
+  (keymap-global-set "<f15>" 'maf-scratch)
+  (keymap-global-set "<f16>" 'maf-init))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-  ;; Detect system type and set appropriate options.
-  (if (eq system-type 'gnu/linux)
-    (maf-init-linux))
-  (if (eq system-type 'darwin)
-    (maf-init-mac))
+;; Detect system type and set appropriate options.
+(if (eq system-type 'gnu/linux)
+  (maf-init-linux))
+(if (eq system-type 'darwin)
+  (maf-init-mac))
 #+end_src
