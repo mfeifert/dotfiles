@@ -277,7 +277,6 @@
 #+end_src
 
 * Completion
-** Vertico
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (use-package vertico
@@ -285,28 +284,16 @@
     (setq vertico-cycle t)
     :config
     (vertico-mode 1))
-#+end_src
 
-** Marginalia
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (use-package marginalia
     :config
     (marginalia-mode 1))
-#+end_src
 
-** Orderless
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (use-package orderless
     :custom
     (completion-styles '(orderless))
     (completion-category-overrides '((file (styles basic partial-completion)))))
-#+end_src
-
-** Company
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+  
   (use-package company
     :init
     (setq company-minimum-prefix-length 1)
@@ -315,9 +302,7 @@
     :config
     :hook
     (prog-mode ledger-mode))
-#+end_src
 
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
   (use-package company-quickhelp
     :init
     (setq company-quickhelp-delay 0)
