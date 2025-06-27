@@ -96,6 +96,14 @@
 (column-number-mode 1)
 #+end_src
 
+* Search
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(setq isearch-lazy-count t)
+(setq lazy-count-prefix-format "(%s/%s) ")
+(setq lazy-count-suffix-format nil)
+#+end_src
+
 * Key bindings
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
