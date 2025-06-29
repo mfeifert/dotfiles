@@ -96,7 +96,8 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (keymap-global-set "C-c a" 'org-agenda)
-(keymap-global-set "C-c i" 'maf-ide)
+(keymap-global-set "C-c h" 'consult-org-heading)
+(keymap-global-set "C-c j" 'consult-buffer)
 
 ;; Shortcuts to workspace layouts
 (keymap-global-set "<f5>" 'maf-agenda)
