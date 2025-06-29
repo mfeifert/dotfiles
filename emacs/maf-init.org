@@ -4,7 +4,7 @@
 ;; -*- lexical-binding: t; -*-
 #+end_src
 
-* Custom configurations
+* Custom file
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (setq custom-file (locate-user-emacs-file "custom.el"))
@@ -20,7 +20,7 @@
 (setq use-package-always-ensure t)
 #+end_src
 
-* Frames
+* Essentials
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (setq ring-bell-function 'ignore)
@@ -28,12 +28,6 @@
 (tool-bar-mode -1)
 (setq tab-bar-show 1)
 (tab-bar-mode 1)
-#+end_src
-
-* Windows
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-;; Window features
 (scroll-bar-mode -1)
 (fringe-mode 0)
 (blink-cursor-mode -1)
@@ -48,11 +42,7 @@
 ;; Scroll behavior
 (setq scroll-margin 8) ; Scroll up or down when cursor moves within 8 lines of the top or bottom of screen
 (setq scroll-conservatively 101) ; Scroll one line at a time
-#+end_src
 
-* Buffers
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 ;; Inhibit startup messages
 (setq initial-scratch-message nil)
 (setq inhibit-startup-screen t)
@@ -63,16 +53,14 @@
 (setq display-line-numbers-type 'absolute) ; 'visual or 'absolute
 ;; (setq-default display-line-numbers-width 4) ; Prevent distracting auto-resizing of line number width in long org files
 
+(which-key-mode 1)
+
 ;; Auto-close brackets and quotes
 (electric-pair-mode 1)
 
 ;; Minibuffer history
 (savehist-mode 1)
-#+end_src
 
-* Files
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (setq auto-save-default nil)
 (setq make-backup-files nil)
 (setq delete-by-moving-to-trash t)
@@ -157,6 +145,7 @@
 (setq dired-auto-revert-buffer #'dired-directory-changed-p)
 (setq dired-free-space nil)
 (setq dired-dwim-target t)
+
 (add-hook 'dired-mode-hook #'dired-hide-details-mode)
 (add-hook 'dired-mode-hook #'hl-line-mode)
 (add-hook 'dired-mode-hook #'denote-dired-mode)
@@ -172,10 +161,10 @@
 (setq org-return-follows-link t)
 (setq org-M-RET-may-split-line '((default . nil)))
 (setq org-insert-heading-respect-content t)
-(setq org-log-done 'time)
-(setq org-log-into-drawer t)
 
 (setq org-directory "~/sync/org/")
+(setq org-log-done 'time)
+(setq org-log-into-drawer t)
 (setq org-agenda-files (list org-directory))
 (setq org-agenda-use-time-grid nil)
 (setq org-agenda-clockreport-parameter-plist
@@ -264,12 +253,6 @@
 (setq calendar-daylight-time-zone-name "PDT")
 (setq diary-file "~/sync/org/diary")
 (setq calendar-date-style 'iso)
-#+end_src
-
-* which-key
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(which-key-mode 1)
 #+end_src
 
 * Text editing mode
