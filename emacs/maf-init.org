@@ -290,21 +290,13 @@
   (completion-styles '(orderless))
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
-(use-package company
+(use-package corfu
+  :custom
+  (corfu-cycle t)
   :init
-  (setq company-minimum-prefix-length 1)
-  (setq company-tooltip-limit 20)
-  (setq company-tooltip-flip-when-above t)
-  :config
-  :hook
-  (prog-mode ledger-mode))
-
-(use-package company-quickhelp
-  :init
-  (setq company-quickhelp-delay 0)
-  (setq company-tooltip-align-annotations t)
-  :hook
-  (company-mode))
+  (corfu-history-mode 1)
+  (corfu-popupinfo-mode 1)
+  (global-corfu-mode 1))
 #+end_src
 
 * Tree-sitter
@@ -363,6 +355,13 @@
   :after marginalia
   :config
   (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
+
+(use-package nerd-icons-corfu
+  :ensure t
+  :if (display-graphic-p)
+  :after corfu
+  :config
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (use-package nerd-icons-dired
   :ensure t
