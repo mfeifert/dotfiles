@@ -111,7 +111,7 @@
 (setq dired-free-space nil)
 (setq dired-dwim-target t)
 (setq dired-listing-switches
-      "-AGFhlv --group-directories-first --time-style=long-iso"))
+      "-AGFhlv --group-directories-first --time-style=long-iso")
 
 (add-hook 'dired-mode-hook #'dired-hide-details-mode)
 (add-hook 'dired-mode-hook #'hl-line-mode)
