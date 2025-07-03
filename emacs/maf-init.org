@@ -306,7 +306,9 @@
   (setq ledger-reports
         '(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
           ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
-          ("Register" "%(binary) -f %(ledger-file) reg"))))
+          ("Register" "%(binary) -f %(ledger-file) reg")))
+  :hook
+  (ledger-mode . save-place-mode))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
