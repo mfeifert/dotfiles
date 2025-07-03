@@ -26,22 +26,10 @@
 (setq ring-bell-function 'ignore)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(setq tab-bar-show 1)
-(tab-bar-mode 1)
 (scroll-bar-mode -1)
 (fringe-mode 0)
+(setq tab-bar-show 1)
 (blink-cursor-mode -1)
-
-;; Window splits
-(setq split-width-threshold 0)
-(setq split-height-threshold nil)
-
-;; Help window
-(setq help-window-select t)
-
-;; Scroll behavior
-(setq scroll-margin 8) ; Scroll up or down when cursor moves within 8 lines of the top or bottom of screen
-(setq scroll-conservatively 101) ; Scroll one line at a time
 
 ;; Inhibit startup messages
 (setq initial-scratch-message nil)
@@ -49,15 +37,21 @@
 (defun display-startup-echo-area-message ()
   (message nil))
 
-;; Line numbers
-(setq display-line-numbers-type 'absolute) ; 'visual or 'absolute
+;; Files
+(setq auto-save-default nil)
+(setq make-backup-files nil)
+(setq delete-by-moving-to-trash t)
+(global-auto-revert-mode t)
+
+;; Scroll behavior
+(setq scroll-margin 8)
+(setq scroll-conservatively 1) ; Scroll one line at a time
 
 ;; Line wrap
-(add-hook 'prog-mode-hook #'visual-line-mode)
-(add-hook 'text-mode-hook #'visual-line-mode)
+(global-visual-line-mode 1)
 
-;; Which key
-(which-key-mode 1)
+;; Help window
+(setq help-window-select t)
 
 ;; Auto-close brackets and quotes
 (electric-pair-mode 1)
@@ -65,11 +59,8 @@
 ;; Minibuffer history
 (savehist-mode 1)
 
-(setq auto-save-default nil)
-(setq make-backup-files nil)
-(setq delete-by-moving-to-trash t)
-(global-auto-revert-mode t)
-(save-place-mode 1)
+;; Which key
+(which-key-mode 1)
 #+end_src
 
 * Buffers
@@ -244,9 +235,7 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package lsp-mode
   :hook
-  ((c-ts-mode . lsp)
-   (python-ts-mode . lsp)
-   (lsp-mode . lsp-enable-which-key-integration))
+  (lsp-mode . lsp-enable-which-key-integration)
   :init
   (setq lsp-enable-snippet nil))
 #+end_src
