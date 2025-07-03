@@ -72,6 +72,16 @@
 (save-place-mode 1)
 #+end_src
 
+* Buffers
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(setq display-buffer-alist
+      '(
+	("\\*Buffer List\\*"
+	 (display-buffer-same-window))
+	))
+#+end_src
+
 * Appearance
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
