@@ -85,8 +85,6 @@
 * Appearance
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(load-theme 'modus-vivendi)
-
 (use-package ef-themes)
 (use-package standard-themes)
 (use-package doric-themes)
