@@ -263,3 +263,19 @@ I keep them here for future reference.
 (add-hook 'text-mode-hook #'maf-text-editing-mode)
 #+end_src
 
+* LSP
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(use-package lsp-mode
+  :hook
+  (lsp-mode . lsp-enable-which-key-integration)
+  :init
+  (setq lsp-enable-snippet nil))
+#+end_src
+
+* Flycheck
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(use-package flycheck)
+#+end_src
+

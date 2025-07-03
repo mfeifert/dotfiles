@@ -194,6 +194,19 @@
 (setq calendar-date-style 'iso)
 #+end_src
 
+* Tree-sitter
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(setq major-mode-remap-alist '((c-mode . c-ts-mode)
+                               (python-mode . python-ts-mode)))
+#+end_src
+
+* Eglot
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(setq eglot-autoshutdown t)
+#+end_src
+
 * Completion
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
@@ -221,29 +234,6 @@
   (corfu-history-mode 1)
   (corfu-popupinfo-mode 1)
   (global-corfu-mode 1))
-#+end_src
-
-* Tree-sitter
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(setq major-mode-remap-alist '((c-mode . c-ts-mode)
-                               (python-mode . python-ts-mode)))
-#+end_src
-
-* LSP
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(use-package lsp-mode
-  :hook
-  (lsp-mode . lsp-enable-which-key-integration)
-  :init
-  (setq lsp-enable-snippet nil))
-#+end_src
-
-* Flycheck
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(use-package flycheck)
 #+end_src
 
 * Focus mode
