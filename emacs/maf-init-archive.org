@@ -249,3 +249,17 @@ I keep them here for future reference.
 (if (eq system-type 'darwin)
   (maf-init-mac))
 #+end_src
+
+* Text editing mode
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(defun maf-text-editing-mode ()
+  "Enables modes used for normal text editing."
+  (interactive)
+  ;; (display-line-numbers-mode 1)
+  (visual-line-mode 1))
+
+(add-hook 'prog-mode-hook #'maf-text-editing-mode)
+(add-hook 'text-mode-hook #'maf-text-editing-mode)
+#+end_src
+
