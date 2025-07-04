@@ -16,6 +16,8 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-hook 'package-menu-mode-hook #'hl-line-mode)
+
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 #+end_src
