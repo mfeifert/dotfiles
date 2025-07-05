@@ -245,14 +245,18 @@
   :config
   (evil-define-key '(normal motion visual) 'global
     (kbd "RET") nil ; unset RET to use with org-return-follows-link
-    (kbd "SPC") maf-spc-map))
+    (kbd "SPC") maf-spc-map)
 
   (setq evil-default-state 'emacs)
   (evil-set-initial-state 'text-mode 'normal)
   (evil-set-initial-state 'prog-mode 'normal)
   (evil-set-initial-state 'Buffer-menu-mode 'emacs)
+  (evil-set-initial-state 'calendar-mode 'emacs)
+  (evil-set-initial-state 'eshell-mode 'emacs)
+  (evil-set-initial-state 'help-mode 'emacs)
+  (evil-set-initial-state 'Info-mode 'emacs)
 
-  (evil-mode 1)
+  (evil-mode 1))
 #+end_src
 
 * Completion
