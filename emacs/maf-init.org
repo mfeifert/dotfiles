@@ -209,6 +209,44 @@
 (setq eglot-autoshutdown t)
 #+end_src
 
+* Keymaps
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(defvar-keymap maf-spc-map
+  :doc "First layer keymap."
+  "b" 'switch-to-buffer
+  "c" 'org-ctrl-c-ctrl-c
+  "d" 'dired-jump
+  "f" 'find-file
+  "g" 'magit
+  "j" 'consult-buffer
+  "k" 'consult-org-heading
+  "l" 'consult-line
+  "n" 'display-line-numbers-mode
+  "o" 'olivetti-mode
+  "s" 'save-buffer
+  "t" 'modus-themes-toggle
+  "u" 'universal-argument ; C-u set to evil-scroll-up
+  "w" 'visual-line-mode)
+#+end_src
+
+* Evil
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(use-package evil
+  :init
+  (setq evil-want-C-i-jump nil) ; make TAB work for org-cycle
+  (setq evil-want-C-u-scroll t)
+  :config
+  (setq evil-default-state 'emacs)
+  (evil-set-initial-state 'text-mode 'normal)
+  (evil-set-initial-state 'prog-mode 'normal)
+  (evil-mode 1)
+  (evil-define-key '(normal motion visual) 'global
+    (kbd "RET") nil ; unset RET to use with org-return-follows-link
+    (kbd "SPC") maf-spc-map))
+#+end_src
+
 * Completion
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
