@@ -97,17 +97,6 @@
 (setq lazy-count-suffix-format nil)
 #+end_src
 
-* Key bindings
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(keymap-global-set "<f9>" 'maf-ledger)
-
-(keymap-global-set "C-c a" 'org-agenda)
-(keymap-global-set "C-c j" 'consult-buffer)
-(keymap-global-set "C-c k" 'consult-org-heading)
-(keymap-global-set "C-c l" 'consult-line)
-#+end_src
-
 * Dired
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
@@ -207,6 +196,17 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (setq eglot-autoshutdown t)
+#+end_src
+
+* Key bindings
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(keymap-global-set "<f9>" 'maf-ledger)
+
+(keymap-global-set "C-c a" 'org-agenda)
+(keymap-global-set "C-c j" 'consult-buffer)
+(keymap-global-set "C-c k" 'consult-org-heading)
+(keymap-global-set "C-c l" 'consult-line)
 #+end_src
 
 * Keymaps
