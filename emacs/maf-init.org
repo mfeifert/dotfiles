@@ -212,8 +212,13 @@
 * Keymaps
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(defvar-keymap maf-spc-spc-map
+  :doc "Second layer keymap."
+  "b" 'buffer-menu)
+
 (defvar-keymap maf-spc-map
   :doc "First layer keymap."
+  "SPC" maf-spc-spc-map
   "b" 'switch-to-buffer
   "c" 'org-ctrl-c-ctrl-c
   "d" 'dired-jump
