@@ -103,8 +103,8 @@
 (keymap-global-set "<f9>" 'maf-ledger)
 
 (keymap-global-set "C-c a" 'org-agenda)
-(keymap-global-set "C-c h" 'consult-org-heading)
 (keymap-global-set "C-c j" 'consult-buffer)
+(keymap-global-set "C-c k" 'consult-org-heading)
 (keymap-global-set "C-c l" 'consult-line)
 #+end_src
 
