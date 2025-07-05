@@ -238,13 +238,16 @@
   (setq evil-want-C-i-jump nil) ; make TAB work for org-cycle
   (setq evil-want-C-u-scroll t)
   :config
-  (setq evil-default-state 'emacs)
-  (evil-set-initial-state 'text-mode 'normal)
-  (evil-set-initial-state 'prog-mode 'normal)
-  (evil-mode 1)
   (evil-define-key '(normal motion visual) 'global
     (kbd "RET") nil ; unset RET to use with org-return-follows-link
     (kbd "SPC") maf-spc-map))
+
+  (setq evil-default-state 'emacs)
+  (evil-set-initial-state 'text-mode 'normal)
+  (evil-set-initial-state 'prog-mode 'normal)
+  (evil-set-initial-state 'Buffer-menu-mode 'emacs)
+
+  (evil-mode 1)
 #+end_src
 
 * Completion
