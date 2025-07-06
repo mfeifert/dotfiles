@@ -256,7 +256,7 @@
   (evil-set-initial-state 'help-mode 'emacs)
   (evil-set-initial-state 'Info-mode 'emacs)
 
-  (evil-mode 1))
+  (evil-mode -1))
 #+end_src
 
 * Completion
