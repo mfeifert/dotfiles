@@ -204,6 +204,7 @@
 (keymap-global-set "<f9>" 'maf-ledger)
 
 (keymap-global-set "C-c a" 'org-agenda)
+(keymap-global-set "C-c e" 'evil-mode)
 (keymap-global-set "C-c j" 'consult-buffer)
 (keymap-global-set "C-c k" 'consult-org-heading)
 (keymap-global-set "C-c l" 'consult-line)
@@ -239,32 +240,30 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package evil
-  :init
-  (setq evil-want-C-i-jump nil) ; make TAB work for org-cycle
-  (setq evil-want-C-u-scroll t)
+  :custom
+  (evil-want-C-i-jump nil) ; make TAB work for org-cycle
+  (evil-want-C-u-scroll t)
+  (evil-default-state 'emacs)
   :config
   (evil-define-key '(normal motion visual) 'global
     (kbd "RET") nil ; unset RET to use with org-return-follows-link
     (kbd "SPC") maf-spc-map)
 
-  (setq evil-default-state 'emacs)
   (evil-set-initial-state 'text-mode 'normal)
   (evil-set-initial-state 'prog-mode 'normal)
   (evil-set-initial-state 'Buffer-menu-mode 'emacs)
   (evil-set-initial-state 'calendar-mode 'emacs)
   (evil-set-initial-state 'eshell-mode 'emacs)
   (evil-set-initial-state 'help-mode 'emacs)
-  (evil-set-initial-state 'Info-mode 'emacs)
-
-  (evil-mode -1))
+  (evil-set-initial-state 'Info-mode 'emacs))
 #+end_src
 
 * Completion
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package vertico
-  :init
-  (setq vertico-cycle t)
+  :custom
+  (vertico-cycle t)
   :config
   (vertico-mode 1))
 
@@ -280,26 +279,26 @@
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
 (use-package corfu
-  :custom
-  (corfu-cycle t)
   :init
   (corfu-history-mode 1)
   (corfu-popupinfo-mode 1)
-  (global-corfu-mode 1))
+  (global-corfu-mode 1)
+  :custom
+  (corfu-cycle t))
 #+end_src
 
 * Focus mode
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package olivetti
-  :init
-  (setq olivetti-body-width 100))
+  :custom
+  (olivetti-body-width 100))
 
 (use-package logos
-  :init
-  (setq logos-hide-mode-line t)
-  (setq logos-olivetti t)
-  (setq logos-hide-fringe t))
+  :custom
+  (logos-hide-mode-line t)
+  (logos-olivetti t)
+  (logos-hide-fringe t))
 #+end_src
 
 * Magit
