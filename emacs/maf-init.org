@@ -92,9 +92,12 @@
 * Search
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(setq isearch-lazy-count t)
-(setq lazy-count-prefix-format "(%s/%s) ")
-(setq lazy-count-suffix-format nil)
+(use-package isearch
+  :ensure nil
+  :custom
+  (isearch-lazy-count t)
+  (lazy-count-prefix-format "(%s/%s) ")
+  (lazy-count-suffix-format nil))
 #+end_src
 
 * Dired
