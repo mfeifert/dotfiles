@@ -213,7 +213,10 @@
 * Eglot
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(setq eglot-autoshutdown t)
+(use-package eglot
+  :defer t
+  :custom
+  (eglot-autoshutdown t))
 #+end_src
 
 * Key bindings
