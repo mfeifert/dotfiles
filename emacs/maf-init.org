@@ -81,8 +81,10 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package ef-themes
   :ensure t)
+
 (use-package doric-themes
   :ensure t)
+
 (use-package standard-themes
   :ensure t)
 #+end_src
@@ -108,16 +110,16 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package dired
   :custom
-  (dired-kill-when-opening-new-dired-buffer t)
   (dired-auto-revert-buffer #'dired-directory-changed-p)
-  (dired-free-space nil)
   (dired-dwim-target t)
+  (dired-free-space nil)
+  (dired-kill-when-opening-new-dired-buffer t)
   (dired-listing-switches
    "-AGFhlv --group-directories-first --time-style=long-iso")
   :hook
+  (dired-mode . denote-dired-mode)
   (dired-mode . dired-hide-details-mode)
-  (dired-mode . hl-line-mode)
-  (dired-mode . denote-dired-mode))
+  (dired-mode . hl-line-mode))
 #+end_src
 
 * Org
@@ -267,26 +269,8 @@
 * Completion
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(use-package vertico
-  :ensure t
-  :custom
-  (vertico-cycle t)
-  :config
-  (vertico-mode 1))
-
-(use-package marginalia
-  :ensure t
-  :config
-  (marginalia-mode 1))
-
 (use-package consult
   :ensure t)
-
-(use-package orderless
-  :ensure t
-  :custom
-  (completion-styles '(orderless))
-  (completion-category-overrides '((file (styles basic partial-completion)))))
 
 (use-package corfu
   :ensure t
@@ -296,6 +280,24 @@
   (global-corfu-mode 1)
   :custom
   (corfu-cycle t))
+
+(use-package marginalia
+  :ensure t
+  :config
+  (marginalia-mode 1))
+
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+(use-package vertico
+  :ensure t
+  :custom
+  (vertico-cycle t)
+  :config
+  (vertico-mode 1))
 #+end_src
 
 * Focus mode
@@ -309,9 +311,9 @@
 (use-package logos
   :ensure t
   :custom
+  (logos-hide-fringe t)
   (logos-hide-mode-line t)
-  (logos-olivetti t)
-  (logos-hide-fringe t))
+  (logos-olivetti t))
 #+end_src
 
 * Magit
