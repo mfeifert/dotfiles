@@ -4,22 +4,23 @@
 ;; -*- lexical-binding: t; -*-
 #+end_src
 
-* Custom file
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(setq custom-file (locate-user-emacs-file "custom.el"))
-(load custom-file :no-error-if-file-is-missing)
-#+end_src
-
 * Package
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-hook 'package-menu-mode-hook #'hl-line-mode)
+(use-package package
+  :init
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+  :hook
+  (package-menu-mode . hl-line-mode))
+#+end_src
 
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
+* Custom file
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(use-package cus-edit
+  :init
+  (setq custom-file (locate-user-emacs-file "custom.el"))
+  (load custom-file :no-error-if-file-is-missing))
 #+end_src
 
 * Essentials
@@ -78,9 +79,12 @@
 * Appearance
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(use-package ef-themes)
-(use-package standard-themes)
-(use-package doric-themes)
+(use-package ef-themes
+  :ensure t)
+(use-package doric-themes
+  :ensure t)
+(use-package standard-themes
+  :ensure t)
 #+end_src
 
 * Mode line
@@ -93,7 +97,6 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package isearch
-  :ensure nil
   :custom
   (isearch-lazy-count t)
   (lazy-count-prefix-format "(%s/%s) ")
@@ -217,6 +220,7 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package evil
+  :ensure t
   :defer t
   :custom
   (evil-want-C-i-jump nil) ; make TAB work for org-cycle
@@ -262,23 +266,28 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package vertico
+  :ensure t
   :custom
   (vertico-cycle t)
   :config
   (vertico-mode 1))
 
 (use-package marginalia
+  :ensure t
   :config
   (marginalia-mode 1))
 
-(use-package consult)
+(use-package consult
+  :ensure t)
 
 (use-package orderless
+  :ensure t
   :custom
   (completion-styles '(orderless))
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
 (use-package corfu
+  :ensure t
   :init
   (corfu-history-mode 1)
   (corfu-popupinfo-mode 1)
@@ -291,10 +300,12 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package olivetti
+  :ensure t
   :custom
   (olivetti-body-width 100))
 
 (use-package logos
+  :ensure t
   :custom
   (logos-hide-mode-line t)
   (logos-olivetti t)
@@ -304,7 +315,8 @@
 * Magit
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(use-package magit)
+(use-package magit
+  :ensure t)
 #+end_src
 
 * Icon fonts
@@ -336,6 +348,7 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package denote
+  :ensure t
   :init
   (setq denote-directory (expand-file-name "~/sync/notes/"))
   :config
@@ -345,19 +358,21 @@
 * Markdown mode
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(use-package markdown-mode)
+(use-package markdown-mode
+  :ensure t)
 #+end_src
 
 * Ledger
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package ledger-mode
-  :config
-  (setq ledger-default-date-format "%Y-%m-%d")
-  (setq ledger-reports
-        '(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
-          ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
-          ("Register" "%(binary) -f %(ledger-file) reg")))
+  :ensure t
+  :custom
+  (ledger-default-date-format "%Y-%m-%d")
+  (ledger-reports
+   '(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
+     ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
+     ("Register" "%(binary) -f %(ledger-file) reg")))
   :hook
   (ledger-mode . save-place-mode))
 #+end_src
@@ -377,6 +392,7 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package elfeed
+  :ensure t
   :init
   (setq elfeed-db-directory "~/.config/emacs/elfeed")
   (setq elfeed-feeds '(
