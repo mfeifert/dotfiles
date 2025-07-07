@@ -210,52 +210,49 @@
 (keymap-global-set "C-c l" 'consult-line)
 #+end_src
 
-* Keymaps
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(defvar-keymap maf-spc-spc-map
-  :doc "Second layer keymap."
-  "b" 'buffer-menu)
-
-(defvar-keymap maf-spc-map
-  :doc "First layer keymap."
-  "SPC" maf-spc-spc-map
-  "b" 'switch-to-buffer
-  "c" 'org-ctrl-c-ctrl-c
-  "d" 'dired-jump
-  "f" 'find-file
-  "g" 'magit
-  "j" 'consult-buffer
-  "k" 'consult-org-heading
-  "l" 'consult-line
-  "n" 'display-line-numbers-mode
-  "o" 'olivetti-mode
-  "s" 'save-buffer
-  "t" 'modus-themes-toggle
-  "u" 'universal-argument ; C-u set to evil-scroll-up
-  "w" 'visual-line-mode)
-#+end_src
-
 * Evil
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package evil
+  :defer t
   :custom
   (evil-want-C-i-jump nil) ; make TAB work for org-cycle
   (evil-want-C-u-scroll t)
   (evil-default-state 'emacs)
   :config
-  (evil-define-key '(normal motion visual) 'global
-    (kbd "RET") nil ; unset RET to use with org-return-follows-link
-    (kbd "SPC") maf-spc-map)
-
   (evil-set-initial-state 'text-mode 'normal)
   (evil-set-initial-state 'prog-mode 'normal)
   (evil-set-initial-state 'Buffer-menu-mode 'emacs)
   (evil-set-initial-state 'calendar-mode 'emacs)
   (evil-set-initial-state 'eshell-mode 'emacs)
   (evil-set-initial-state 'help-mode 'emacs)
-  (evil-set-initial-state 'Info-mode 'emacs))
+  (evil-set-initial-state 'Info-mode 'emacs)
+
+  (defvar-keymap maf-spc-spc-map
+    :doc "Second layer keymap."
+    "b" 'buffer-menu)
+
+  (defvar-keymap maf-spc-map
+    :doc "First layer keymap."
+    "SPC" maf-spc-spc-map
+    "b" 'switch-to-buffer
+    "c" 'org-ctrl-c-ctrl-c
+    "d" 'dired-jump
+    "f" 'find-file
+    "g" 'magit
+    "j" 'consult-buffer
+    "k" 'consult-org-heading
+    "l" 'consult-line
+    "n" 'display-line-numbers-mode
+    "o" 'olivetti-mode
+    "s" 'save-buffer
+    "t" 'modus-themes-toggle
+    "u" 'universal-argument ; C-u set to evil-scroll-up
+    "w" 'visual-line-mode)
+
+  (evil-define-key '(normal motion visual) 'global
+    (kbd "RET") nil ; unset RET to use with org-return-follows-link
+    (kbd "SPC") maf-spc-map))
 #+end_src
 
 * Completion
