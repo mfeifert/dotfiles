@@ -187,20 +187,23 @@
   )
 #+end_src
 
-* Org capture templates
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-#+end_src
-
 * Calendar & Diary
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(load "~/sync/org/location.el")
-(setq calendar-time-zone -480)
-(setq calendar-standard-time-zone-name "PST")
-(setq calendar-daylight-time-zone-name "PDT")
-(setq diary-file "~/sync/org/diary")
-(setq calendar-date-style 'iso)
+(use-package calendar
+  :defer t
+  :init
+  (setq diary-file "~/sync/org/diary")
+  :custom
+  (calendar-date-style 'iso)
+  :config
+  (use-package cal-dst
+    :custom
+    (calendar-daylight-time-zone-name "PDT")
+    (calendar-standard-time-zone-name "PST")
+    (calendar-time-zone -480)
+    :config
+    (load "~/sync/org/location.el")))
 #+end_src
 
 * Tree-sitter
