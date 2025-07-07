@@ -106,16 +106,18 @@
 * Dired
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(setq dired-kill-when-opening-new-dired-buffer t)
-(setq dired-auto-revert-buffer #'dired-directory-changed-p)
-(setq dired-free-space nil)
-(setq dired-dwim-target t)
-(setq dired-listing-switches
-      "-AGFhlv --group-directories-first --time-style=long-iso")
-
-(add-hook 'dired-mode-hook #'dired-hide-details-mode)
-(add-hook 'dired-mode-hook #'hl-line-mode)
-(add-hook 'dired-mode-hook #'denote-dired-mode)
+(use-package dired
+  :custom
+  (dired-kill-when-opening-new-dired-buffer t)
+  (dired-auto-revert-buffer #'dired-directory-changed-p)
+  (dired-free-space nil)
+  (dired-dwim-target t)
+  (dired-listing-switches
+   "-AGFhlv --group-directories-first --time-style=long-iso")
+  :hook
+  (dired-mode . dired-hide-details-mode)
+  (dired-mode . hl-line-mode)
+  (dired-mode . denote-dired-mode))
 #+end_src
 
 * Org
