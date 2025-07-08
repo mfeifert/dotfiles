@@ -38,8 +38,7 @@
   (scroll-margin 8)
   :config
   (defun display-startup-echo-area-message ()
-    (message nil))
-  )
+    (message nil)))
 
 (use-package autorevert
   :config
@@ -199,8 +198,7 @@
 			   
 			   ("d" "Datetree item" plain
 			    (file+datetree "datetree.org") "%?")
-			   ))
-  )
+			   )))
 #+end_src
 
 * Calendar & Diary
@@ -252,16 +250,16 @@
   :ensure t
   :defer t
   :custom
+  (evil-default-state 'emacs)
   (evil-want-C-i-jump nil) ; make TAB work for org-cycle
   (evil-want-C-u-scroll t)
-  (evil-default-state 'emacs)
   :config
   (evil-set-initial-state 'text-mode 'normal)
   (evil-set-initial-state 'prog-mode 'normal)
-  (evil-set-initial-state 'Buffer-menu-mode 'emacs)
   (evil-set-initial-state 'calendar-mode 'emacs)
   (evil-set-initial-state 'eshell-mode 'emacs)
   (evil-set-initial-state 'help-mode 'emacs)
+  (evil-set-initial-state 'Buffer-menu-mode 'emacs)
   (evil-set-initial-state 'Info-mode 'emacs)
 
   (defvar-keymap maf-spc-spc-map
