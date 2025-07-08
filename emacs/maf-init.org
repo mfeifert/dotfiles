@@ -1,31 +1,8 @@
-* Lexical Binding
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-;; -*- lexical-binding: t; -*-
-#+end_src
-
-* Package
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(use-package package
-  :init
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-  :hook
-  (package-menu-mode . hl-line-mode))
-#+end_src
-
-* Custom file
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(use-package cus-edit
-  :init
-  (setq custom-file (locate-user-emacs-file "custom.el"))
-  (load custom-file :no-error-if-file-is-missing))
-#+end_src
-
 * Essentials
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+;; -*- lexical-binding: t; -*-
+
 (use-package emacs
   :custom
   (auto-save-default nil)
@@ -43,6 +20,11 @@
 (use-package autorevert
   :config
   (global-auto-revert-mode t))
+
+(use-package cus-edit
+  :init
+  (setq custom-file (locate-user-emacs-file "custom.el"))
+  (load custom-file :no-error-if-file-is-missing))
 
 (use-package elec-pair
   :config
@@ -63,6 +45,12 @@
 (use-package menu-bar
   :config
   (menu-bar-mode -1))
+
+(use-package package
+  :init
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+  :hook
+  (package-menu-mode . hl-line-mode))
 
 (use-package savehist
   :config
@@ -96,19 +84,6 @@
      ("\\*Buffer List\\*"
       (display-buffer-same-window))
      )))
-#+end_src
-
-* Appearance
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(use-package ef-themes
-  :ensure t)
-
-(use-package doric-themes
-  :ensure t)
-
-(use-package standard-themes
-  :ensure t)
 #+end_src
 
 * Search
@@ -321,6 +296,19 @@
   (vertico-cycle t)
   :config
   (vertico-mode 1))
+#+end_src
+
+* Appearance
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(use-package ef-themes
+  :ensure t)
+
+(use-package doric-themes
+  :ensure t)
+
+(use-package standard-themes
+  :ensure t)
 #+end_src
 
 * Focus mode
