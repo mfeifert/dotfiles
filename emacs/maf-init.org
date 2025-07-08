@@ -26,54 +26,77 @@
 * Essentials
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(setq ring-bell-function 'ignore)
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(fringe-mode 0)
-(setq tab-bar-show 1)
-(blink-cursor-mode -1)
+(use-package emacs
+  :custom
+  (auto-save-default nil)
+  (delete-by-moving-to-trash t)
+  (initial-scratch-message nil)
+  (inhibit-startup-screen t)
+  (make-backup-files nil)
+  (ring-bell-function 'ignore)
+  (scroll-conservatively 1) ; Scroll one line at a time
+  (scroll-margin 8)
+  :config
+  (defun display-startup-echo-area-message ()
+    (message nil))
+  )
 
-;; Inhibit startup messages
-(setq initial-scratch-message nil)
-(setq inhibit-startup-screen t)
-(defun display-startup-echo-area-message ()
-  (message nil))
+(use-package autorevert
+  :config
+  (global-auto-revert-mode t))
 
-;; Files
-(setq auto-save-default nil)
-(setq make-backup-files nil)
-(setq delete-by-moving-to-trash t)
-(global-auto-revert-mode t)
+(use-package elec-pair
+  :config
+  (electric-pair-mode 1))
 
-;; Scroll behavior
-(setq scroll-margin 8)
-(setq scroll-conservatively 1) ; Scroll one line at a time
+(use-package frame
+  :config
+  (blink-cursor-mode -1))
 
-;; Line wrap
-(global-visual-line-mode 1)
+(use-package fringe
+  :config
+  (fringe-mode 0))
 
-;; Help window
-(setq help-window-select t)
+(use-package help
+  :custom
+  (help-window-select t))
 
-;; Auto-close brackets and quotes
-(electric-pair-mode 1)
+(use-package menu-bar
+  :config
+  (menu-bar-mode -1))
 
-;; Minibuffer history
-(savehist-mode 1)
+(use-package savehist
+  :config
+  (savehist-mode 1))
 
-;; Which key
-(which-key-mode 1)
-#+end_src
+(use-package scroll-bar
+  :config
+  (scroll-bar-mode -1))
 
-* Buffers
+(use-package simple
+  :config
+  (column-number-mode 1)
+  (global-visual-line-mode 1))
 
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(setq display-buffer-alist
-      '(
-	("\\*Buffer List\\*"
-	 (display-buffer-same-window))
-	))
+(use-package tab-bar
+  :custom
+  (tab-bar-show 1))
+
+(use-package tool-bar
+  :config
+  (tool-bar-mode -1))
+
+(use-package which-key
+  :config
+  (which-key-mode 1))
+
+(use-package window
+  :custom
+  (display-buffer-alist
+   '(
+     ("\\*Buffer List\\*"
+      (display-buffer-same-window))
+     )))
 #+end_src
 
 * Appearance
@@ -87,12 +110,6 @@
 
 (use-package standard-themes
   :ensure t)
-#+end_src
-
-* Mode line
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(column-number-mode 1)
 #+end_src
 
 * Search
@@ -379,6 +396,15 @@
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package ledger-mode
   :ensure t
+  :init
+  (defun maf-ledger ()
+    "Open ledger file and ledger-report windows."
+    (interactive)
+    (delete-other-windows)
+    (find-file "~/sync/finance/current_year.ledger")
+    (ledger-report "Balance Sheet" nil)
+    (other-window 1)
+    (message nil))
   :custom
   (ledger-default-date-format "%Y-%m-%d")
   (ledger-reports
@@ -387,17 +413,6 @@
      ("Register" "%(binary) -f %(ledger-file) reg")))
   :hook
   (ledger-mode . save-place-mode))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
-(defun maf-ledger ()
-  "Open ledger file and ledger-report windows."
-  (interactive)
-  (delete-other-windows)
-  (find-file "~/sync/finance/current_year.ledger")
-  (ledger-report "Balance Sheet" nil)
-  (other-window 1)
-  (message nil))
 #+end_src
 
 * Elfeed
