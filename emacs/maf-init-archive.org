@@ -279,3 +279,9 @@ I keep them here for future reference.
 (use-package flycheck)
 #+end_src
 
+* Tree-sitter
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(setq major-mode-remap-alist '((c-mode . c-ts-mode)
+                               (python-mode . python-ts-mode)))
+#+end_src
