@@ -120,7 +120,6 @@
   :init
   (setq org-directory "~/sync/org/")
   :custom
-  ;;; org general settings
   (org-edit-src-content-indentation 0)
   (org-hide-emphasis-markers t)
   (org-insert-heading-respect-content t)
@@ -140,9 +139,14 @@
      ("l" . "export latex")
      ("q" . "quote")
      ("v" . "verse")
-     ("x" . "example")))
+     ("x" . "example"))))
+#+end_src
 
-  ;;; org-agenda settings
+* Org Agenda
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(use-package org
+  :custom
   (org-log-done 'time)
   (org-log-into-drawer t)
   (org-agenda-files (list org-directory))
@@ -157,23 +161,23 @@
      (search . " %i %-12:c")))
 
   (org-capture-templates `(
-			   ("t" "TODO item" entry
-			    (file+headline "tasks.org" "To be reviewed")
-			    ,(concat "* TODO %?\n"
+  			   ("t" "TODO item" entry
+  			    (file+headline "tasks.org" "To be reviewed")
+  			    ,(concat "* TODO %?\n"
                                      ":PROPERTIES:\n"
                                      ":CAPTURED: %U\n"
                                      ":END:\n\n"))
-			   
-			   ("i" "Idea" entry
-			    (file+headline "tasks.org" "Ideas")
-			    ,(concat "* %?\n"
+  			   
+  			   ("i" "Idea" entry
+  			    (file+headline "tasks.org" "Ideas")
+  			    ,(concat "* %?\n"
                                      ":PROPERTIES:\n"
                                      ":CAPTURED: %U\n"
                                      ":END:\n\n"))
-			   
-			   ("d" "Datetree item" plain
-			    (file+datetree "datetree.org") "%?")
-			   )))
+  			   
+  			   ("d" "Datetree item" plain
+  			    (file+datetree "datetree.org") "%?")
+  			   )))
 #+end_src
 
 * Calendar & Diary
