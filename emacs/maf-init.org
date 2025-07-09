@@ -228,6 +228,8 @@
 (use-package evil
   :ensure t
   :defer t
+  :init
+  (setq evil-disable-insert-state-bindings t)
   :custom
   (evil-default-state 'emacs)
   (evil-want-C-i-jump nil) ; make TAB work for org-cycle
