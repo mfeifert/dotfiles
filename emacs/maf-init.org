@@ -320,7 +320,9 @@
   :ensure t)
 
 (use-package delight
-  :ensure t)
+  :ensure t
+  :config
+  (delight 'eldoc-mode nil "eldoc"))
 #+end_src
 
 * Focus mode
