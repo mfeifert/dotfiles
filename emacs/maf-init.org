@@ -14,6 +14,7 @@
   (scroll-conservatively 1) ; Scroll one line at a time
   (scroll-margin 8)
   :config
+  (require-theme 'modus-themes)
   (defun display-startup-echo-area-message ()
     (message nil)))
 
