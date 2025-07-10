@@ -329,6 +329,7 @@
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
 (use-package olivetti
+  :delight
   :ensure t
   :custom
   (olivetti-body-width 100))
