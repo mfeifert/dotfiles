@@ -61,6 +61,8 @@
   (scroll-bar-mode -1))
 
 (use-package simple
+  :delight
+  (visual-line-mode)
   :config
   (column-number-mode 1)
   (global-visual-line-mode 1))
@@ -74,6 +76,7 @@
   (tool-bar-mode -1))
 
 (use-package which-key
+  :delight
   :config
   (which-key-mode 1))
 
@@ -315,6 +318,9 @@
 
 (use-package standard-themes
   :ensure t)
+
+(use-package delight
+  :ensure t)
 #+end_src
 
 * Focus mode
@@ -360,6 +366,7 @@
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (use-package nerd-icons-dired
+  :delight
   :ensure t
   :hook
   (dired-mode . nerd-icons-dired-mode))
