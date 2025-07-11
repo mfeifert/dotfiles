@@ -122,7 +122,7 @@
 (use-package org
   :defer t
   :init
-  (setq org-directory "~/sync/org/")
+  (setq org-directory maf-org-directory)
   :custom
   (org-edit-src-content-indentation 0)
   (org-hide-emphasis-markers t)
@@ -190,7 +190,7 @@
 (use-package calendar
   :defer t
   :init
-  (setq diary-file "~/sync/org/diary")
+  (setq diary-file maf-diary-file)
   :custom
   (calendar-date-style 'iso)
   :config
@@ -198,9 +198,12 @@
     :custom
     (calendar-daylight-time-zone-name "PDT")
     (calendar-standard-time-zone-name "PST")
-    (calendar-time-zone -480)
-    :config
-    (load "~/sync/org/location.el")))
+    (calendar-time-zone -480))
+  (use-package solar
+    :custom
+    (calendar-latitude maf-calendar-latitude)
+    (calendar-longitude maf-calendar-longitude)
+    (calendar-location-name maf-calendar-location-name)))
 #+end_src
 
 * Eglot
@@ -392,7 +395,7 @@
 (use-package denote
   :ensure t
   :init
-  (setq denote-directory (expand-file-name "~/sync/notes/"))
+  (setq denote-directory (expand-file-name maf-denote-directory))
   :config
   (denote-rename-buffer-mode 1))
 #+end_src
@@ -414,7 +417,7 @@
     "Open ledger file and ledger-report windows."
     (interactive)
     (delete-other-windows)
-    (find-file "~/sync/finance/current_year.ledger")
+    (find-file maf-ledger-file)
     (ledger-report "Balance Sheet" nil)
     (other-window 1)
     (message nil))
@@ -434,12 +437,6 @@
 (use-package elfeed
   :ensure t
   :init
-  (setq elfeed-db-directory "~/.config/emacs/elfeed")
-  (setq elfeed-feeds '(
-                       "https://davissystem.net/index.xml"
-                       "https://archlinux.org/feeds/news/"
-                       "https://protesilaos.com/codelog.xml"
-                       "https://xkcd.com/atom.xml"
-                       )))
+  (setq elfeed-db-directory "~/.config/emacs/elfeed"))
 #+end_src
 
