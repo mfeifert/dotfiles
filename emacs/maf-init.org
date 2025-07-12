@@ -336,6 +336,7 @@
 (use-package delight
   :ensure t
   :config
+  (delight 'abbrev-mode nil "Abbrev")
   (delight 'eldoc-mode nil "eldoc"))
 #+end_src
 
