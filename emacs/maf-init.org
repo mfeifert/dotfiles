@@ -337,7 +337,8 @@
   :ensure t
   :config
   (delight 'abbrev-mode nil "Abbrev")
-  (delight 'eldoc-mode nil "eldoc"))
+  (delight 'eldoc-mode nil "eldoc")
+  (delight 'org-indent-mode nil "Ind"))
 #+end_src
 
 * Focus mode
