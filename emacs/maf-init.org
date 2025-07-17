@@ -320,8 +320,6 @@
 (use-package modus-themes
   :custom
   (modus-themes-italic-constructs t)
-  (modus-themes-common-palette-overrides
-   '((bg-mode-line-active bg-blue-subtle)))
   (modus-operandi-palette-overrides
    '((bg-prose-block-delimiter "#e2e2e2")))
   (modus-vivendi-palette-overrides
