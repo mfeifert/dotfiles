@@ -224,9 +224,11 @@
 
   (keymap-global-set "C-c a" 'org-agenda)
   (keymap-global-set "C-c e" 'evil-mode)
+  (keymap-global-set "C-c i" 'org-indent-mode)
   (keymap-global-set "C-c j" 'consult-buffer)
   (keymap-global-set "C-c k" 'consult-org-heading)
-  (keymap-global-set "C-c l" 'consult-line))
+  (keymap-global-set "C-c l" 'consult-line)
+  (keymap-global-set "C-c o" 'olivetti-mode))
 #+end_src
 
 * Evil
