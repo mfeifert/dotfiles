@@ -232,6 +232,14 @@
   (keymap-set org-mode-map "C-c k" 'consult-org-heading))
 #+end_src
 
+* Project
+
+#+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
+(use-package project
+  :custom
+  (project-mode-line t))
+#+end_src
+
 * Evil
 
 #+begin_src emacs-lisp :tangle "~/.config/emacs/maf-init.el"
