@@ -335,9 +335,9 @@
 (use-package delight
   :ensure t
   :config
-  (delight 'abbrev-mode nil "Abbrev")
+  (delight 'abbrev-mode nil "abbrev")
   (delight 'eldoc-mode nil "eldoc")
-  (delight 'org-indent-mode nil "Ind"))
+  (delight 'org-indent-mode nil "org-indent"))
 #+end_src
 
 * Focus mode
