@@ -233,6 +233,7 @@
   (keymap-global-set "C-c e" 'evil-mode)
   (keymap-global-set "C-c j" 'consult-buffer)
   (keymap-global-set "C-c l" 'consult-line)
+  (keymap-global-set "C-c n" 'display-line-numbers-mode)
   (keymap-global-set "C-c o" 'olivetti-mode)
 
   (keymap-set dired-mode-map "C-c p" 'dired-preview-mode)
