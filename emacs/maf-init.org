@@ -366,7 +366,8 @@
   :delight
   :ensure t
   :custom
-  (olivetti-body-width 100))
+  (olivetti-body-width 100)
+  (olivetti-style t))
 
 (use-package logos
   :ensure t
