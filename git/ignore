@@ -3,5 +3,6 @@
 test
 tst
 test.c
+test.cpp
 test.go
 test.py
