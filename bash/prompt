@@ -15,6 +15,10 @@ else
 	git=""
 fi
 
+# To use the prompt with git status indicator,
+# include the following line in ~/.bashrc
+#PROMPT_COMMAND="source $HOME/dotfiles/bash/prompt"
+
 # Special characters:
 # \u  username
 # \h  hostname
