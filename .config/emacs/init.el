@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t; -*-
 
-(load "~/sync/config/maf-init-private.el")
+(load "~/vc/dotfiles-private/init-private.el")
 (load-theme 'modus-vivendi)
 (setq initial-frame-alist '((fullscreen . maximized)))
 (modify-frame-parameters nil '((undecorated t)))
