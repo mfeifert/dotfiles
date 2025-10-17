@@ -6,6 +6,7 @@
 
 export BAT_THEME="ansi"
 export EDITOR="nvim"
+export GUM_FILTER_SHOW_HELP="no"
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 export HISTSIZE=
 export MANPAGER="sh -c 'col --spaces --no-backspaces | bat --plain --language man'"
