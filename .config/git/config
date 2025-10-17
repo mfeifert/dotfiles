@@ -1,0 +1,10 @@
+[user]
+	name = Matthew Feifert
+	email = 55014056+mfeifert@users.noreply.github.com
+[init]
+	defaultBranch = main
+[alias]
+	st = status
+	ll = log --oneline --max-count=10 --graph
+	lll = log --oneline --graph
+	ls = ls-tree -r HEAD --name-only

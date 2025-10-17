@@ -1,0 +1,8 @@
+*.swp
+*.out
+test
+tst
+test.c
+test.cpp
+test.go
+test.py

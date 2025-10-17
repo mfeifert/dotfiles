@@ -1,0 +1,30 @@
+theme = "autumn_night"
+
+[editor]
+auto-completion = false
+bufferline = "multiple"
+color-modes = true
+gutters = ["spacer", "line-numbers", "spacer", "diff"]
+line-number = "absolute"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
+
+[editor.soft-wrap]
+enable = true
+
+[keys.insert]
+C-f = "move_char_right"
+C-b = "move_char_left"
+C-n = "completion"
+
+[keys.normal]
+H = ":buffer-previous"
+L = ":buffer-next"
+
+[keys.normal.space.l]
+r = ":lsp-restart"
+s = ":lsp-stop"

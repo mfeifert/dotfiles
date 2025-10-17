@@ -1,0 +1,21 @@
+bold-is-bright = true
+# cursor-style = bar
+cursor-style-blink = false
+font-family = monospace
+font-size = 15
+font-feature = -calt,-dlig,-liga
+gtk-titlebar = false
+mouse-hide-while-typing = true
+shell-integration-features = no-cursor
+theme = dark:maf-midnight-in-mojave,light:maf_Raycast_Light
+unfocused-split-opacity = 1
+window-decoration = none
+window-height = 64
+window-width = 220
+
+keybind = alt+t=new_tab
+keybind = alt+w=close_tab
+keybind = alt+h=goto_split:left
+keybind = alt+j=goto_split:down
+keybind = alt+k=goto_split:up
+keybind = alt+l=goto_split:right
