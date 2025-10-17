@@ -53,9 +53,14 @@
   (dired-mode . dired-hide-details-mode)
   (dired-mode . hl-line-mode))
 
-;; (use-package help
-;;   :custom
-;;   (help-window-select t))
+(use-package elisp-mode
+  :hook
+  (emacs-lisp-mode . outline-minor-mode))
+
+(use-package help
+  :custom
+  ;; (help-window-select t)
+  )
 
 (use-package org
   :defer t
