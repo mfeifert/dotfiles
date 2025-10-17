@@ -46,6 +46,3 @@ case $(uname -s) in
 		echo "Unknown system type"
 		;;
 esac
-
-# To be placed in .bashrc if necessary
-# alias dict='dict -c "$XDG_CONFIG_HOME/dict/dictrc"'
