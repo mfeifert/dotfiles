@@ -67,14 +67,12 @@ alias pp="ping 1.1.1.1"
 
 # Functions
 
-f()
-{
+f() {
 	file=$(fzf)
 	[[ -n $file ]] && nvim "$file"
 }
 
-task()
-{
+task() {
 	if [[ $1 == "e" ]]; then
 		(cd "$TASK_DATA_DIR" && f)
 	else
@@ -84,25 +82,21 @@ task()
 	fi
 }
 
-tt()
-{
+tt() {
 	task-todo "$@"
 	task
 }
 
-td()
-{
+td() {
 	task-daily "$@"
 	[[ $1 != "a" ]] && task
 }
 
-tm()
-{
+tm() {
 	task-monthly "$@"
 	[[ $1 != "a" ]] && task
 }
 
-h()
-{
+h() {
 	"$@" --help 2>&1 | bat --plain --language="help"
 }
