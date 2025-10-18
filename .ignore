@@ -1,0 +1,13 @@
+.cache
+.config/emacs/elpa
+.config/emacs/elfeed
+.config/emacs/eln-cache
+.config/go/telemetry
+.config/helix/runtime
+.config/libreoffice
+.git
+.local
+.mozilla
+.npm
+vc/dotfiles
+vc/go/pkg
