@@ -58,24 +58,24 @@ vim.api.nvim_create_autocmd({ 'TermOpen', 'WinEnter' }, {
   command = 'startinsert'
 })
 
-vim.api.nvim_create_autocmd('BufWritePost', {
-  pattern = { '*.c', '*.h' },
-  command = ":silent !maf-indent %"
-})
+-- vim.api.nvim_create_autocmd('BufWritePost', {
+--   pattern = { '*.c', '*.h' },
+--   command = ":silent !maf-indent %"
+-- })
 
 vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = '*.go',
   command = ":silent !go fmt %"
 })
 
-vim.api.nvim_create_autocmd('BufWritePost', {
-  pattern = '*',
-  callback = function ()
-    if vim.tbl_contains({ 'sh', 'bash', 'zsh' }, vim.bo.filetype) then
-      vim.cmd(':silent !maf-shfmt %')
-    end
-  end
-})
+-- vim.api.nvim_create_autocmd('BufWritePost', {
+--   pattern = '*',
+--   callback = function ()
+--     if vim.tbl_contains({ 'sh', 'bash', 'zsh' }, vim.bo.filetype) then
+--       vim.cmd(':silent !maf-shfmt %')
+--     end
+--   end
+-- })
 
 function toggle_background()
   if vim.o.background == 'dark' then
