@@ -15,10 +15,10 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # ~/.local/state
 export XDG_STATE_HOME="$HOME/.local/state"
 mkdir -p "$XDG_STATE_HOME/bash"
-mkdir -p "$XDG_STATE_HOME/vim"
 export NODE_REPL_HISTORY="$XDG_STATE_HOME/node_repl_history"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 export SQLITE_HISTORY="$XDG_STATE_HOME/sqlite_history"
+mkdir -p "$XDG_STATE_HOME/vim"
 export W3M_DIR="$XDG_STATE_HOME/w3m"
 
 # ~/.cache
