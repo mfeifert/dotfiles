@@ -8,8 +8,6 @@ source "$HOME/vc/dotfiles-private/bashrc"
 
 eval "$(atuin init bash)"
 
-# Environment variables
-
 PS1='\W \$ '
 export BAT_THEME="ansi"
 export EDITOR="nvim"
@@ -27,9 +25,7 @@ export FZF_DEFAULT_OPTS="
 	--preview 'bat --color=always {}' \
 	--style=full"
 
-# Aliases
-
-## default options
+# Default options
 alias dict="dict -c ~/.config/dict/dictrc"
 alias diff="diff --color=auto"
 alias emacs="emacs -nw"
@@ -40,7 +36,7 @@ alias ip="ip -c"
 alias ls="ls -Ahv --color=auto --group-directories-first"
 alias watch="watch --color"
 
-## shortcuts
+# Shortcuts
 alias c="clear"
 alias d='(export EDITOR="nvim +"; denote)'
 alias glk="ghostty +list-keybinds"
@@ -56,7 +52,7 @@ alias t="tmux attach"
 alias tk="tmux kill-session"
 alias tl="tmux ls"
 
-## utilities
+# Utilities
 alias dot='/usr/bin/git --git-dir=/home/maf/vc/dotfiles/ --work-tree=/home/maf'
 alias fza="alias | fzf --no-preview"
 alias fze="env | sort | fzf --no-preview"
