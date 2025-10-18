@@ -1,12 +1,6 @@
 # bash_profile
 
-# Check https://wiki.archlinux.org/title/XDG_Base_Directory
-# periodically for updates.
-
-# Unable to clean up:
-# ~/.dosbox/
-# ~/.links/
-# ~/.packettracer
+# https://wiki.archlinux.org/title/XDG_Base_Directory
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -17,6 +11,7 @@ mkdir -p "$XDG_CONFIG_HOME/git"
 mkdir -p "$XDG_CONFIG_HOME/screen"
 mkdir -p "$XDG_CONFIG_HOME/zsh"
 mkdir -p "$XDG_STATE_HOME/bash"
+mkdir -p "$XDG_STATE_HOME/vim"
 mkdir -p "$XDG_CACHE_HOME/dvdcss"
 
 export GOPATH="$HOME/vc/go"
@@ -27,20 +22,12 @@ export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 export SQLITE_HISTORY="$XDG_STATE_HOME/sqlite_history"
 export W3M_DIR="$XDG_STATE_HOME/w3m"
 export DVDCSS_CACHE="$XDG_CACHE_HOME/dvdcss"
+export SCREENDIR="$XDG_RUNTIME_DIR/screen"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
-case $(uname -s) in
-	"Darwin")
-		export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
-		alias vim='nvim'
-		;;
-	"Linux")
-		export SCREENDIR="$XDG_RUNTIME_DIR/screen"
-		mkdir -p "$XDG_STATE_HOME/vim"
-		;;
-	*)
-		echo "Unknown system type"
-		;;
-esac
+# Unable to clean up:
+# ~/.dosbox/
+# ~/.links/
+# ~/.packettracer
