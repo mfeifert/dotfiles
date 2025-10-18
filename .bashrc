@@ -30,7 +30,6 @@ export FZF_DEFAULT_OPTS="
 # Aliases
 
 ## default options
-alias cp="cp -i"
 alias dict="dict -c ~/.config/dict/dictrc"
 alias diff="diff --color=auto"
 alias emacs="emacs -nw"
@@ -39,7 +38,6 @@ alias gcc="gcc -Wall --pedantic"
 alias grep="grep --color=auto --exclude-dir=.git"
 alias ip="ip -c"
 alias ls="ls -Ahv --color=auto --group-directories-first"
-alias mv="mv -i"
 alias watch="watch --color"
 
 ## shortcuts
