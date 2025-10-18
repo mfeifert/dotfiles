@@ -7,7 +7,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-mkdir -p "$XDG_CONFIG_HOME/git"
 mkdir -p "$XDG_CONFIG_HOME/screen"
 mkdir -p "$XDG_CONFIG_HOME/zsh"
 mkdir -p "$XDG_STATE_HOME/bash"
@@ -27,7 +26,7 @@ export SCREENDIR="$XDG_RUNTIME_DIR/screen"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
-# Hardcoded:
+# Hard-coded:
 # ~/.dosbox/
 # ~/.links/
 # ~/.packettracer
