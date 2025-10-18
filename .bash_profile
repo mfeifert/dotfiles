@@ -27,7 +27,7 @@ export SCREENDIR="$XDG_RUNTIME_DIR/screen"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
-# Unable to clean up:
+# Hardcoded:
 # ~/.dosbox/
 # ~/.links/
 # ~/.packettracer
