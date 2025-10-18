@@ -57,11 +57,6 @@
   :hook
   (emacs-lisp-mode . outline-minor-mode))
 
-(use-package help
-  :custom
-  ;; (help-window-select t)
-  )
-
 (use-package org
   :defer t
   :init
