@@ -72,6 +72,10 @@ f() {
 	[[ -n $file ]] && nvim "$file"
 }
 
+h() {
+	"$@" --help 2>&1 | bat --plain --language="help"
+}
+
 task() {
 	if [[ $1 == "e" ]]; then
 		(cd "$TASK_DATA_DIR" && f)
@@ -95,8 +99,4 @@ td() {
 tm() {
 	task-monthly "$@"
 	[[ $1 != "a" ]] && task
-}
-
-h() {
-	"$@" --help 2>&1 | bat --plain --language="help"
 }
