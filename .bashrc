@@ -38,19 +38,10 @@ alias watch="watch --color"
 
 # Shortcuts
 alias c="clear"
-alias d='(export EDITOR="nvim +"; denote)'
-alias glk="ghostty +list-keybinds"
-alias glt="ghostty +list-themes"
-alias gr="go run ."
-alias lg="lazygit"
 alias ll="ls -l"
 alias n="(cd $NOTES_DIR; f)"
 alias p="python3 -q"
 alias s="shows"
-alias sc="shellcheck"
-alias t="tmux attach"
-alias tk="tmux kill-session"
-alias tl="tmux ls"
 
 # Utilities
 alias dot='/usr/bin/git --git-dir=/home/maf/vc/dotfiles/ --work-tree=/home/maf'
