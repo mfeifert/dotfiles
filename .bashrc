@@ -26,7 +26,6 @@ export FZF_DEFAULT_OPTS="
 	--style=full"
 
 # Default options
-alias dict="dict -c ~/.config/dict/dictrc"
 alias diff="diff --color=auto"
 alias emacs="emacs -nw"
 alias eza="eza -Agh --icons=auto --group-directories-first --sort Name"
