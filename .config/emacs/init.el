@@ -134,6 +134,10 @@
   (setq custom-file (locate-user-emacs-file "custom.el"))
   (load custom-file :no-error-if-file-is-missing))
 
+(use-package dabbrev
+  :custom
+  (dabbrev-case-replace nil))
+
 (use-package eglot
   :defer t
   :custom
