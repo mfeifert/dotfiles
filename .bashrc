@@ -11,7 +11,6 @@ eval "$(atuin init bash)"
 PS1='\W \$ '
 export BAT_THEME="ansi"
 export EDITOR="nvim"
-export GUM_FILTER_SHOW_HELP="no"
 export MANPAGER="sh -c 'col --spaces --no-backspaces | bat --plain --language man'"
 export MANROFFOPT="-c"
 export VERSION_CONTROL="never" # used by GNU indent
