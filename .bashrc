@@ -34,7 +34,6 @@ alias ls="ls -Ahv --color=auto --group-directories-first"
 alias ll="ls -l"
 alias n="(cd $NOTES_DIR; f)"
 alias p="python3 -q"
-alias s="shows"
 
 # Utilities
 alias dot='/usr/bin/git --git-dir=${HOME}/vc/dotfiles/ --work-tree=${HOME}'
