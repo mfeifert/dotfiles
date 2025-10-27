@@ -6,8 +6,6 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 mkdir -p "$XDG_CONFIG_HOME/screen"
 export SCREENRC="$XDG_CONFIG_HOME/screen/screenrc"
-mkdir -p "$XDG_CONFIG_HOME/zsh"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # ~/.local/share
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -15,7 +13,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # ~/.local/state
 export XDG_STATE_HOME="$HOME/.local/state"
 mkdir -p "$XDG_STATE_HOME/bash"
-export NODE_REPL_HISTORY="$XDG_STATE_HOME/node_repl_history"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 export SQLITE_HISTORY="$XDG_STATE_HOME/sqlite_history"
 mkdir -p "$XDG_STATE_HOME/vim"
