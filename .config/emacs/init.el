@@ -204,6 +204,8 @@
 
 (use-package keymap
   :config
+  (keymap-global-set "<f8>" 'recompile)
+  (keymap-global-set "C-<f8>" 'compile)
   (keymap-global-set "<f9>" 'maf-ledger)
 
   (keymap-global-set "C-c a" 'org-agenda)
@@ -219,10 +221,7 @@
   (keymap-set org-mode-map "C-c k" 'consult-org-heading)
 
   (keymap-set outline-minor-mode-map "<f5>" 'outline-cycle)
-  (keymap-set outline-minor-mode-map "<backtab>" 'outline-cycle-buffer)
-
-  ;; (keymap-set prog-mode-map "<f5>" 'compile)
-  (keymap-set prog-mode-map "<f8>" 'recompile))
+  (keymap-set outline-minor-mode-map "<backtab>" 'outline-cycle-buffer))
 
 (use-package modus-themes
   :custom
