@@ -25,16 +25,13 @@ export FZF_DEFAULT_OPTS="
 
 # Default options
 alias diff="diff --color=auto"
-alias emacs="emacs -nw"
 alias eza="eza -Agh --icons=auto --group-directories-first --sort Name"
 alias gcc="gcc -Wall --pedantic"
 alias grep="grep --color=auto --exclude-dir=.git"
 alias ip="ip -c"
 alias ls="ls -Ahv --color=auto --group-directories-first"
-alias watch="watch --color"
 
 # Shortcuts
-alias c="clear"
 alias ll="ls -l"
 alias n="(cd $NOTES_DIR; f)"
 alias p="python3 -q"
