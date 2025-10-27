@@ -25,7 +25,6 @@ export FZF_DEFAULT_OPTS="
 
 # Default options
 alias diff="diff --color=auto"
-alias eza="eza -Agh --icons=auto --group-directories-first --sort Name"
 alias gcc="gcc -Wall --pedantic"
 alias grep="grep --color=auto --exclude-dir=.git"
 alias ip="ip -c"
