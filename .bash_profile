@@ -4,7 +4,6 @@
 
 # ~/.config
 export XDG_CONFIG_HOME="$HOME/.config"
-mkdir -p "$XDG_CONFIG_HOME/screen"
 export SCREENRC="$XDG_CONFIG_HOME/screen/screenrc"
 
 # ~/.local/share
@@ -15,13 +14,10 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export HISTFILE="$XDG_STATE_HOME/bash_history"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 export SQLITE_HISTORY="$XDG_STATE_HOME/sqlite_history"
-mkdir -p "$XDG_STATE_HOME/vim"
 export W3M_DIR="$XDG_STATE_HOME/w3m"
 
 # ~/.cache
 export XDG_CACHE_HOME="$HOME/.cache"
-mkdir -p "$XDG_CACHE_HOME/dvdcss"
-export DVDCSS_CACHE="$XDG_CACHE_HOME/dvdcss"
 
 export GOPATH="$HOME/vc/go"
 export PATH="$HOME/.local/bin:$PATH"
