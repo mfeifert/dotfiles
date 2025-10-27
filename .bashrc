@@ -53,7 +53,7 @@ h() {
 
 task() {
 	if [[ $1 == "e" ]]; then
-		(cd "$TASK_DATA_DIR" && f)
+		(cd "$DATA_DIR/task" && f)
 	else
 		clear
 		task-dashboard
