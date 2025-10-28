@@ -16,9 +16,7 @@ export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 export SQLITE_HISTORY="$XDG_STATE_HOME/sqlite_history"
 export W3M_DIR="$XDG_STATE_HOME/w3m"
 
-export GOPATH="$HOME/vc/go"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$GOPATH/bin:$PATH"
+# /run/user/$UID
 export SCREENDIR="$XDG_RUNTIME_DIR/screen"
 
 # hard-coded
