@@ -4,8 +4,3 @@ show_symlink   = true
 sort_by        = "natural"
 sort_reverse   = false
 sort_sensitive = true
-
-[preview]
-max_width      = 600
-max_height     = 900
-tab_size       = 2
