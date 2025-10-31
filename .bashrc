@@ -43,7 +43,7 @@ alias p="python3 -q"
 alias www="(cd "$HOME/vc/www"; f)"
 
 # Utilities
-alias dot='/usr/bin/git --git-dir=${HOME}/vc/dotfiles/ --work-tree=${HOME}'
+alias dot="/usr/bin/git --git-dir=${HOME}/vc/dotfiles/ --work-tree=${HOME}"
 alias fza="alias | fzf --no-preview"
 alias fze="env | sort | fzf --no-preview"
 alias fzfonts="fc-list : family | sort | column --table --separator=',' | fzf --no-preview"
@@ -73,6 +73,10 @@ f() {
 
 h() {
 	"$@" --help 2>&1 | bat --plain --language="help"
+}
+
+dots() {
+	nvim $(dot ls | fzf)
 }
 
 task() {
