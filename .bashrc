@@ -76,7 +76,8 @@ h() {
 }
 
 dots() {
-	nvim $(dot ls | fzf)
+	file=$(dot ls | fzf)
+	[[ -n $file ]] && nvim "$file"
 }
 
 task() {
