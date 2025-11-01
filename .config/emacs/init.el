@@ -72,7 +72,7 @@
   (org-structure-template-alist
    '(("s" . "src")
      ("e" . "src emacs-lisp")
-     ("t" . "src emacs-lisp :tangle \"~/.config/emacs/maf-init.el\"")
+     ("p" . "src c++")
      ("a" . "export ascii")
      ("c" . "center")
      ("C" . "comment")
