@@ -2,7 +2,7 @@ set viminfofile=$XDG_STATE_HOME/vim/viminfo
 let g:netrw_home='$XDG_STATE_HOME/vim'
 
 syntax on
-colorscheme lunaperche
+"colorscheme lunaperche
 
 set autoindent
 set autoread
