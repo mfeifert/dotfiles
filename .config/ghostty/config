@@ -4,14 +4,15 @@ cursor-style-blink = false
 font-family = monospace
 font-size = 15
 font-feature = -calt,-dlig,-liga
+fullscreen = true
 gtk-titlebar = false
 mouse-hide-while-typing = true
 shell-integration-features = no-cursor
 theme = dark:maf-midnight-in-mojave,light:maf-Raycast_Light
 unfocused-split-opacity = 1
 window-decoration = none
-window-height = 64
-window-width = 220
+# window-height = 64
+# window-width = 220
 
 keybind = alt+t=new_tab
 keybind = alt+w=close_tab
