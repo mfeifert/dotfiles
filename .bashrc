@@ -1,8 +1,6 @@
 # .bashrc
 
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+source /etc/bashrc
 
 eval "$(atuin init bash)"
 
