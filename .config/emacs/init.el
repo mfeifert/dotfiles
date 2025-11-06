@@ -40,6 +40,9 @@
     (calendar-longitude maf-calendar-longitude)
     (calendar-location-name maf-calendar-location-name)))
 
+(use-package compile
+  :custom compilation-window-height 8)
+
 (use-package dired
   :custom
   (dired-auto-revert-buffer #'dired-directory-changed-p)
