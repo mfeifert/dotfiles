@@ -1,5 +1,10 @@
 ;;; -*- lexical-binding: t; -*-
 
+(use-package cus-edit
+  :init
+  (setq custom-file (locate-user-emacs-file "custom.el"))
+  (load custom-file :no-error-if-file-is-missing))
+
 (load "~/vc/dotfiles-private/init-private.el")
 (load-theme 'modus-vivendi)
 (setq initial-frame-alist '((fullscreen . maximized)))
@@ -131,11 +136,6 @@
 (use-package autorevert
   :config
   (global-auto-revert-mode t))
-
-(use-package cus-edit
-  :init
-  (setq custom-file (locate-user-emacs-file "custom.el"))
-  (load custom-file :no-error-if-file-is-missing))
 
 (use-package dabbrev
   :custom
