@@ -36,9 +36,9 @@ vim.keymap.set('i', '(', '()<Left>')
 vim.keymap.set('i', '[', '[]<Left>')
 vim.keymap.set('i', '{', '{}<Left>')
 vim.keymap.set('i', '"', '""<Left>')
-vim.keymap.set('n', '<leader>f', ':FZF<cr>')
-vim.keymap.set('n', '<leader>g', ':Rg<cr>')  -- requires fzf.vim plugin
-vim.keymap.set('n', '<leader>b', ':Buffers<cr>')  -- requires fzf.vim plugin
+vim.keymap.set('n', '<leader>f', ':FzfLua files<cr>')
+vim.keymap.set('n', '<leader>g', ':FzfLua live_grep<cr>')
+vim.keymap.set('n', '<leader>b', ':FzfLua buffers<cr>')
 
 -- vim.keymap.set('t', '<C-h>', '<C-\\><C-N><C-w>h')
 -- vim.keymap.set('t', '<C-j>', '<C-\\><C-N><C-w>j')
