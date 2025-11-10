@@ -72,7 +72,9 @@
   :hook
   (dired-mode . denote-dired-mode)
   (dired-mode . dired-hide-details-mode)
-  (dired-mode . hl-line-mode))
+  (dired-mode . hl-line-mode)
+  :config
+  (keymap-set dired-mode-map "C-c p" #'dired-preview-mode))
 
 (use-package elisp-mode
   :hook
@@ -226,8 +228,6 @@
   (keymap-global-set "C-c l" 'consult-line)
   (keymap-global-set "C-c n" 'display-line-numbers-mode)
   (keymap-global-set "C-c o" 'olivetti-mode)
-
-  ;; (keymap-set dired-mode-map "C-c p" 'dired-preview-mode)
 
   (keymap-set org-mode-map "C-c i" 'org-indent-mode)
   (keymap-set org-mode-map "C-c k" 'consult-org-heading)
