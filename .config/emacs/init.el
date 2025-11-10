@@ -1,14 +1,27 @@
 ;;; -*- lexical-binding: t; -*-
+;;; Preliminary
+
+(load "~/vc/dotfiles-private/init-private.el")
+(modify-frame-parameters nil '((undecorated t)))
 
 (use-package cus-edit
   :init
   (setq custom-file (locate-user-emacs-file "custom.el"))
   (load custom-file :no-error-if-file-is-missing))
 
-(load "~/vc/dotfiles-private/init-private.el")
-(load-theme 'modus-vivendi)
-(setq initial-frame-alist '((fullscreen . maximized)))
-(modify-frame-parameters nil '((undecorated t)))
+(use-package frame
+  :custom
+  (initial-frame-alist '((fullscreen . maximized)))
+  :config
+  (blink-cursor-mode -1))
+
+(use-package modus-themes
+  :custom
+  (modus-themes-italic-constructs t)
+  (modus-themes-common-palette-overrides
+   '((bg-prose-block-delimiter bg-inactive)))
+  :config
+  (modus-themes-select 'modus-vivendi))
 
 (use-package emacs
   :custom
@@ -150,10 +163,6 @@
   :config
   (electric-pair-mode 1))
 
-(use-package frame
-  :config
-  (blink-cursor-mode -1))
-
 (use-package fringe
   :config
   (fringe-mode 0))
@@ -225,12 +234,6 @@
 
   (keymap-set outline-minor-mode-map "<f5>" 'outline-cycle)
   (keymap-set outline-minor-mode-map "<backtab>" 'outline-cycle-buffer))
-
-(use-package modus-themes
-  :custom
-  (modus-themes-italic-constructs t)
-  (modus-themes-common-palette-overrides
-   '((bg-prose-block-delimiter bg-inactive))))
 
 (use-package project
   :custom
