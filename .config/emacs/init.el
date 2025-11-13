@@ -298,7 +298,8 @@
   :custom
   (dired-preview-delay 0)
   :config
-  (dired-preview-global-mode 1))
+  ;; (dired-preview-global-mode 1)
+  )
 
 (use-package evil
   :ensure t
