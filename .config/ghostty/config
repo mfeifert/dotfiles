@@ -1,9 +1,8 @@
 bold-is-bright = true
-# cursor-style = bar
 cursor-style-blink = false
 font-family = Adwaita Mono
-font-size = 15
 font-feature = -calt,-dlig,-liga
+font-size = 15
 fullscreen = true
 gtk-titlebar = false
 mouse-hide-while-typing = true
