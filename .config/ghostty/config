@@ -1,6 +1,6 @@
 bold-is-bright = true
 cursor-style-blink = false
-font-family = Adwaita Mono
+font-family = monospace
 font-feature = -calt,-dlig,-liga
 font-size = 15
 fullscreen = true
