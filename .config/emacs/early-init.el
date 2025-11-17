@@ -1,7 +1,7 @@
 (set-face-attribute 'default nil
-		    :family "Adwaita Mono"
+		    :family "monospace"
 		    :height 140)
 
 (set-face-attribute 'variable-pitch nil
-		    :family "Adwaita Sans"
+		    :family "sans-serif"
 		    :height 140)
