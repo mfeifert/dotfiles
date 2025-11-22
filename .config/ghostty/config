@@ -1,4 +1,4 @@
-bold-is-bright = true
+bold-color = bright
 cursor-style-blink = false
 font-family = monospace
 font-feature = -calt,-dlig,-liga
