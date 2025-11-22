@@ -2,7 +2,7 @@
 
 source /etc/bashrc
 
-eval "$(atuin init bash)"
+eval "$(fzf --bash)"
 
 PS1='\W \$ '
 export AWKPATH="$HOME/vc/scripts"
