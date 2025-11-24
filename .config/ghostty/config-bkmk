@@ -1,0 +1,12 @@
+bold-color = bright
+cursor-style-blink = false
+font-family = monospace
+font-feature = -calt,-dlig,-liga
+font-size = 15
+gtk-titlebar = false
+mouse-hide-while-typing = true
+shell-integration-features = no-cursor
+theme = dark:maf-midnight-in-mojave,light:maf-Raycast_Light
+window-decoration = none
+window-height = 20
+window-width = 200
