@@ -6,6 +6,7 @@ syntax on
 
 set autoindent
 set autoread
+set cinoptions=:0,l1,t0
 set clipboard=unnamedplus  " requires vim to be compiled with +clipboard option
 set linebreak
 set nobackup
@@ -37,6 +38,11 @@ nnoremap <Tab> :tabnext<CR>
 nnoremap <S-Tab> :tabprevious<CR>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
+
+augroup CIndent
+    autocmd!
+    autocmd FileType c,cpp setlocal cindent
+augroup END
 
 "au BufWritePost *.c,*.h {
 "	silent !maf-indent %
