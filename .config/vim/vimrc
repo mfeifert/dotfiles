@@ -44,6 +44,4 @@ augroup CIndent
     autocmd FileType c,cpp setlocal cindent
 augroup END
 
-"au BufWritePost *.c,*.h {
-"	silent !maf-indent %
-"}
+"autocmd BufWritePost *.c,*.h silent !maf-indent %
