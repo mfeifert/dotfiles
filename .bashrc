@@ -38,6 +38,7 @@ alias ls="ls -Ahv --color=auto --group-directories-first"
 alias ll="ls -l"
 alias n="(cd "$HOME/Documents/notes"; f)"
 alias p="python3 -q"
+alias vim="vimx"
 alias www="(cd "$HOME/vc/www"; f)"
 
 # Utilities
