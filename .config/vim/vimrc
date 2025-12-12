@@ -1,8 +1,8 @@
 set viminfofile=$XDG_STATE_HOME/vim/viminfo
 let g:netrw_home='$XDG_STATE_HOME/vim'
 
-syntax on
 "colorscheme lunaperche
+syntax on
 
 set autoindent
 set autoread
@@ -30,12 +30,12 @@ nnoremap <Leader>t :tabnew<CR>
 nnoremap <Leader>w :set wrap!<CR>
 nnoremap H :bp<CR>
 nnoremap L :bn<CR>
+nnoremap <Tab> :tabnext<CR>
+nnoremap <S-Tab> :tabprevious<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <Tab> :tabnext<CR>
-nnoremap <S-Tab> :tabprevious<CR>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 
