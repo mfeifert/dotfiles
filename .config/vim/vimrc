@@ -8,7 +8,6 @@ let g:netrw_home='$XDG_STATE_HOME/vim'
 set autoindent
 set autoread
 set nobackup
-set cinoptions=:0,l1,t0
 set clipboard=unnamedplus  " requires vim to be compiled with +clipboard option
 set linebreak
 set scrolloff=8
@@ -48,6 +47,7 @@ inoremap " ""<Left>
 
 augroup CIndent
     autocmd!
+    autocmd Filetype c,cpp setlocal cinoptions=:0,l1,t0
     autocmd FileType c,cpp setlocal cindent
 "    autocmd FileType c,cpp setlocal expandtab
 augroup END
