@@ -11,7 +11,6 @@ vim.o.linebreak = true
 vim.o.scrolloff = 8
 vim.o.shiftwidth = 0
 vim.o.sidescrolloff = 4
-vim.o.smartindent = true
 vim.o.tabstop = 4
 vim.o.wrap = false
 vim.o.writebackup = false
@@ -51,6 +50,14 @@ vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'c', 'cpp' },
+  callback = function()
+    vim.opt_local.cindent = true
+    vim.opt_local.cinoptions = ':0,l1,t0'
+  end,
+})
 
 -- vim.api.nvim_create_autocmd('BufWritePost', {
 --   pattern = { '*.c', '*.h', '*.cpp' },
