@@ -23,6 +23,7 @@ set nowritebackup
 nnoremap <Space> <Nop>
 let mapleader = " "
 nnoremap <Leader>f <Cmd>FZF<CR>
+nnoremap <Leader>g <Cmd>Rg<CR>
 nnoremap <Leader>h <Cmd>let @/ = ""<CR>
 nnoremap <Leader>n <Cmd>set number!<CR>
 nnoremap <Leader>s <Cmd>if exists("g:syntax_on") \| syntax off \| else \| syntax enable \| endif<CR>
