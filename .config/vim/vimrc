@@ -26,6 +26,7 @@ let mapleader = " "
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>h :let @/ = ""<CR>
 nnoremap <Leader>n :set number!<CR>
+nnoremap <Leader>s :if exists("g:syntax_on") \| syntax off \| else \| syntax enable \| endif<CR>
 nnoremap <Leader>t :tabnew<CR>
 nnoremap <Leader>w :set wrap!<CR>
 nnoremap H :bp<CR>
