@@ -21,6 +21,7 @@ vim.o.writebackup = false
 vim.g.mapleader = ' '
 
 vim.keymap.set('n', '<Leader>b', ':FzfLua buffers<CR>')
+vim.keymap.set('n', '<Leader>c', ':colorscheme ')
 vim.keymap.set('n', '<Leader>f', ':FzfLua files<CR>')
 vim.keymap.set('n', '<Leader>g', ':FzfLua live_grep<CR>')
 vim.keymap.set('n', '<Leader>h', ':let @/ = ""<CR>')
