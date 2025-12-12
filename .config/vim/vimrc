@@ -23,16 +23,16 @@ let &t_EI = "\e[2 q"  " set cursor to block when exiting insert mode
 
 nnoremap <Space> <Nop>
 let mapleader = " "
-nnoremap <Leader>f :FZF<CR>
-nnoremap <Leader>h :let @/ = ""<CR>
-nnoremap <Leader>n :set number!<CR>
-nnoremap <Leader>s :if exists("g:syntax_on") \| syntax off \| else \| syntax enable \| endif<CR>
-nnoremap <Leader>t :tabnew<CR>
-nnoremap <Leader>w :set wrap!<CR>
-nnoremap H :bp<CR>
-nnoremap L :bn<CR>
-nnoremap <Tab> :tabnext<CR>
-nnoremap <S-Tab> :tabprevious<CR>
+nnoremap <Leader>f <Cmd>FZF<CR>
+nnoremap <Leader>h <Cmd>let @/ = ""<CR>
+nnoremap <Leader>n <Cmd>set number!<CR>
+nnoremap <Leader>s <Cmd>if exists("g:syntax_on") \| syntax off \| else \| syntax enable \| endif<CR>
+nnoremap <Leader>t <Cmd>tabnew<CR>
+nnoremap <Leader>w <Cmd>set wrap!<CR>
+nnoremap H <Cmd>bp<CR>
+nnoremap L <Cmd>bn<CR>
+nnoremap <Tab> <Cmd>tabnext<CR>
+nnoremap <S-Tab> <Cmd>tabprevious<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
