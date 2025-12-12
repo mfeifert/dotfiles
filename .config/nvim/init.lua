@@ -56,6 +56,7 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.opt_local.cindent = true
     vim.opt_local.cinoptions = ':0,l1,t0'
+    -- vim.opt_local.expandtab = true
   end,
 })
 
