@@ -8,13 +8,11 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.expandtab = false
 vim.o.laststatus = 1
 vim.o.linebreak = true
-vim.o.number = false
-vim.o.relativenumber = false
-vim.o.shiftwidth = 0
-vim.o.tabstop = 4
 vim.o.scrolloff = 8
+vim.o.shiftwidth = 0
 vim.o.sidescrolloff = 4
 vim.o.smartindent = true
+vim.o.tabstop = 4
 vim.o.wrap = false
 vim.o.writebackup = false
 
@@ -29,9 +27,9 @@ vim.keymap.set('n', '<Leader>n', '<Cmd>set number!<CR>')
 vim.keymap.set('n', '<Leader>s', '<Cmd>if exists("g:syntax_on") | syntax off | else | syntax enable | endif<CR>')
 vim.keymap.set('n', '<Leader>t', '<Cmd>lua toggle_background()<CR>')
 vim.keymap.set('n', '<Leader>w', '<Cmd>set wrap!<CR>')
+vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>')
 vim.keymap.set('n', 'H', '<Cmd>bnext<CR>')
 vim.keymap.set('n', 'L', '<Cmd>bprevious<CR>')
-vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<Tab>', '<Cmd>tabnext<CR>')
 vim.keymap.set('n', '<S-Tab>', '<Cmd>tabprevious<CR>')
 vim.keymap.set('i', '<C-f>', '<Right>')

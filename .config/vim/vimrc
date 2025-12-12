@@ -30,6 +30,7 @@ nnoremap <Leader>n <Cmd>set number!<CR>
 nnoremap <Leader>s <Cmd>if exists("g:syntax_on") \| syntax off \| else \| syntax enable \| endif<CR>
 nnoremap <Leader>t <Cmd>tabnew<CR>
 nnoremap <Leader>w <Cmd>set wrap!<CR>
+nnoremap <Esc> <Cmd>nohlsearch<CR>
 nnoremap H <Cmd>bprevious<CR>
 nnoremap L <Cmd>bnext<CR>
 nnoremap <Tab> <Cmd>tabnext<CR>
@@ -40,10 +41,15 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+inoremap " ""<Left>
 
 augroup CIndent
     autocmd!
     autocmd FileType c,cpp setlocal cindent
+"    autocmd FileType c,cpp setlocal expandtab
 augroup END
 
 "autocmd BufWritePost *.c,*.h,*.cpp silent !maf-indent %
