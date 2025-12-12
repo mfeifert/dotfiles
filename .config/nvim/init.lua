@@ -1,5 +1,5 @@
-vim.cmd(':colorscheme lunaperche')
-vim.cmd(':syntax on')
+vim.cmd('colorscheme lunaperche')
+vim.cmd('syntax on')
 
 vim.o.autoindent = true
 vim.o.autoread = true
@@ -20,20 +20,20 @@ vim.o.writebackup = false
 
 vim.g.mapleader = ' '
 
-vim.keymap.set('n', '<Leader>b', ':FzfLua buffers<CR>')
+vim.keymap.set('n', '<Leader>b', '<Cmd>FzfLua buffers<CR>')
 vim.keymap.set('n', '<Leader>c', ':colorscheme ')
-vim.keymap.set('n', '<Leader>f', ':FzfLua files<CR>')
-vim.keymap.set('n', '<Leader>g', ':FzfLua live_grep<CR>')
-vim.keymap.set('n', '<Leader>h', ':let @/ = ""<CR>')
-vim.keymap.set('n', '<Leader>n', ':set number!<CR>')
-vim.keymap.set('n', '<Leader>s', ':if exists("g:syntax_on") | syntax off | else | syntax enable | endif<CR>')
-vim.keymap.set('n', '<Leader>t', ':lua toggle_background()<CR>')
-vim.keymap.set('n', '<Leader>w', ':set wrap!<CR>')
-vim.keymap.set('n', 'H', ':bn<CR>')
-vim.keymap.set('n', 'L', ':bp<CR>')
-vim.keymap.set('n', '<Esc>', ':noh<CR>')
-vim.keymap.set('n', '<Tab>', ':tabnext<CR>')
-vim.keymap.set('n', '<S-Tab>', ':tabprevious<CR>')
+vim.keymap.set('n', '<Leader>f', '<Cmd>FzfLua files<CR>')
+vim.keymap.set('n', '<Leader>g', '<Cmd>FzfLua live_grep<CR>')
+vim.keymap.set('n', '<Leader>h', '<Cmd>let @/ = ""<CR>')
+vim.keymap.set('n', '<Leader>n', '<Cmd>set number!<CR>')
+vim.keymap.set('n', '<Leader>s', '<Cmd>if exists("g:syntax_on") | syntax off | else | syntax enable | endif<CR>')
+vim.keymap.set('n', '<Leader>t', '<Cmd>lua toggle_background()<CR>')
+vim.keymap.set('n', '<Leader>w', '<Cmd>set wrap!<CR>')
+vim.keymap.set('n', 'H', '<Cmd>bnext<CR>')
+vim.keymap.set('n', 'L', '<Cmd>bprevious<CR>')
+vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Tab>', '<Cmd>tabnext<CR>')
+vim.keymap.set('n', '<S-Tab>', '<Cmd>tabprevious<CR>')
 vim.keymap.set('i', '<C-f>', '<Right>')
 vim.keymap.set('i', '<C-b>', '<Left>')
 vim.keymap.set('i', '(', '()<Left>')
