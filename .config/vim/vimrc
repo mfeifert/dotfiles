@@ -47,8 +47,8 @@ inoremap " ""<Left>
 
 augroup CIndent
     autocmd!
-    autocmd Filetype c,cpp setlocal cinoptions=:0,l1,t0
     autocmd FileType c,cpp setlocal cindent
+    autocmd Filetype c,cpp setlocal cinoptions=:0,l1,t0
 "    autocmd FileType c,cpp setlocal expandtab
 augroup END
 
