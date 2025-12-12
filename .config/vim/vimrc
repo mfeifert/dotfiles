@@ -28,8 +28,8 @@ nnoremap <Leader>n <Cmd>set number!<CR>
 nnoremap <Leader>s <Cmd>if exists("g:syntax_on") \| syntax off \| else \| syntax enable \| endif<CR>
 nnoremap <Leader>t <Cmd>tabnew<CR>
 nnoremap <Leader>w <Cmd>set wrap!<CR>
-nnoremap H <Cmd>bp<CR>
-nnoremap L <Cmd>bn<CR>
+nnoremap H <Cmd>bprevious<CR>
+nnoremap L <Cmd>bnext<CR>
 nnoremap <Tab> <Cmd>tabnext<CR>
 nnoremap <S-Tab> <Cmd>tabprevious<CR>
 nnoremap <C-h> <C-w>h
