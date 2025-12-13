@@ -24,7 +24,6 @@ vim.keymap.set('n', '<Leader>g', '<Cmd>FzfLua live_grep<CR>')
 vim.keymap.set('n', '<Leader>h', '<Cmd>let @/ = ""<CR>')
 vim.keymap.set('n', '<Leader>n', '<Cmd>set number!<CR>')
 vim.keymap.set('n', '<Leader>s', '<Cmd>if exists("g:syntax_on") | syntax off | else | syntax enable | endif<CR>')
-vim.keymap.set('n', '<Leader>t', '<Cmd>lua toggle_background()<CR>')
 vim.keymap.set('n', '<Leader>w', '<Cmd>set wrap!<CR>')
 vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>')
 vim.keymap.set('n', 'H', '<Cmd>bnext<CR>')
@@ -65,25 +64,3 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = '*.go',
   command = ":silent !go fmt %"
 })
-
--- vim.api.nvim_create_autocmd('BufWritePost', {
---   pattern = '*',
---   callback = function ()
---     if vim.tbl_contains({ 'sh', 'bash' }, vim.bo.filetype) then
---       vim.cmd(':silent !maf-shfmt %')
---     end
---   end
--- })
-
-vim.api.nvim_create_autocmd({ 'TermOpen', 'WinEnter' }, {
-  pattern = 'term://*',
-  command = 'startinsert'
-})
-
-function toggle_background()
-  if vim.o.background == 'dark' then
-    vim.o.background = 'light'
-  else
-    vim.o.background = 'dark'
-  end
-end
