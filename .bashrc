@@ -74,10 +74,11 @@ h() {
 	"$@" --help 2>&1 | bat --plain --language="help"
 }
 
-dots() {
+dots() {(
+	cd $HOME
 	file=$(dot ls | fzf)
 	[[ -n $file ]] && nvim "$file"
-}
+)}
 
 task() {
 	if [[ $1 == "e" ]]; then
