@@ -62,5 +62,5 @@ vim.api.nvim_create_autocmd('FileType', {
 
 vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = '*.go',
-  command = ":silent !go fmt %"
+  command = 'silent !go fmt %'
 })
