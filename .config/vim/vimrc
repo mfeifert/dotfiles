@@ -21,6 +21,7 @@ set nowritebackup
 
 nnoremap <Space> <Nop>
 let mapleader = " "
+nnoremap <Leader>b <Cmd>Buffers<CR>
 nnoremap <Leader>c :colorscheme 
 nnoremap <Leader>f <Cmd>FZF<CR>
 nnoremap <Leader>g <Cmd>Rg<CR>
