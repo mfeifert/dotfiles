@@ -61,11 +61,6 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- vim.api.nvim_create_autocmd('BufWritePost', {
---   pattern = { '*.c', '*.h', '*.cpp' },
---   command = ":silent !maf-indent %"
--- })
-
 vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = '*.go',
   command = ":silent !go fmt %"

@@ -52,5 +52,3 @@ augroup CIndent
 "    autocmd FileType c,cpp setlocal expandtab
     autocmd FileType c,cpp setlocal formatprg=maf-indent
 augroup END
-
-"autocmd BufWritePost *.c,*.h,*.cpp silent !maf-indent %
