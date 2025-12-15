@@ -1,13 +1,12 @@
 vim.cmd('colorscheme lunaperche')
 vim.cmd('syntax on')
 
-vim.o.autoindent = true
-vim.o.autoread = true
-vim.o.backup = false
 vim.o.clipboard = 'unnamedplus'
 vim.o.laststatus = 1
 vim.o.linebreak = true
+vim.o.ruler = false
 vim.o.scrolloff = 8
+vim.o.showmode = false
 vim.o.sidescrolloff = 8
 vim.o.writebackup = false
 
