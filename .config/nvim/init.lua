@@ -51,7 +51,5 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI', 'InsertEnter' }, {
-  callback = function()
-    vim.cmd('echo')
-  end,
+  callback = function() vim.cmd('echo') end,
 })
