@@ -67,6 +67,7 @@ alias isa="hla is --drop 1"                              # income statement all
 alias issa="isa -2"                                      # income statement short all
 
 # Functions
+source $HOME/vc/scripts/task-functions
 
 f() {
 	file=$(fzf)
@@ -82,28 +83,3 @@ dots() {(
 	file=$(dot ls | fzf)
 	[[ -n $file ]] && nvim "$file"
 )}
-
-task() {
-	if [[ $1 == "e" ]]; then
-		(cd "$DATA_DIR/task" && f)
-	else
-		clear
-		task-dashboard
-		echo
-	fi
-}
-
-tt() {
-	task-todo "$@"
-	task
-}
-
-td() {
-	task-daily "$@"
-	[[ $1 != "a" ]] && task
-}
-
-tm() {
-	task-monthly "$@"
-	[[ $1 != "a" ]] && task
-}
