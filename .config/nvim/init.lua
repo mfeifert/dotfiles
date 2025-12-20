@@ -2,6 +2,7 @@ vim.cmd('colorscheme lunaperche')
 vim.cmd('syntax on')
 
 vim.o.clipboard = 'unnamedplus'
+vim.o.hlsearch = false
 vim.o.laststatus = 1
 vim.o.linebreak = true
 vim.o.ruler = false
@@ -16,7 +17,7 @@ vim.keymap.set('n', '<Leader>b', '<Cmd>FzfLua buffers<CR>')
 vim.keymap.set('n', '<Leader>c', ':colorscheme ')
 vim.keymap.set('n', '<Leader>f', '<Cmd>FzfLua files<CR>')
 vim.keymap.set('n', '<Leader>g', '<Cmd>FzfLua live_grep<CR>')
-vim.keymap.set('n', '<Leader>h', '<Cmd>let @/ = ""<CR>')
+vim.keymap.set('n', '<Leader>h', '<Cmd>set hlsearch!<CR>')
 vim.keymap.set('n', '<Leader>n', '<Cmd>set number!<CR>')
 vim.keymap.set('n', '<Leader>s', '<Cmd>if exists("g:syntax_on") | syntax off | else | syntax on | endif<CR>')
 vim.keymap.set('n', '<Leader>w', '<Cmd>set wrap!<CR>')
