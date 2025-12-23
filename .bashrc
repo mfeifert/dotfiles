@@ -4,7 +4,7 @@ source /etc/bashrc
 
 eval "$(fzf --bash)"
 
-PS1='\W \$ '
+PS1='\$ '
 export AWKPATH="$HOME/vc/scripts"
 export BAT_THEME="ansi"
 export DATA_DIR="$HOME/Documents/data"
