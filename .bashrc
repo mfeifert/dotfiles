@@ -71,7 +71,7 @@ source $HOME/vc/scripts/task-functions
 
 f() {
 	file=$(fzf)
-	[[ -n $file ]] && nvim "$file"
+	[[ -n $file ]] && $EDITOR "$file"
 }
 
 h() {
@@ -81,5 +81,5 @@ h() {
 dots() {(
 	cd $HOME
 	file=$(dot ls | fzf)
-	[[ -n $file ]] && nvim "$file"
+	[[ -n $file ]] && $EDITOR "$file"
 )}
