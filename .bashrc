@@ -49,6 +49,7 @@ alias dot="/usr/bin/git --git-dir=${HOME}/vc/dotfiles/ --work-tree=${HOME}"
 alias fza="alias | fzf --no-preview"
 alias fze="env | sort | fzf --no-preview"
 alias fzfonts="fc-list : family | sort | column --table --separator=',' | fzf --no-preview"
+alias gits="gits | column -t -s $'\t'"
 alias nvl="NVIM_APPNAME=nvim-lazyvim nvim"
 alias pp="ping 1.1.1.1"
 
