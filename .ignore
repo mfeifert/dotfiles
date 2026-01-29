@@ -5,9 +5,9 @@
 .config/go/telemetry
 .config/helix/runtime
 .config/libreoffice
+.config/mozilla
 .git
 .local
-.mozilla
 .npm
 vc/dotfiles
 vc/go/pkg
