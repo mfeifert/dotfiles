@@ -22,4 +22,5 @@ export SCREENDIR="$XDG_RUNTIME_DIR/screen"
 # hard-coded
 # ~/.dosbox/
 # ~/.links/
+# ~/.stellarium/
 # ~/.packettracer
