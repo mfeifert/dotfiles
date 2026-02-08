@@ -11,7 +11,10 @@
 
 (use-package frame
   :custom
-  (initial-frame-alist '((fullscreen . maximized)))
+  (initial-frame-alist '((height . 60)
+			 (width . 220)
+			 ;; (fullscreen . maximized))
+		       ))
   :config
   (blink-cursor-mode -1))
 
