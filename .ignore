@@ -1,4 +1,5 @@
 .cache
+.config/chromium
 .config/emacs/elpa
 .config/emacs/elfeed
 .config/emacs/eln-cache
@@ -9,5 +10,6 @@
 .git
 .local
 .npm
+.stellarium
 vc/dotfiles
 vc/go/pkg
