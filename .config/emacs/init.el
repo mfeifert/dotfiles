@@ -24,16 +24,6 @@
   (modus-themes-common-palette-overrides
    '((bg-prose-block-delimiter bg-inactive))))
 
-(defvar maf-current-theme
-  (string-trim
-   (shell-command-to-string "kreadconfig6 --file kdeglobals --group General --key ColorScheme")))
-
-(cond
- ((string= maf-current-theme "BreezeLight")
-  (modus-themes-select 'modus-operandi))
- ((string= maf-current-theme "BreezeDark")
-  (modus-themes-select 'modus-vivendi)))
-
 (use-package emacs
   :custom
   (auto-save-default nil)
