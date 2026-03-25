@@ -1,8 +1,6 @@
 syntax on
 filetype plugin indent on
 
-let g:netrw_home='$XDG_STATE_HOME/vim'
-
 set autoindent
 set autoread
 set nobackup
