@@ -24,6 +24,23 @@
   (modus-themes-common-palette-overrides
    '((bg-prose-block-delimiter bg-inactive))))
 
+(use-package standard-themes
+  :ensure t)
+
+(defvar maf-current-theme
+  (string-trim
+   (shell-command-to-string "gsettings get org.gnome.desktop.interface color-scheme")))
+
+(cond
+ ((string= maf-current-theme "'default'")
+  ;; (modus-themes-select 'modus-operandi)
+  (load-theme 'standard-light)
+  )
+ ((string= maf-current-theme "'prefer-dark'")
+  ;; (modus-themes-select 'modus-vivendi)
+  (load-theme 'standard-dark)
+  ))
+
 (use-package emacs
   :custom
   (auto-save-default nil)
@@ -415,7 +432,3 @@
   :ensure t
   :hook
   (dired-mode . nerd-icons-dired-mode))
-
-(use-package standard-themes
-  :ensure t)
-
