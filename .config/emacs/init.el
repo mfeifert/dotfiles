@@ -102,6 +102,11 @@
   :defer t
   :init
   (setq org-directory maf-org-directory)
+  (defun maf-toggle-org-emphasis-markers ()
+    "Toggle visibility of org emphasis markers."
+    (interactive)
+    (setq org-hide-emphasis-markers (not org-hide-emphasis-markers))
+    (font-lock-update))
   :custom
   (org-edit-src-content-indentation 0)
   (org-hide-emphasis-markers t)
@@ -249,6 +254,7 @@
 
   (keymap-set org-mode-map "C-c i" 'org-indent-mode)
   (keymap-set org-mode-map "C-c k" 'consult-org-heading)
+  (keymap-set org-mode-map "C-c m" 'maf-toggle-org-emphasis-markers)
 
   ;; <f5> is used instead of <tab> to preserve indent-for-tab-command functionality
   (keymap-set outline-minor-mode-map "<f5>" 'outline-cycle)
