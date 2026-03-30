@@ -250,6 +250,7 @@
   (keymap-set org-mode-map "C-c i" 'org-indent-mode)
   (keymap-set org-mode-map "C-c k" 'consult-org-heading)
 
+  ;; <f5> is used instead of <tab> to preserve indent-for-tab-command functionality
   (keymap-set outline-minor-mode-map "<f5>" 'outline-cycle)
   (keymap-set outline-minor-mode-map "<backtab>" 'outline-cycle-buffer))
 
