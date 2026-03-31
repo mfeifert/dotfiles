@@ -10,11 +10,6 @@
   (load custom-file :no-error-if-file-is-missing))
 
 (use-package frame
-  :custom
-  (initial-frame-alist '((height . 60)
-			 (width . 220)
-			 ;; (fullscreen . maximized))
-		       ))
   :config
   (blink-cursor-mode -1))
 
