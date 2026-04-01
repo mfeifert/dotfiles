@@ -43,6 +43,7 @@
   (initial-scratch-message nil)
   (inhibit-startup-screen t)
   (make-backup-files nil)
+  (sentence-end-double-space nil)
   (ring-bell-function 'ignore)
   (scroll-conservatively 1) ; Scroll one line at a time
   (scroll-margin 8)
