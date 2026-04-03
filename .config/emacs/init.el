@@ -322,6 +322,13 @@
   ;; (dired-preview-global-mode 1)
   )
 
+(use-package drag-stuff
+  :delight
+  :ensure t
+  :config
+  (drag-stuff-global-mode 1)
+  (drag-stuff-define-keys))
+
 (use-package evil
   :ensure t
   :defer t
