@@ -95,7 +95,6 @@
   (emacs-lisp-mode . outline-minor-mode))
 
 (use-package org
-  :defer t
   :init
   (setq org-directory maf-org-directory)
   (defun maf-toggle-org-emphasis-markers ()
@@ -104,12 +103,26 @@
     (setq org-hide-emphasis-markers (not org-hide-emphasis-markers))
     (font-lock-update))
   :custom
+  ;; General settings
   (org-edit-src-content-indentation 0)
   (org-hide-emphasis-markers t)
   (org-insert-heading-respect-content t)
   (org-return-follows-link t)
-  (org-startup-folded t)
+  (org-startup-folded 'content)
   (org-M-RET-may-split-line '((default . nil)))
+  ;; Org agenda settings
+  (org-log-done 'time)
+  (org-log-into-drawer t)
+  (org-agenda-files (list org-directory))
+  (org-agenda-skip-deadline-prewarning-if-scheduled t)
+  (org-agenda-use-time-grid nil)
+  (org-agenda-clockreport-parameter-plist
+   '(:link t :maxlevel 2 :fileskip0 t))
+  ;; (org-agenda-prefix-format
+  ;;  '((agenda . " %i %-12:c%-12t")
+  ;;    (todo . " %i %-12:c")
+  ;;    (tags . " %i %-12:c")
+  ;;    (search . " %i %-12:c")))
 
   (org-structure-template-alist
    '(("s" . "src")
@@ -124,40 +137,6 @@
      ("q" . "quote")
      ("v" . "verse")
      ("x" . "example"))))
-
-(use-package org
-  :custom
-  (org-log-done 'time)
-  (org-log-into-drawer t)
-  (org-agenda-files (list org-directory))
-  (org-agenda-use-time-grid nil)
-  (org-agenda-clockreport-parameter-plist
-   '(:link t :maxlevel 2 :fileskip0 t))
-
-  (org-agenda-prefix-format
-   '((agenda . " %i %-12:c%-12t")
-     (todo . " %i %-12:c")
-     (tags . " %i %-12:c")
-     (search . " %i %-12:c")))
-
-  (org-capture-templates `(
-  			   ("t" "TODO item" entry
-  			    (file+headline "tasks.org" "To be reviewed")
-  			    ,(concat "* TODO %?\n"
-                                     ":PROPERTIES:\n"
-                                     ":CAPTURED: %U\n"
-                                     ":END:\n\n"))
-  			   
-  			   ("i" "Idea" entry
-  			    (file+headline "tasks.org" "Ideas")
-  			    ,(concat "* %?\n"
-                                     ":PROPERTIES:\n"
-                                     ":CAPTURED: %U\n"
-                                     ":END:\n\n"))
-  			   
-  			   ("d" "Datetree item" plain
-  			    (file+datetree "datetree.org") "%?")
-  			   )))
 
 (use-package package
   :init
