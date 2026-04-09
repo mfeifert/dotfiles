@@ -111,11 +111,13 @@
   (org-startup-folded 'content)
   (org-M-RET-may-split-line '((default . nil)))
   ;; Org agenda settings
+  (org-deadline-warning-days 0)
   (org-log-done 'time)
   (org-log-into-drawer t)
   (org-agenda-files (list org-directory))
+  (org-agenda-skip-deadline-if-done t)
   (org-agenda-skip-deadline-prewarning-if-scheduled t)
-  (org-agenda-use-time-grid nil)
+  ;; (org-agenda-use-time-grid nil)
   (org-agenda-clockreport-parameter-plist
    '(:link t :maxlevel 2 :fileskip0 t))
   ;; (org-agenda-prefix-format
@@ -221,6 +223,7 @@
   (keymap-global-set "<f9>" 'maf-ledger)
 
   (keymap-global-set "C-c a" 'org-agenda)
+  (keymap-global-set "C-c c" 'org-capture)
   (keymap-global-set "C-c e" 'evil-mode)
   (keymap-global-set "C-c j" 'consult-buffer)
   (keymap-global-set "C-c l" 'consult-line)
