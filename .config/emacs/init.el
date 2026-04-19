@@ -90,7 +90,7 @@
    "-AGFhlv --group-directories-first --time-style=long-iso")
   :hook
   (dired-mode . denote-dired-mode)
-  (dired-mode . dired-hide-details-mode)
+  ;; (dired-mode . dired-hide-details-mode)
   (dired-mode . hl-line-mode)
   :config
   (keymap-set dired-mode-map "C-c p" #'dired-preview-mode))
@@ -172,7 +172,8 @@
 
 (use-package fringe
   :config
-  (fringe-mode 0))
+  ;; (fringe-mode 0)
+  )
 
 (use-package menu-bar
   :config
@@ -239,7 +240,7 @@
   (keymap-set org-mode-map "C-c k" 'consult-org-heading)
   (keymap-set org-mode-map "C-c m" 'maf-toggle-org-emphasis-markers)
 
-  ;; <f5> is used instead of <tab> to preserve indent-for-tab-command functionality
+  ;; <f5> is used instead of <tab> to preserve indent-for-tab-command
   (keymap-set outline-minor-mode-map "<f5>" 'outline-cycle)
   (keymap-set outline-minor-mode-map "<backtab>" 'outline-cycle-buffer))
 
@@ -345,6 +346,7 @@
     "b" 'switch-to-buffer
     "c" 'org-ctrl-c-ctrl-c
     "d" 'dired-jump
+    "e" 'evil-mode
     "f" 'find-file
     "g" 'magit
     "j" 'consult-buffer
