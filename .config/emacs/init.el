@@ -15,12 +15,17 @@
 
 (use-package modus-themes
   :custom
+  (modus-themes-bold-constructs t)
   (modus-themes-italic-constructs t)
   (modus-themes-common-palette-overrides
    '((bg-prose-block-delimiter bg-inactive))))
 
 (use-package standard-themes
-  :ensure t)
+  :ensure t
+  :custom
+  (standard-themes-bold-constructs t)
+  (standard-themes-italic-constructs t)
+  )
 
 (defvar maf-current-theme
   (string-trim
