@@ -409,7 +409,10 @@
   :ensure t)
 
 (use-package ef-themes
-  :ensure t)
+  :ensure t
+  :custom
+  (ef-themes-bold-constructs t)
+  (ef-themes-italic-constructs t))
 
 (use-package nerd-icons
   :ensure t)

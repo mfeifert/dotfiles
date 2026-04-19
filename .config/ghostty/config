@@ -5,6 +5,7 @@ font-feature = -calt,-dlig,-liga
 font-size = 12
 fullscreen = false
 gtk-titlebar = false
+# maximize = true
 mouse-hide-while-typing = true
 shell-integration-features = no-cursor
 theme = dark:maf-midnight-in-mojave,light:maf-Raycast_Light
