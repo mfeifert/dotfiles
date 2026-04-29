@@ -356,6 +356,7 @@
     "j" 'consult-buffer
     "k" 'consult-org-heading
     "l" 'consult-line
+    "m" 'maf-toggle-org-emphasis-markers
     "n" 'display-line-numbers-mode
     "o" 'olivetti-mode
     "s" 'save-buffer
@@ -364,7 +365,7 @@
     "w" 'visual-line-mode)
 
   (evil-define-key '(normal motion visual) 'global
-    (kbd "RET") nil ; unset RET to use with org-return-follows-link
+    (kbd "RET") nil ; unset RET to use for org-return-follows-link
     (kbd "SPC") maf-spc-map))
 
 (use-package logos
