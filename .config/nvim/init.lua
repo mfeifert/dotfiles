@@ -1,5 +1,5 @@
-vim.cmd('colorscheme lunaperche')
-vim.cmd('syntax on')
+vim.cmd.colorscheme('maf')
+vim.cmd.syntax('on')
 
 vim.o.clipboard = 'unnamedplus'
 vim.o.hlsearch = false
