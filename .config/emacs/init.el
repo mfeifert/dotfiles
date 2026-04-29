@@ -24,22 +24,26 @@
   :ensure t
   :custom
   (standard-themes-bold-constructs t)
-  (standard-themes-italic-constructs t)
-  )
+  (standard-themes-italic-constructs t))
 
-(defvar maf-current-theme
-  (string-trim
-   (shell-command-to-string "gsettings get org.gnome.desktop.interface color-scheme")))
+(use-package doric-themes
+  :ensure t
+  :config
+  (doric-themes-select 'doric-marble))
 
-(cond
- ((string= maf-current-theme "'default'")
-  ;; (modus-themes-select 'modus-operandi)
-  (load-theme 'standard-light)
-  )
- ((string= maf-current-theme "'prefer-dark'")
-  ;; (modus-themes-select 'modus-vivendi)
-  (load-theme 'standard-dark)
-  ))
+;; (defvar maf-current-theme
+;;   (string-trim
+;;    (shell-command-to-string "gsettings get org.gnome.desktop.interface color-scheme")))
+
+;; (cond
+;;  ((string= maf-current-theme "'default'")
+;;   (modus-themes-select 'modus-operandi-tinted)
+;;   ;; (load-theme 'standard-light)
+;;   )
+;;  ((string= maf-current-theme "'prefer-dark'")
+;;   (modus-themes-select 'modus-vivendi)
+;;   ;; (load-theme 'standard-dark)
+;;   ))
 
 (use-package emacs
   :custom
@@ -404,9 +408,6 @@
   (delight 'eldoc-mode nil "eldoc")
   (delight 'org-indent-mode nil "org-indent")
   (delight 'outline-minor-mode nil "outline"))
-
-(use-package doric-themes
-  :ensure t)
 
 (use-package ef-themes
   :ensure t
