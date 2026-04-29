@@ -5,14 +5,11 @@ font-feature = -calt,-dlig,-liga
 font-size = 12
 fullscreen = false
 gtk-titlebar = false
-# maximize = true
 mouse-hide-while-typing = true
 shell-integration-features = no-cursor
-theme = dark:maf-midnight-in-mojave,light:maf-Raycast_Light
+theme = noctalia
 unfocused-split-opacity = 1
 window-decoration = none
-window-height = 65
-window-width = 192
 
 keybind = alt+t=new_tab
 keybind = alt+w=close_tab
