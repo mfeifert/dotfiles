@@ -1,4 +1,5 @@
-vim.cmd.colorscheme('maf')
+local typst = require("typst")
+vim.cmd.colorscheme('lunaperche')
 vim.cmd.syntax('on')
 
 vim.o.clipboard = 'unnamedplus'
@@ -20,7 +21,10 @@ vim.keymap.set('n', '<Leader>g', '<Cmd>FzfLua live_grep<CR>')
 vim.keymap.set('n', '<Leader>h', '<Cmd>set hlsearch!<CR>')
 vim.keymap.set('n', '<Leader>n', '<Cmd>set number!<CR>')
 vim.keymap.set('n', '<Leader>s', '<Cmd>if exists("g:syntax_on") | syntax off | else | syntax on | endif<CR>')
-vim.keymap.set('n', '<Leader>w', '<Cmd>set wrap!<CR>')
+vim.keymap.set('n', '<Leader>w', '<Cmd>write<CR>')
+vim.keymap.set('n', '<Leader><Leader>t', typst.watch)
+vim.keymap.set('n', '<Leader><Leader>w', '<Cmd>set wrap!<CR>')
+vim.keymap.set('n', '<Leader><Leader>z', typst.open_pdf_in_zathura, { silent = true, desc = 'Open PDF in Zathura' })
 vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR><Cmd>echo<CR>')
 vim.keymap.set('n', 'H', '<Cmd>bprevious<CR>')
 vim.keymap.set('n', 'L', '<Cmd>bnext<CR>')
@@ -32,10 +36,10 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('i', '<C-f>', '<Right>')
 vim.keymap.set('i', '<C-b>', '<Left>')
-vim.keymap.set('i', '(', '()<Left>')
-vim.keymap.set('i', '[', '[]<Left>')
-vim.keymap.set('i', '{', '{}<Left>')
-vim.keymap.set('i', '"', '""<Left>')
+-- vim.keymap.set('i', '(', '()<Left>')
+-- vim.keymap.set('i', '[', '[]<Left>')
+-- vim.keymap.set('i', '{', '{}<Left>')
+-- vim.keymap.set('i', '"', '""<Left>')
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'c', 'cpp' },
