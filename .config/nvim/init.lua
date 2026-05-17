@@ -2,6 +2,10 @@ local typst = require("typst")
 vim.cmd.colorscheme('lunaperche')
 vim.cmd.syntax('on')
 
+vim.pack.add({
+	'https://github.com/ibhagwan/fzf-lua'
+})
+
 vim.o.clipboard = 'unnamedplus'
 vim.o.hlsearch = false
 vim.o.laststatus = 1
