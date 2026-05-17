@@ -336,6 +336,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"firefox$"#
+    match app-id=r#"emacs$"#
     match app-id=r#"chromium-browser$"#
     default-column-width { proportion 0.66667; }
 }
