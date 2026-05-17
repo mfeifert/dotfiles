@@ -20,6 +20,12 @@
   (modus-themes-common-palette-overrides
    '((bg-prose-block-delimiter bg-inactive))))
 
+(use-package ef-themes
+  :ensure t
+  :custom
+  (ef-themes-bold-constructs t)
+  (ef-themes-italic-constructs t))
+
 (use-package standard-themes
   :ensure t
   :custom
@@ -28,22 +34,25 @@
 
 (use-package doric-themes
   :ensure t
-  :config
-  (doric-themes-select 'doric-marble))
+  :config)
 
-;; (defvar maf-current-theme
-;;   (string-trim
-;;    (shell-command-to-string "gsettings get org.gnome.desktop.interface color-scheme")))
+(defvar maf-current-theme
+  (string-trim
+   (shell-command-to-string "gsettings get org.gnome.desktop.interface color-scheme")))
 
-;; (cond
-;;  ((string= maf-current-theme "'default'")
-;;   (modus-themes-select 'modus-operandi-tinted)
-;;   ;; (load-theme 'standard-light)
-;;   )
-;;  ((string= maf-current-theme "'prefer-dark'")
-;;   (modus-themes-select 'modus-vivendi)
-;;   ;; (load-theme 'standard-dark)
-;;   ))
+(cond
+ ((string= maf-current-theme "'prefer-light'")
+  ;; (modus-themes-select 'modus-operandi-tinted)
+  ;; (doric-themes-select 'doric-marble)
+  ;; (load-theme 'standard-light)
+  (load-theme 'ef-spring)
+  )
+ ((string= maf-current-theme "'prefer-dark'")
+  ;; (modus-themes-select 'modus-vivendi)
+  ;; (doric-themes-select 'doric-obsidian)
+  ;; (load-theme 'standard-dark)
+  (load-theme 'ef-night)
+  ))
 
 (use-package emacs
   :custom
@@ -119,21 +128,6 @@
   (org-return-follows-link t)
   (org-startup-folded 'content)
   (org-M-RET-may-split-line '((default . nil)))
-  ;; Org agenda settings
-  (org-deadline-warning-days 0)
-  (org-log-done 'time)
-  (org-log-into-drawer t)
-  (org-agenda-files (list org-directory))
-  (org-agenda-skip-deadline-if-done t)
-  (org-agenda-skip-deadline-prewarning-if-scheduled t)
-  ;; (org-agenda-use-time-grid nil)
-  (org-agenda-clockreport-parameter-plist
-   '(:link t :maxlevel 2 :fileskip0 t))
-  ;; (org-agenda-prefix-format
-  ;;  '((agenda . " %i %-12:c%-12t")
-  ;;    (todo . " %i %-12:c")
-  ;;    (tags . " %i %-12:c")
-  ;;    (search . " %i %-12:c")))
 
   (org-structure-template-alist
    '(("s" . "src")
@@ -148,6 +142,24 @@
      ("q" . "quote")
      ("v" . "verse")
      ("x" . "example"))))
+
+(use-package org-agenda
+  :custom
+  (org-deadline-warning-days 0)
+  (org-log-done 'time)
+  (org-log-into-drawer t)
+  (org-agenda-files (list org-directory))
+  (org-agenda-skip-deadline-if-done t)
+  (org-agenda-skip-deadline-prewarning-if-scheduled t)
+  ;; (org-agenda-use-time-grid nil)
+  (org-agenda-clockreport-parameter-plist
+   '(:link t :maxlevel 2 :fileskip0 t))
+  ;; (org-agenda-prefix-format
+  ;;  '((agenda . " %i %-12:c%-12t")
+  ;;    (todo . " %i %-12:c")
+  ;;    (tags . " %i %-12:c")
+  ;;    (search . " %i %-12:c")))
+  )
 
 (use-package package
   :init
@@ -409,12 +421,6 @@
   (delight 'eldoc-mode nil "eldoc")
   (delight 'org-indent-mode nil "org-indent")
   (delight 'outline-minor-mode nil "outline"))
-
-(use-package ef-themes
-  :ensure t
-  :custom
-  (ef-themes-bold-constructs t)
-  (ef-themes-italic-constructs t))
 
 (use-package nerd-icons
   :ensure t)
