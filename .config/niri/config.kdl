@@ -383,11 +383,11 @@ binds {
     // maf Keybinds start -----------------------------------------------------
     Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+Space { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-    Mod+Backslash            { spawn-sh "~/vc/scripts/bkmk-shortcut o"; }
-    Mod+Shift+Backslash      { spawn-sh "~/vc/scripts/bkmk-shortcut n"; }
-    Mod+Ctrl+Backslash       { spawn-sh "~/vc/scripts/bkmk-shortcut o y"; }
-    Mod+Ctrl+Shift+Backslash { spawn-sh "~/vc/scripts/bkmk-shortcut n y"; }
-    Mod+Alt+Backslash        { spawn-sh "~/vc/scripts/bkmk c"; }
+    Mod+Backslash           { spawn-sh "~/vc/scripts/bkmk-shortcut o"; }
+    Mod+Shift+Backslash     { spawn-sh "~/vc/scripts/bkmk-shortcut n"; }
+    Mod+Alt+Backslash       { spawn-sh "~/vc/scripts/bkmk-shortcut o y"; }
+    Mod+Alt+Shift+Backslash { spawn-sh "~/vc/scripts/bkmk-shortcut n y"; }
+    Mod+Ctrl+Backslash      { spawn-sh "~/vc/scripts/bkmk c"; }
     // maf Keybinds end -------------------------------------------------------
 
     // Mod-Shift-/, which is usually the same as Mod-?,
