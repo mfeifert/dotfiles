@@ -7,5 +7,5 @@
 		    :height 120)
 
 (set-face-attribute 'variable-pitch nil
-		    :family "sans-serif"
+		    :family "Noto Sans"
 		    :height 120)
