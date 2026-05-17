@@ -7,9 +7,13 @@ fullscreen = false
 gtk-titlebar = false
 mouse-hide-while-typing = true
 shell-integration-features = no-cursor
-theme = noctalia
+theme = dark:maf-midnight-in-mojave,light:maf-Raycast_Light
+# theme = noctalia
 unfocused-split-opacity = 1
 window-decoration = none
+
+window-width = 160
+window-height = 64
 
 keybind = alt+t=new_tab
 keybind = alt+w=close_tab
