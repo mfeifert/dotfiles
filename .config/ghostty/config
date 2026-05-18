@@ -15,9 +15,7 @@ window-decoration = none
 window-width = 160
 window-height = 64
 
-keybind = alt+t=new_tab
-keybind = alt+w=close_tab
-keybind = alt+h=goto_split:left
-keybind = alt+j=goto_split:down
-keybind = alt+k=goto_split:up
-keybind = alt+l=goto_split:right
+keybind = ctrl+alt+h=goto_split:left
+keybind = ctrl+alt+j=goto_split:down
+keybind = ctrl+alt+k=goto_split:up
+keybind = ctrl+alt+l=goto_split:right
