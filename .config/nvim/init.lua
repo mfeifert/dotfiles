@@ -40,10 +40,10 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('i', '<C-f>', '<Right>')
 vim.keymap.set('i', '<C-b>', '<Left>')
--- vim.keymap.set('i', '(', '()<Left>')
--- vim.keymap.set('i', '[', '[]<Left>')
--- vim.keymap.set('i', '{', '{}<Left>')
--- vim.keymap.set('i', '"', '""<Left>')
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==')
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==')
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv")
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'c', 'cpp' },
