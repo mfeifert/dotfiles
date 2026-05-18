@@ -39,7 +39,7 @@ alias ls="ls -Ahv --color=auto --group-directories-first"
 
 # Shortcuts
 alias ll="ls -l"
-alias n="(cd "$HOME/Documents/notes"; f)"
+alias n="(cd "$NOTES_DIR"; f)"
 alias p="python3 -q"
 alias vim="vimx"
 alias www="(cd "$HOME/vc/www"; f)"
