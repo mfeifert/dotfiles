@@ -21,7 +21,7 @@ function M.watch()
 
 end
 
-function M.open_pdf_in_zathura()
+function M.open_pdf()
   local pdf_path = vim.fn.expand('%:p:r') .. '.pdf'
   vim.fn.jobstart({ 'zathura', '--fork', pdf_path }, { detach = true })
 end
