@@ -1,4 +1,4 @@
-local typst = require("typst")
+local typst = require('typst')
 vim.cmd.colorscheme('lunaperche')
 vim.cmd.syntax('on')
 
