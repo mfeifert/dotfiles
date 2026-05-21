@@ -335,9 +335,11 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"firefox$"#
-    match app-id=r#"emacs$"#
     match app-id=r#"chromium-browser$"#
+    match app-id=r#"emacs$"#
+    match app-id=r#"firefox$"#
+    match app-id=r#"MuseScore4$"#
+    match app-id=r#"stellarium$"#
     default-column-width { proportion 0.66667; }
 }
 
