@@ -8,12 +8,14 @@ vim.pack.add({
 
 vim.o.clipboard = 'unnamedplus'
 vim.o.hlsearch = false
+vim.o.ignorecase = true
 vim.o.laststatus = 1
 vim.o.linebreak = true
 vim.o.ruler = false
 vim.o.scrolloff = 8
 vim.o.showmode = false
 vim.o.sidescrolloff = 8
+vim.o.smartcase = true
 vim.o.writebackup = false
 
 vim.g.mapleader = ' '
