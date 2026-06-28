@@ -5,8 +5,8 @@
 # mpd config
 # ~/.config/mpd/mpd.conf
 
-mpd_music_dir = /run/media/maf/Media/music
-lyrics_directory = /run/media/maf/Media/music/lyrics
+mpd_music_dir = /run/media/maf/External/music
+lyrics_directory = /run/media/maf/External/music/lyrics
 
 visualizer_data_source = /tmp/mpd.fifo
 visualizer_output_name = Visualizer feed
