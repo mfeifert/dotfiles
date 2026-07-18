@@ -1,8 +1,10 @@
 .cache
+.cargo
 .config/chromium
 .config/emacs/elpa
 .config/emacs/elfeed
 .config/emacs/eln-cache
+.config/GIMP
 .config/go/telemetry
 .config/helix/runtime
 .config/libreoffice
@@ -10,6 +12,7 @@
 .git
 .local
 .npm
+.rustup
 .stellarium
 vc/dotfiles
 vc/go/pkg
