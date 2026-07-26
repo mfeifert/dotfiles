@@ -7,12 +7,15 @@
 (load custom-file :no-error-if-file-is-missing)
 (load "~/vc/dotfiles-private/init-private.el")
 
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+
 (defun display-startup-echo-area-message ()
   (message nil))
 
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
+(require 'ef-themes)
+(require 'standard-themes)
+(load-theme 'modus-operandi-tinted)
 
 ;;; Built-in
 
@@ -65,7 +68,14 @@
 	org-log-into-drawer t
 	org-return-follows-link t
 	org-startup-folded 'content
-	org-structure-template-alist '(("s" . "src")
+	project-mode-line t
+	ring-bell-function 'ignore
+	scroll-conservatively 1 ; Scroll one line at a time
+	scroll-margin 8
+	sentence-end-double-space nil
+	tab-bar-show 1)
+
+(setopt	org-structure-template-alist '(("s" . "src")
 				       ("e" . "src emacs-lisp")
 				       ("p" . "src c++")
 				       ("E" . "export")
@@ -76,13 +86,7 @@
 				       ("C" . "comment")
 				       ("q" . "quote")
 				       ("v" . "verse")
-				       ("x" . "example"))
-	project-mode-line t
-	ring-bell-function 'ignore
-	scroll-conservatively 1 ; Scroll one line at a time
-	scroll-margin 8
-	sentence-end-double-space nil
-	tab-bar-show 1)
+				       ("x" . "example")))
 
 ;;;; hooks
 
@@ -92,9 +96,8 @@
 
 ;;; External Packages
 
-;;;; enable/disable modes
+;;;; enable modes
 
-(require 'consult)
 (corfu-history-mode 1)
 (corfu-popupinfo-mode 1)
 (denote-rename-buffer-mode 1)
@@ -111,9 +114,6 @@
 	ef-themes-italic-constructs t
 	elfeed-db-directory "~/.config/emacs/elfeed"
 	ledger-default-date-format "%Y-%m-%d"
-	ledger-reports '(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
-			 ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
-			 ("Register" "%(binary) -f %(ledger-file) reg"))
 	logos-hide-fringe t
 	logos-hide-mode-line t
 	logos-olivetti t
@@ -123,6 +123,10 @@
 	standard-themes-bold-constructs t
 	standard-themes-italic-constructs t
 	vertico-cycle t)
+
+(setopt	ledger-reports '(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
+			 ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
+			 ("Register" "%(binary) -f %(ledger-file) reg")))
 
 (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter)
 (delight 'abbrev-mode nil "abbrev")
@@ -169,7 +173,7 @@
 (keymap-global-set "C-c l" 'consult-line)
 (keymap-global-set "C-c n" 'display-line-numbers-mode)
 (keymap-global-set "C-c o" 'olivetti-mode)
-(keymap-set dired-mode-map "C-c p" #'dired-preview-mode)
+(keymap-set dired-mode-map "C-c p" 'dired-preview-mode)
 (keymap-set org-mode-map "C-c i" 'org-indent-mode)
 (keymap-set org-mode-map "C-c k" 'consult-org-heading)
 (keymap-set org-mode-map "C-c m" 'maf-org-toggle-emphasis-markers)
