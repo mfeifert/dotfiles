@@ -1,445 +1,177 @@
 ;;; -*- lexical-binding: t; -*-
+
 ;;; Preliminary
 
-(load "~/vc/dotfiles-private/init-private.el")
 (modify-frame-parameters nil '((undecorated t)))
-
-(use-package cus-edit
-  :init
-  (setq custom-file (locate-user-emacs-file "custom.el"))
-  (load custom-file :no-error-if-file-is-missing))
-
-(use-package frame
-  :config
-  (blink-cursor-mode -1))
-
-(use-package modus-themes
-  :custom
-  (modus-themes-bold-constructs t)
-  (modus-themes-italic-constructs t)
-  (modus-themes-common-palette-overrides
-   '((bg-prose-block-delimiter bg-inactive))))
-
-(use-package ef-themes
-  :ensure t
-  :custom
-  (ef-themes-bold-constructs t)
-  (ef-themes-italic-constructs t))
-
-(use-package standard-themes
-  :ensure t
-  :custom
-  (standard-themes-bold-constructs t)
-  (standard-themes-italic-constructs t))
-
-(use-package doric-themes
-  :ensure t
-  :config)
-
-(defvar maf-current-theme
-  (string-trim
-   (shell-command-to-string "gsettings get org.gnome.desktop.interface color-scheme")))
-
-(cond
- ((string= maf-current-theme "'prefer-light'")
-  ;; (modus-themes-select 'modus-operandi-tinted)
-  ;; (doric-themes-select 'doric-marble)
-  ;; (load-theme 'standard-light)
-  (load-theme 'ef-spring)
-  )
- ((string= maf-current-theme "'prefer-dark'")
-  ;; (modus-themes-select 'modus-vivendi)
-  ;; (doric-themes-select 'doric-obsidian)
-  ;; (load-theme 'standard-dark)
-  (load-theme 'ef-night)
-  ))
-
-(use-package emacs
-  :custom
-  (auto-save-default nil)
-  (delete-by-moving-to-trash t)
-  (initial-scratch-message nil)
-  (inhibit-startup-screen t)
-  (make-backup-files nil)
-  (sentence-end-double-space nil)
-  (ring-bell-function 'ignore)
-  (scroll-conservatively 1) ; Scroll one line at a time
-  (scroll-margin 8)
-  :config
-  (require-theme 'modus-themes)
-  (defun display-startup-echo-area-message ()
-    (message nil)))
-
-;;; Built-in: major modes
-
-(use-package calendar
-  :defer t
-  :init
-  (setq diary-file maf-diary-file)
-  :custom
-  (calendar-date-style 'iso)
-  :config
-  (use-package cal-dst
-    :custom
-    (calendar-daylight-time-zone-name "PDT")
-    (calendar-standard-time-zone-name "PST")
-    (calendar-time-zone -480))
-  (use-package solar
-    :custom
-    (calendar-latitude maf-calendar-latitude)
-    (calendar-longitude maf-calendar-longitude)
-    (calendar-location-name maf-calendar-location-name)))
-
-(use-package compile
-  :custom compilation-window-height 8)
-
-(use-package dired
-  :custom
-  (dired-auto-revert-buffer #'dired-directory-changed-p)
-  (dired-dwim-target t)
-  (dired-free-space nil)
-  (dired-kill-when-opening-new-dired-buffer t)
-  (dired-listing-switches
-   "-AGFhlv --group-directories-first --time-style=long-iso")
-  :hook
-  (dired-mode . denote-dired-mode)
-  ;; (dired-mode . dired-hide-details-mode)
-  (dired-mode . hl-line-mode)
-  :config
-  (keymap-set dired-mode-map "C-c p" #'dired-preview-mode))
-
-(use-package elisp-mode
-  :hook
-  (emacs-lisp-mode . outline-minor-mode))
-
-(use-package org
-  :init
-  (setq org-directory maf-org-directory)
-  (defun maf-toggle-org-emphasis-markers ()
-    "Toggle visibility of org emphasis markers."
-    (interactive)
-    (setq org-hide-emphasis-markers (not org-hide-emphasis-markers))
-    (font-lock-update))
-  :custom
-  ;; General settings
-  (org-edit-src-content-indentation 0)
-  (org-hide-emphasis-markers t)
-  (org-insert-heading-respect-content t)
-  (org-return-follows-link t)
-  (org-startup-folded 'content)
-  (org-M-RET-may-split-line '((default . nil)))
-
-  (org-structure-template-alist
-   '(("s" . "src")
-     ("e" . "src emacs-lisp")
-     ("p" . "src c++")
-     ("E" . "export")
-     ("a" . "export ascii")
-     ("h" . "export html")
-     ("l" . "export latex")
-     ("c" . "center")
-     ("C" . "comment")
-     ("q" . "quote")
-     ("v" . "verse")
-     ("x" . "example"))))
-
-(use-package org-agenda
-  :custom
-  (org-deadline-warning-days 0)
-  (org-log-done 'time)
-  (org-log-into-drawer t)
-  (org-agenda-files (list org-directory))
-  (org-agenda-skip-deadline-if-done t)
-  (org-agenda-skip-deadline-prewarning-if-scheduled t)
-  ;; (org-agenda-use-time-grid nil)
-  (org-agenda-clockreport-parameter-plist
-   '(:link t :maxlevel 2 :fileskip0 t))
-  ;; (org-agenda-prefix-format
-  ;;  '((agenda . " %i %-12:c%-12t")
-  ;;    (todo . " %i %-12:c")
-  ;;    (tags . " %i %-12:c")
-  ;;    (search . " %i %-12:c")))
-  )
-
-(use-package package
-  :init
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-  :hook
-  (package-menu-mode . hl-line-mode))
-
-;;; Built-in: minor modes
-
-(use-package autorevert
-  :config
-  (global-auto-revert-mode t))
-
-(use-package dabbrev
-  :custom
-  (dabbrev-case-replace nil))
-
-(use-package eglot
-  :defer t
-  :custom
-  (eglot-autoshutdown t))
-
-(use-package elec-pair
-  :config
-  (electric-pair-mode 1))
-
-(use-package fringe
-  :config
-  ;; (fringe-mode 0)
-  )
-
-(use-package menu-bar
-  :config
-  (menu-bar-mode -1))
-
-(use-package savehist
-  :config
-  (savehist-mode 1))
-
-(use-package scroll-bar
-  :config
-  (scroll-bar-mode -1))
-
-(use-package simple
-  :delight
-  (visual-line-mode)
-  :config
-  (column-number-mode 1)
-  (global-visual-line-mode 1))
-
-(use-package tab-bar
-  :custom
-  (tab-bar-show 1))
-
-(use-package tool-bar
-  :config
-  (tool-bar-mode -1))
-
-(use-package which-key
-  :delight
-  :config
-  (which-key-mode 1))
-
-;;; Built-in: no mode
-
-(use-package window
-  :custom
-  (display-buffer-alist
-   '(
-     ("\\*Buffer List\\*"
-      (display-buffer-same-window))
-     )))
-
-(use-package isearch
-  :custom
-  (isearch-lazy-count t)
-  (lazy-count-prefix-format "(%s/%s) "))
-
-(use-package keymap
-  :config
-  (keymap-global-set "<f8>" 'recompile)
-  (keymap-global-set "C-<f8>" 'compile)
-  (keymap-global-set "<f9>" 'maf-ledger)
-
-  (keymap-global-set "C-c a" 'org-agenda)
-  (keymap-global-set "C-c c" 'org-capture)
-  (keymap-global-set "C-c e" 'evil-mode)
-  (keymap-global-set "C-c j" 'consult-buffer)
-  (keymap-global-set "C-c l" 'consult-line)
-  (keymap-global-set "C-c n" 'display-line-numbers-mode)
-  (keymap-global-set "C-c o" 'olivetti-mode)
-
-  (keymap-set org-mode-map "C-c i" 'org-indent-mode)
-  (keymap-set org-mode-map "C-c k" 'consult-org-heading)
-  (keymap-set org-mode-map "C-c m" 'maf-toggle-org-emphasis-markers)
-
-  ;; <f5> is used instead of <tab> to preserve indent-for-tab-command
-  (keymap-set outline-minor-mode-map "<f5>" 'outline-cycle)
-  (keymap-set outline-minor-mode-map "<backtab>" 'outline-cycle-buffer))
-
-(use-package project
-  :custom
-  (project-mode-line t))
-
-;;; Third party: major modes
-
-(use-package denote
-  :ensure t
-  :init
-  (setq denote-directory (expand-file-name maf-denote-directory))
-  :config
-  (denote-rename-buffer-mode 1))
-
-(use-package elfeed
-  :ensure t
-  :init
-  (setq elfeed-db-directory "~/.config/emacs/elfeed"))
-
-(use-package ledger-mode
-  :ensure t
-  :init
-  (defun maf-ledger ()
-    "Open ledger file and ledger-report windows."
-    (interactive)
-    (delete-other-windows)
-    (find-file maf-ledger-file)
-    (ledger-report "Balance Sheet" nil)
-    (other-window 1)
-    (message nil))
-  :custom
-  (ledger-default-date-format "%Y-%m-%d")
-  (ledger-reports
-   '(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
-     ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
-     ("Register" "%(binary) -f %(ledger-file) reg")))
-  :hook
-  (ledger-mode . save-place-mode))
-
-(use-package magit
-  :ensure t)
-
-(use-package markdown-mode
-  :ensure t)
-
-;;; Third party: minor modes
-
-(use-package consult
-  :ensure t)
-
-(use-package corfu
-  :ensure t
-  :config
-  (corfu-history-mode 1)
-  (corfu-popupinfo-mode 1)
-  (global-corfu-mode 1)
-  :custom
-  (corfu-cycle t))
-
-(use-package dired-preview
-  :ensure t
-  :custom
-  (dired-preview-delay 0)
-  :config
-  ;; (dired-preview-global-mode 1)
-  )
-
-(use-package drag-stuff
-  :delight
-  :ensure t
-  :config
-  ;; (drag-stuff-global-mode 1)
-  ;; (drag-stuff-define-keys)
-  )
-
-(use-package evil
-  :ensure t
-  :defer t
-  :init
-  (setq evil-disable-insert-state-bindings t)
-  :custom
-  (evil-default-state 'emacs)
-  (evil-want-C-i-jump nil) ; make TAB work for org-cycle
-  (evil-want-C-u-scroll t)
-  :config
-  (evil-set-initial-state 'text-mode 'normal)
-  (evil-set-initial-state 'prog-mode 'normal)
-  (evil-set-initial-state 'calendar-mode 'emacs)
-  (evil-set-initial-state 'eshell-mode 'emacs)
-  (evil-set-initial-state 'help-mode 'emacs)
-  (evil-set-initial-state 'Buffer-menu-mode 'emacs)
-  (evil-set-initial-state 'Info-mode 'emacs)
-
-  (defvar-keymap maf-spc-spc-map
-    :doc "Second layer keymap."
-    "b" 'buffer-menu)
-
-  (defvar-keymap maf-spc-map
-    :doc "First layer keymap."
-    "SPC" maf-spc-spc-map
-    "b" 'switch-to-buffer
-    "c" 'org-ctrl-c-ctrl-c
-    "d" 'dired-jump
-    "e" 'evil-mode
-    "f" 'find-file
-    "g" 'magit
-    "j" 'consult-buffer
-    "k" 'consult-org-heading
-    "l" 'consult-line
-    "m" 'maf-toggle-org-emphasis-markers
-    "n" 'display-line-numbers-mode
-    "o" 'olivetti-mode
-    "s" 'save-buffer
-    "t" 'modus-themes-toggle
-    "u" 'universal-argument ; C-u set to evil-scroll-up
-    "w" 'visual-line-mode)
-
-  (evil-define-key '(normal motion visual) 'global
-    (kbd "RET") nil ; unset RET to use for org-return-follows-link
-    (kbd "SPC") maf-spc-map))
-
-(use-package logos
-  :ensure t
-  :custom
-  (logos-hide-fringe t)
-  (logos-hide-mode-line t)
-  (logos-olivetti t))
-
-(use-package marginalia
-  :ensure t
-  :config
-  (marginalia-mode 1))
-
-(use-package olivetti
-  :delight
-  :ensure t
-  :custom
-  (olivetti-body-width 100)
-  (olivetti-style t))
-
-(use-package orderless
-  :ensure t
-  :custom
-  (completion-styles '(orderless))
-  (completion-category-overrides '((file (styles basic partial-completion)))))
-
-(use-package vertico
-  :ensure t
-  :custom
-  (vertico-cycle t)
-  :config
-  (vertico-mode 1))
-
-;;; Third party: no mode
-
-(use-package delight
-  :ensure t
-  :config
-  (delight 'abbrev-mode nil "abbrev")
-  (delight 'eldoc-mode nil "eldoc")
-  (delight 'org-indent-mode nil "org-indent")
-  (delight 'outline-minor-mode nil "outline"))
-
-(use-package nerd-icons
-  :ensure t)
-
-(use-package nerd-icons-completion
-  :ensure t
-  :after marginalia
-  :config
-  (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
-
-(use-package nerd-icons-corfu
-  :ensure t
-  :if (display-graphic-p)
-  :after corfu
-  :config
-  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
-
-(use-package nerd-icons-dired
-  :delight
-  :ensure t
-  :hook
-  (dired-mode . nerd-icons-dired-mode))
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(load custom-file :no-error-if-file-is-missing)
+(load "~/vc/dotfiles-private/init-private.el")
+
+(defun display-startup-echo-area-message ()
+  (message nil))
+
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+
+;;; Built-in
+
+;;;; enable/disable modes
+
+(require 'org)
+(column-number-mode 1)
+(electric-pair-mode 1)
+(global-auto-revert-mode 1)
+(global-visual-line-mode 1)
+(menu-bar-mode -1)
+(savehist-mode 1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(which-key-mode 1)
+
+;;;; options
+
+(setopt blink-cursor-mode nil
+	auto-save-default nil
+	calendar-date-style 'iso
+	compilation-window-height 8
+	dabbrev-case-replace nil
+	delete-by-moving-to-trash t
+	dired-auto-revert-buffer #'dired-directory-changed-p
+	dired-dwim-target t
+	dired-free-space nil
+	dired-kill-when-opening-new-dired-buffer t
+	dired-listing-switches "-AGFhlv --group-directories-first --time-style=long-iso"
+	display-buffer-alist '(("\\*Buffer List\\*" (display-buffer-same-window)))
+	eglot-autoshutdown t
+	inhibit-startup-screen t
+	initial-scratch-message nil
+	isearch-lazy-count t
+	lazy-count-prefix-format "(%s/%s) "
+	make-backup-files nil
+	modus-themes-bold-constructs t
+	modus-themes-common-palette-overrides '((bg-prose-block-delimiter bg-inactive))
+	modus-themes-italic-constructs t
+	org-M-RET-may-split-line '((default . nil))
+	org-agenda-clockreport-parameter-plist '(:link t :maxlevel 2 :fileskip0 t)
+	org-agenda-skip-deadline-if-done t
+	org-agenda-skip-deadline-prewarning-if-scheduled t
+	org-deadline-warning-days 0
+	org-agenda-files (list org-directory)
+	org-edit-src-content-indentation 0
+	org-hide-emphasis-markers t
+	org-insert-heading-respect-content t
+	org-log-done 'time
+	org-log-into-drawer t
+	org-return-follows-link t
+	org-startup-folded 'content
+	org-structure-template-alist '(("s" . "src")
+				       ("e" . "src emacs-lisp")
+				       ("p" . "src c++")
+				       ("E" . "export")
+				       ("a" . "export ascii")
+				       ("h" . "export html")
+				       ("l" . "export latex")
+				       ("c" . "center")
+				       ("C" . "comment")
+				       ("q" . "quote")
+				       ("v" . "verse")
+				       ("x" . "example"))
+	project-mode-line t
+	ring-bell-function 'ignore
+	scroll-conservatively 1 ; Scroll one line at a time
+	scroll-margin 8
+	sentence-end-double-space nil
+	tab-bar-show 1)
+
+;;;; hooks
+
+(add-hook 'dired-mode-hook #'hl-line-mode)
+(add-hook 'emacs-lisp-mode-hook #'outline-minor-mode)
+(add-hook 'package-menu-mode-hook #'hl-line-mode)
+
+;;; External Packages
+
+;;;; enable/disable modes
+
+(require 'consult)
+(corfu-history-mode 1)
+(corfu-popupinfo-mode 1)
+(denote-rename-buffer-mode 1)
+(global-corfu-mode 1)
+(vertico-mode 1)
+
+;;;; options
+
+(setopt completion-category-overrides '((file (styles basic partial-completion)))
+	completion-styles '(orderless)
+	corfu-cycle t
+	dired-preview-delay 0
+	ef-themes-bold-constructs t
+	ef-themes-italic-constructs t
+	elfeed-db-directory "~/.config/emacs/elfeed"
+	ledger-default-date-format "%Y-%m-%d"
+	ledger-reports '(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
+			 ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
+			 ("Register" "%(binary) -f %(ledger-file) reg"))
+	logos-hide-fringe t
+	logos-hide-mode-line t
+	logos-olivetti t
+	marginalia-mode t
+	olivetti-body-width 100
+	olivetti-style t
+	standard-themes-bold-constructs t
+	standard-themes-italic-constructs t
+	vertico-cycle t)
+
+(add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter)
+(delight 'abbrev-mode nil "abbrev")
+(delight 'eldoc-mode nil "eldoc")
+(delight 'nerd-icons-dired-mode nil "nerd-icons-dired")
+(delight 'olivetti-mode nil "olivetti")
+(delight 'org-indent-mode nil "org-indent")
+(delight 'outline-minor-mode nil "outline")
+(delight 'visual-line-mode nil "simple")
+(delight 'which-key-mode nil "which-key")
+
+;;;; hooks
+
+(add-hook 'dired-mode-hook #'denote-dired-mode)
+(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+(add-hook 'ledger-mode-hook #'save-place-mode)
+(add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup)
+
+;;; Functions
+
+(defun maf-ledger ()
+  "Open ledger file and ledger-report windows."
+  (interactive)
+  (delete-other-windows)
+  (find-file maf-ledger-file)
+  (ledger-report "Balance Sheet" nil)
+  (other-window 1)
+  (message nil))
+
+(defun maf-org-toggle-emphasis-markers ()
+  "Toggle visibility of org emphasis markers."
+  (interactive)
+  (setq org-hide-emphasis-markers (not org-hide-emphasis-markers))
+  (font-lock-update))
+
+;;; Keys
+
+(keymap-global-set "<f8>" 'recompile)
+(keymap-global-set "C-<f8>" 'compile)
+(keymap-global-set "<f9>" 'maf-ledger)
+(keymap-global-set "C-c a" 'org-agenda)
+(keymap-global-set "C-c c" 'org-capture)
+(keymap-global-set "C-c j" 'consult-buffer)
+(keymap-global-set "C-c l" 'consult-line)
+(keymap-global-set "C-c n" 'display-line-numbers-mode)
+(keymap-global-set "C-c o" 'olivetti-mode)
+(keymap-set dired-mode-map "C-c p" #'dired-preview-mode)
+(keymap-set org-mode-map "C-c i" 'org-indent-mode)
+(keymap-set org-mode-map "C-c k" 'consult-org-heading)
+(keymap-set org-mode-map "C-c m" 'maf-org-toggle-emphasis-markers)
+(keymap-set outline-minor-mode-map "<f5>" 'outline-cycle) ;; <f5> is used instead of <tab> to preserve indent-for-tab-command
+(keymap-set outline-minor-mode-map "<backtab>" 'outline-cycle-buffer)
