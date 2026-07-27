@@ -13,10 +13,6 @@
 (defun display-startup-echo-area-message ()
   (message nil))
 
-(require 'ef-themes)
-(require 'standard-themes)
-(load-theme 'modus-vivendi)
-
 ;;; Built-in
 
 (require 'org)
@@ -71,21 +67,17 @@
 	sentence-end-double-space nil
 	tab-bar-show 1)
 
-(setopt	org-structure-template-alist '(("s" . "src")
-				       ("e" . "src emacs-lisp")
-				       ("p" . "src c++")
-				       ("E" . "export")
-				       ("a" . "export ascii")
-				       ("h" . "export html")
-				       ("l" . "export latex")
-				       ("c" . "center")
-				       ("C" . "comment")
-				       ("q" . "quote")
-				       ("v" . "verse")
-				       ("x" . "example")))
+(setopt	org-structure-template-alist
+	'(("s" . "src") ("e" . "src emacs-lisp") ("p" . "src c++")
+	  ("E" . "export") ("a" . "export ascii") ("h" . "export html") ("l" . "export latex")
+	  ("C" . "comment") ("q" . "quote") ("v" . "verse") ("x" . "example")))
+
+(load-theme 'modus-vivendi)
 
 ;;; External Packages
 
+(require 'ef-themes)
+(require 'standard-themes)
 (corfu-history-mode 1)
 (corfu-popupinfo-mode 1)
 (denote-rename-buffer-mode 1)
@@ -108,19 +100,12 @@
 	standard-themes-italic-constructs t
 	vertico-cycle t)
 
-(setopt	ledger-reports '(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
-			 ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
-			 ("Register" "%(binary) -f %(ledger-file) reg")))
+(setopt	ledger-reports
+	'(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
+	  ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
+	  ("Register" "%(binary) -f %(ledger-file) reg")))
 
 (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter)
-(delight 'abbrev-mode nil "abbrev")
-(delight 'eldoc-mode nil "eldoc")
-(delight 'nerd-icons-dired-mode nil "nerd-icons-dired")
-(delight 'olivetti-mode nil "olivetti")
-(delight 'org-indent-mode nil "org-indent")
-(delight 'outline-minor-mode nil "outline")
-(delight 'visual-line-mode nil "simple")
-(delight 'which-key-mode nil "which-key")
 
 ;;; Hooks
 
@@ -164,5 +149,5 @@
 (keymap-set org-mode-map "C-c i" 'org-indent-mode)
 (keymap-set org-mode-map "C-c k" 'consult-org-heading)
 (keymap-set org-mode-map "C-c m" 'maf-org-toggle-emphasis-markers)
-(keymap-set outline-minor-mode-map "<f5>" 'outline-cycle)  ; <f5> is used instead of <tab> to preserve indent-for-tab-command
+(keymap-set outline-minor-mode-map "<f5>" 'outline-cycle)
 (keymap-set outline-minor-mode-map "<backtab>" 'outline-cycle-buffer)
