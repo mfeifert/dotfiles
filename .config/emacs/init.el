@@ -15,11 +15,9 @@
 
 (require 'ef-themes)
 (require 'standard-themes)
-(load-theme 'modus-operandi-tinted)
+(load-theme 'modus-vivendi)
 
 ;;; Built-in
-
-;;;; enable/disable modes
 
 (require 'org)
 (column-number-mode 1)
@@ -32,10 +30,8 @@
 (tool-bar-mode -1)
 (which-key-mode 1)
 
-;;;; options
-
-(setopt blink-cursor-mode nil
-	auto-save-default nil
+(setopt auto-save-default nil
+	blink-cursor-mode nil
 	calendar-date-style 'iso
 	compilation-window-height 8
 	dabbrev-case-replace nil
@@ -57,10 +53,10 @@
 	modus-themes-italic-constructs t
 	org-M-RET-may-split-line '((default . nil))
 	org-agenda-clockreport-parameter-plist '(:link t :maxlevel 2 :fileskip0 t)
+	org-agenda-files (list org-directory)
 	org-agenda-skip-deadline-if-done t
 	org-agenda-skip-deadline-prewarning-if-scheduled t
 	org-deadline-warning-days 0
-	org-agenda-files (list org-directory)
 	org-edit-src-content-indentation 0
 	org-hide-emphasis-markers t
 	org-insert-heading-respect-content t
@@ -70,7 +66,7 @@
 	org-startup-folded 'content
 	project-mode-line t
 	ring-bell-function 'ignore
-	scroll-conservatively 1 ; Scroll one line at a time
+	scroll-conservatively 1  ; Scroll one line at a time
 	scroll-margin 8
 	sentence-end-double-space nil
 	tab-bar-show 1)
@@ -88,36 +84,24 @@
 				       ("v" . "verse")
 				       ("x" . "example")))
 
-;;;; hooks
-
-(add-hook 'dired-mode-hook #'hl-line-mode)
-(add-hook 'emacs-lisp-mode-hook #'outline-minor-mode)
-(add-hook 'package-menu-mode-hook #'hl-line-mode)
-
 ;;; External Packages
-
-;;;; enable modes
 
 (corfu-history-mode 1)
 (corfu-popupinfo-mode 1)
 (denote-rename-buffer-mode 1)
 (global-corfu-mode 1)
+(marginalia-mode 1)
 (vertico-mode 1)
 
-;;;; options
-
-(setopt completion-category-overrides '((file (styles basic partial-completion)))
-	completion-styles '(orderless)
+(setopt completion-styles '(orderless)
 	corfu-cycle t
 	dired-preview-delay 0
 	ef-themes-bold-constructs t
 	ef-themes-italic-constructs t
-	elfeed-db-directory "~/.config/emacs/elfeed"
 	ledger-default-date-format "%Y-%m-%d"
 	logos-hide-fringe t
 	logos-hide-mode-line t
 	logos-olivetti t
-	marginalia-mode t
 	olivetti-body-width 100
 	olivetti-style t
 	standard-themes-bold-constructs t
@@ -138,12 +122,15 @@
 (delight 'visual-line-mode nil "simple")
 (delight 'which-key-mode nil "which-key")
 
-;;;; hooks
+;;; Hooks
 
 (add-hook 'dired-mode-hook #'denote-dired-mode)
+(add-hook 'dired-mode-hook #'hl-line-mode)
 (add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+(add-hook 'emacs-lisp-mode-hook #'outline-minor-mode)
 (add-hook 'ledger-mode-hook #'save-place-mode)
 (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup)
+(add-hook 'package-menu-mode-hook #'hl-line-mode)
 
 ;;; Functions
 
@@ -177,5 +164,5 @@
 (keymap-set org-mode-map "C-c i" 'org-indent-mode)
 (keymap-set org-mode-map "C-c k" 'consult-org-heading)
 (keymap-set org-mode-map "C-c m" 'maf-org-toggle-emphasis-markers)
-(keymap-set outline-minor-mode-map "<f5>" 'outline-cycle) ;; <f5> is used instead of <tab> to preserve indent-for-tab-command
+(keymap-set outline-minor-mode-map "<f5>" 'outline-cycle)  ; <f5> is used instead of <tab> to preserve indent-for-tab-command
 (keymap-set outline-minor-mode-map "<backtab>" 'outline-cycle-buffer)
