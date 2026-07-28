@@ -1,7 +1,6 @@
 # .bashrc
 
 source /etc/bashrc
-source "$HOME/.cargo/env"
 
 eval "$(fzf --bash)"
 
