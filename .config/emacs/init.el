@@ -8,7 +8,6 @@
 (load "~/vc/dotfiles-private/init-private.el")
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
 
 (defun display-startup-echo-area-message ()
   (message nil))
