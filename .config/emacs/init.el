@@ -72,12 +72,8 @@
 	  ("E" . "export") ("a" . "export ascii") ("h" . "export html") ("l" . "export latex")
 	  ("C" . "comment") ("q" . "quote") ("v" . "verse") ("x" . "example")))
 
-(load-theme 'modus-vivendi)
-
 ;;; External Packages
 
-(require 'ef-themes)
-(require 'standard-themes)
 (corfu-history-mode 1)
 (corfu-popupinfo-mode 1)
 (denote-rename-buffer-mode 1)
@@ -106,6 +102,10 @@
 	  ("Register" "%(binary) -f %(ledger-file) reg")))
 
 (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter)
+
+;;; Theme
+
+(load "~/.config/emacs/theme.el")
 
 ;;; Hooks
 
