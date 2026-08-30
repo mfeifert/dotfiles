@@ -27,6 +27,7 @@
 
 (setopt auto-save-default nil
 	blink-cursor-mode nil
+	c-default-style "linux"
 	calendar-date-style 'iso
 	compilation-window-height 8
 	dabbrev-case-replace nil
