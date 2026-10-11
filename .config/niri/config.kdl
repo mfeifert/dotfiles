@@ -282,7 +282,8 @@ layout {
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
-spawn-at-startup "qs" "-c" "noctalia-shell"
+// spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
@@ -384,12 +385,12 @@ binds {
 
     // maf Keybinds start -----------------------------------------------------
     Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
-    Mod+Space { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+Backslash           { spawn-sh "~/vc/scripts/bkmk-shortcut o"; }
     Mod+Shift+Backslash     { spawn-sh "~/vc/scripts/bkmk-shortcut n"; }
     Mod+Alt+Backslash       { spawn-sh "~/vc/scripts/bkmk-shortcut o y"; }
     Mod+Alt+Shift+Backslash { spawn-sh "~/vc/scripts/bkmk-shortcut n y"; }
-    Mod+Ctrl+Backslash      { spawn-sh "~/vc/scripts/bkmk c"; }
+    Mod+Alt+C               { spawn-sh "~/vc/scripts/bkmk c"; }
     // maf Keybinds end -------------------------------------------------------
 
     // Mod-Shift-/, which is usually the same as Mod-?,
