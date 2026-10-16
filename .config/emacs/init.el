@@ -41,6 +41,7 @@
 	eglot-autoshutdown t
 	fill-column 80
 	inhibit-startup-screen t
+	initial-major-mode 'org-mode
 	initial-scratch-message nil
 	isearch-lazy-count t
 	lazy-count-prefix-format "(%s/%s) "
