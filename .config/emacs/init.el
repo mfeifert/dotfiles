@@ -118,6 +118,10 @@
 (add-hook 'ledger-mode-hook #'save-place-mode)
 (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup)
 (add-hook 'package-menu-mode-hook #'hl-line-mode)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (c-set-style "linux")
+            (local-set-key (kbd "RET") 'newline-and-indent)))
 
 ;;; Functions
 
