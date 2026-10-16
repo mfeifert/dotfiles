@@ -39,6 +39,7 @@
 	dired-listing-switches "-AGFhlv --group-directories-first --time-style=long-iso"
 	display-buffer-alist '(("\\*Buffer List\\*" (display-buffer-same-window)))
 	eglot-autoshutdown t
+	fill-column 80
 	inhibit-startup-screen t
 	initial-scratch-message nil
 	isearch-lazy-count t
