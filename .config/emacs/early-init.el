@@ -14,3 +14,5 @@
 (set-face-attribute 'variable-pitch nil
 		    :family "Noto Sans"
 		    :height 120)
+
+(load-theme 'modus-vivendi)
