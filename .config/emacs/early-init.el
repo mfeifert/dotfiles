@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (setq default-frame-alist '((font . "monospace-12")
 			    (height . 64) ; for font size 12
 			    (width . 220) ; for font size 12
