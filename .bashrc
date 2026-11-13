@@ -4,7 +4,14 @@ source /etc/bashrc
 
 eval "$(fzf --bash)"
 
-PS1='\$ '
+unset -f command_not_found_handle
+
+# bold=$(tput bold)
+# yellow=$(tput setaf 3)
+# blue=$(tput setaf 4)
+# magenta=$(tput setaf 5)
+# reset=$(tput sgr0)
+PS1='$(tput bold setaf 5)\W $(tput sgr0 bold)\$ $(tput sgr0)'
 export AWKPATH="$HOME/vc/scripts"
 export BAT_THEME="ansi"
 export DATA_DIR="$HOME/docs/data"
