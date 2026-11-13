@@ -46,6 +46,9 @@
 	isearch-lazy-count t
 	lazy-count-prefix-format "(%s/%s) "
 	make-backup-files nil
+	mode-line-collapse-minor-modes '(not flymake-mode)
+	mode-line-collapse-minor-modes-to ""
+	;; mode-line-modes-delimiters nil
 	modus-themes-bold-constructs t
 	modus-themes-common-palette-overrides '((bg-prose-block-delimiter bg-inactive))
 	modus-themes-italic-constructs t
