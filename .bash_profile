@@ -10,6 +10,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # ~/.config
 export SCREENRC="$XDG_CONFIG_HOME/screen/screenrc"
 
+# ~/.local/share
+export DVDCSS_CACH="$XDG_DATA_HOME"/dvdcss
+
 # ~/.local/state
 export HISTFILE="$XDG_STATE_HOME/bash_history"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
