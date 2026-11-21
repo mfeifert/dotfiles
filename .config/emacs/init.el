@@ -96,7 +96,7 @@
 	logos-hide-mode-line t
 	logos-olivetti t
 	olivetti-body-width 100
-	olivetti-style t
+	olivetti-style nil
 	standard-themes-bold-constructs t
 	standard-themes-italic-constructs t
 	vertico-cycle t)
