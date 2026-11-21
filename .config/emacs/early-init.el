@@ -15,4 +15,4 @@
 		    :family "Noto Sans"
 		    :height 120)
 
-(load-theme 'modus-vivendi)
+(add-to-list 'initial-frame-alist '(background-color . "#000000"))
