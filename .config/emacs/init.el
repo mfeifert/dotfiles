@@ -72,7 +72,7 @@
 	sentence-end-double-space nil
 	tab-bar-show 1)
 
-(setopt	org-structure-template-alist
+(setopt org-structure-template-alist
 	'(("s" . "src") ("e" . "src emacs-lisp") ("p" . "src c++")
 	  ("E" . "export") ("a" . "export ascii") ("h" . "export html") ("l" . "export latex")
 	  ("C" . "comment") ("q" . "quote") ("v" . "verse") ("x" . "example")))
@@ -101,7 +101,7 @@
 	standard-themes-italic-constructs t
 	vertico-cycle t)
 
-(setopt	ledger-reports
+(setopt ledger-reports
 	'(("Balance Sheet" "%(binary) -f %(ledger-file) bal Assets Liabilities")
 	  ("Income Statement" "%(binary) -f %(ledger-file) bal Income Expenses -p 'this month'" )
 	  ("Register" "%(binary) -f %(ledger-file) reg")))
